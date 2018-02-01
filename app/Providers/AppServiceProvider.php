@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Icocheckr\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
