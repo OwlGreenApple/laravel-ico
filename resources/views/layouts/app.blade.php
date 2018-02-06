@@ -68,12 +68,14 @@
 
 								<!-- Right Side Of Navbar -->
 								<ul class="nav navbar-nav navbar-right">
-											<li @if(Request::is('coupon')) class="active" @endif><a href="{{ url('coupon') }}">ICOCheckr</a></li>
+											<li ><a href="https://icocheckr.com">ICOCheckr</a></li>
 											<li @if(Request::is('coupon')) class="active" @endif><a href="{{ url('coupon') }}">ICO's</a></li>
 											<li @if(Request::is('coupon')) class="active" @endif><a href="{{ url('coupon') }}">Rating Guide</a></li>
 											<li @if(Request::is('coupon')) class="active" @endif><a href="{{ url('coupon') }}">FAQ</a></li>
 											<li @if(Request::is('coupon')) class="active" @endif><a href="{{ url('coupon') }}">Publish ICO</a></li>
 										
+											@guest
+											@else
 											<li class="dropdown">
 													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
 															{{ Auth::user()->fullname }} <span class="caret"></span>
@@ -94,18 +96,19 @@
 															</li>
 													</ul>
 											</li>
+											@endguest
 								</ul>
 						</div>
 				</div>
 		</nav>
 
-		<div @if ( (Auth::guest()) && (!Request::is('test')) ) style="background : url('{{$images_home}}') no-repeat center center fixed;  -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover,100%;" @endif class="main-content" >
+		<div @if ( (Auth::guest()) && (!Request::is('test')) ) style="no-repeat center center fixed;  -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover,100%;" @endif class="main-content" >
 			@yield('content')
 		</div>
 				
 				
     <div class="div-footer">
-      <p>© 2016 ICOCheckr.com All rights reserved</p>
+      <p>© 2018 ICOCheckr.com All rights reserved</p>
     </div>
     
 

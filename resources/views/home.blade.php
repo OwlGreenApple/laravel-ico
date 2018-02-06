@@ -14,7 +14,10 @@
                         </div>
                     @endif
 
-                    You are logged in!
+										@guest
+										@else
+											You are logged in!
+										@endguest
                 </div>
             </div>
         </div>
