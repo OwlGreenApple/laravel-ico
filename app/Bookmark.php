@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace Icocheckr;
 
 use Illuminate\Database\Eloquent\Model;
 

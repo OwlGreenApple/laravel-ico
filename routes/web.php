@@ -19,3 +19,12 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+	//content writer  
+	//ICO
+	Route::get('/ico-admin', 'Admin\IcoController@index');
+	Route::get('/load-ico-admin', 'Admin\IcoController@load_ico_admin');
+	Route::post('/save-ico-admin', 'Admin\IcoController@save_ico_admin');
+	Route::post('/delete-ico-admin', 'Admin\IcoController@delete_ico_admin');
+});

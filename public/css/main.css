@@ -69,6 +69,11 @@ a {
   padding: 10px;
   width: auto;
 }
+.cover-input-group {
+  margin-bottom: 10px;
+  display: inline-block;
+  width: 100%;
+}
 .loadmain {
   background-image: url(../images/loading.gif) !important;
   background-repeat: no-repeat !important;

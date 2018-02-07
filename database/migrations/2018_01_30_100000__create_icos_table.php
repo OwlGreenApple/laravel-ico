@@ -17,13 +17,14 @@ class CreateIcosTable extends Migration
 			$table->increments('id');
 			$table->string('name',50);
 			$table->double('rating')->nullable();
+			$table->text('about')->nullable();
 			$table->text('description')->nullable();
 			$table->text('categories')->nullable();
 			$table->string('status',50)->nullable();
 			$table->string('url_link_video',255)->nullable();
 			$table->string('url_link_blog',255)->nullable();
+			$table->string('ofc_website',255)->nullable();
 			$table->string('price',255)->nullable();
-			$table->text('about')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

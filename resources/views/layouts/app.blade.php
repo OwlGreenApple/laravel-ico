@@ -16,13 +16,16 @@
 		-->
 		<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-		<link href="{{ asset('/css/main.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/main.css') }}" rel="stylesheet">
+		<link href="{{ asset('selectize/selectize.css') }}" rel="stylesheet">
 		
     <!-- Scripts -->
     <!-- 
+		<script src="{{ asset('js/bootstrap.min.js') }}"></script>
 		-->
 		<script src="{{ asset('js/jquery-1.12.4.js') }}"></script>
-		<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+		<script src="{{ asset('js/app.js') }}"></script>
+		<script src="{{ asset('selectize/selectize.js') }}"></script>
     <script type="text/javascript">
         $(window).on('load', function() { 
           $("#div-loading").hide();
@@ -36,6 +39,8 @@
 		</script>
 </head>
 <body>
+<!-- Enable bootstrap 4 theme -->
+<script>window.__theme = 'bs4';</script>		
     <div id="div-loading">
       <div class="loadmain"></div>
       <div class="background-load"></div>
@@ -82,7 +87,10 @@
 													</a>
 
 													<ul class="dropdown-menu">
-														
+														<?php if (Auth::user()->is_admin) { ?>
+															<li @if(Request::is('ico-admin')) class="active" @endif><a href="{{ url('ico-admin') }}">ICO	</a></li>
+															<li @if(Request::is('rating-admin')) class="active" @endif><a href="{{ url('rating-admin') }}">Rating	</a></li>
+														<?php } ?>
 															<li>
 																	<a href="{{ route('logout') }}"
 																			onclick="event.preventDefault();
@@ -103,7 +111,9 @@
 		</nav>
 
 		<div @if ( (Auth::guest()) && (!Request::is('test')) ) style="no-repeat center center fixed;  -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover,100%;" @endif class="main-content" >
-			@yield('content')
+			<div class="container theme-showcase" role="main">
+				@yield('content')
+			</div>
 		</div>
 				
 				
