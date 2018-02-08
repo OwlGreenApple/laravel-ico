@@ -59,7 +59,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="https://icocheckr.com/">
                     <img src="{{ asset('images/logo-icocheckr.png') }}" alt="ICOCheckr">
                 </a>
             </div>
@@ -74,7 +74,7 @@
 								<!-- Right Side Of Navbar -->
 								<ul class="nav navbar-nav navbar-right">
 											<li><a href="https://icocheckr.com/2018/02/06/start-icocheckr/">First Step</a></li>
-											<li><a href="https://icocheckr.com/ico-blog/">ICO Picks</a></li>
+											<li><a href="https://icocheckr.com/ico-blog/">ICO Blog</a></li>
 											<li @if(Request::is('/')) class="active" @endif><a href="{{ url('/') }}">ICO Details</a></li>
 											<li @if(Request::is('coupon')) class="active" @endif><a href="{{ url('coupon') }}">Search</a></li>
 										
