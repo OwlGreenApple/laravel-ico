@@ -27,4 +27,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/load-ico-admin', 'Admin\IcoController@load_ico_admin');
 	Route::post('/save-ico-admin', 'Admin\IcoController@save_ico_admin');
 	Route::post('/delete-ico-admin', 'Admin\IcoController@delete_ico_admin');
+	
+	//Rating
+	Route::get('/rating-admin', 'Admin\RatingController@index');
+	Route::get('/load-rating-admin', 'Admin\RatingController@load_ico_admin');
+	Route::post('/save-rating-admin', 'Admin\RatingController@save_ico_admin');
+	Route::post('/delete-rating-admin', 'Admin\RatingController@delete_ico_admin');
 });

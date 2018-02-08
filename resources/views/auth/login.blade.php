@@ -10,6 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'ICOCheckr') }}</title>
+		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('/images/logo-square.png') }}">
 
     <!-- Styles -->
 		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
