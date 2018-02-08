@@ -73,9 +73,9 @@
 
 								<!-- Right Side Of Navbar -->
 								<ul class="nav navbar-nav navbar-right">
-											<li class="active"><a href="https://icocheckr.com/2018/02/06/start-icocheckr/">First Step</a></li>
+											<li><a href="https://icocheckr.com/2018/02/06/start-icocheckr/">First Step</a></li>
 											<li><a href="https://icocheckr.com/2018/02/06/start-icocheckr/">ICO Picks</a></li>
-											<li @if(Request::is('coupon')) class="active" @endif><a href="{{ url('coupon') }}">ICO Details</a></li>
+											<li @if(Request::is('/')) class="active" @endif><a href="{{ url('/') }}">ICO Details</a></li>
 											<li @if(Request::is('coupon')) class="active" @endif><a href="{{ url('coupon') }}">Search</a></li>
 										
 											@guest
@@ -114,10 +114,47 @@
 				@yield('content')
 			</div>
 		</div>
-				
-				
+
+
     <div class="div-footer">
-      <p>© 2018 ICOCheckr.com All rights reserved</p>
+			<div class="container">
+				<div class="row">
+					<img src="{{ asset('images/logo-icocheckr-white.png') }}" alt="ICOCheckr">
+				</div>
+				<div class="row" style="margin-top:40px;">
+					<div class="col-xs-12 col-md-6">
+						<label>
+							Contact US
+						</label>
+						<p>
+							emailus@icocheckr.com
+						</p>
+						<br>
+						<br>
+						<label>
+							Follow US
+						</label>
+						<div class="row">
+							<i class="icon icon-fb"></i>
+							<i class="icon icon-ig"></i>
+						</div>
+						<br>
+						<br>
+					</div>
+					<div class="col-xs-12 col-md-3">
+						<label>
+							Subscribe US
+						</label>
+						<p>
+							Get the latest updates
+						</p>
+						<input type="text" class="form-control">
+						<input type="button" class="btn btn-subscribe" value="Subscribe">
+					</div>
+				</div>
+				
+				<p>© 2018 ICOCheckr.com All rights reserved</p>
+			</div>
     </div>
     
 

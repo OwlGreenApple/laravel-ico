@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans/OpenSans-Regular.ttf");
+}
+
 .fl { float:left; }
 .fr { float:right; }
 .fn { float:none; }
@@ -8,8 +13,38 @@
     font-family: Helvetica;
 }
 
-.div-footer{width:100%;height:70px;background-color:#20a7e2;padding-top: 20px;
-	p { color:#f8ffff;text-align: center; }
+.div-footer{width:100%;min-height:70px;background-color:#20a7e2;padding-top: 20px;
+	p { color:#f8ffff;text-align: left; }
+	img {
+		height: 50px;
+    width: auto;	
+	}
+	label {
+		font-size:18px;
+		color:#fff;
+		font-family: "Open Sans";
+	}
+	.btn-subscribe{
+		margin-top:17px;
+		margin-bottom:15px;
+		background-color:#3266ba;
+		color:#fff;
+	}
+	.icon{
+		background-repeat: no-repeat;
+		background-size: 25px 25px;
+		width:25px;
+		height:25px;
+		margin:0 auto;
+		display:inline-block;
+		margin-left : 15px;
+	}
+	.icon-fb{
+		background-image: url(../images/icon-blue-sosmed-white-fb.png);
+	}
+	.icon-ig{
+		background-image: url(../images/icon-blue-sosmed-white-ig.png);
+	}
 }
 
 a { color :#146656; font-weight: bold;}
@@ -27,13 +62,15 @@ a { color :#146656; font-weight: bold;}
     to { transform: scale(1) rotate(360deg);}
 }
 
+.navbar{
+	margin-top: 20px;
+}
 .navbar-brand{
 	padding : 0px;
 }
 .navbar-brand>img {
-    height: 100%; 
-    padding: 10px;
-    width: auto;
+	height: 100%; 
+	width: auto;
 }
 .navbar-nav>li {
 	margin-right:10px;
@@ -54,11 +91,6 @@ a { color :#146656; font-weight: bold;}
 }
 .background-load{
   background-color:#f3f3f3;width:100%;height:100%;position: fixed;  top: 0; left: 0; z-index: 999999999999999999; opacity: 0.7;
-}
-
-@font-face {
-    font-family: "Open Sans";
-    src: url("../fonts/OpenSans/OpenSans-Regular.ttf");
 }
 
 .main-content{
