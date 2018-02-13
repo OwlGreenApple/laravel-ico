@@ -35,6 +35,38 @@
           $( window ).resize(function() {
             $(".main-content").css("min-height",$(window).height()-121);
           });
+					$('.btn-subscribe').click(function(e){
+							$.ajax({
+								url: '<?php echo url('subscribe'); ?>',
+								headers: {
+										'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+								},
+								type: 'post',
+								data: {
+									email: $("#email-subscribe").val(),
+									name: $("#name-subscribe").val(),
+								},
+								beforeSend: function()
+								{
+									$("#div-loading").show();
+								},
+								dataType: 'text',
+								success: function(result)
+								{
+									var data = jQuery.parseJSON(result);
+									$("#alert-subscribe").show();
+									$("#alert-subscribe").html(data.message);
+									if(data.type=='success') {
+										$("#alert-subscribe").addClass("alert-success");
+										$("#alert-subscribe").removeClass("alert-danger");
+									} else if (data.type=='error') {
+										$("#alert-subscribe").addClass("alert-danger");
+										$("#alert-subscribe").removeClass("alert-success");
+									}
+									$("#div-loading").hide();
+								}
+							});
+          });
 				});
 		</script>
 </head>
@@ -148,7 +180,10 @@
 						<p>
 							Get the latest updates
 						</p>
-						<input type="text" class="form-control">
+						<div class="alert alert-danger" id="alert-subscribe" style="display:none;">
+						</div>  
+						<input type="text" class="form-control" id="name-subscribe" placeholder="Fullname">
+						<input type="text" class="form-control" id="email-subscribe" placeholder="Email" style="margin-top:5px;">
 						<input type="button" class="btn btn-subscribe" value="Subscribe">
 					</div>
 				</div>
