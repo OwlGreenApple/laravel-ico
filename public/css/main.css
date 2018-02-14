@@ -71,6 +71,12 @@ h6 {
 .div-footer .icon-ig {
   background-image: url(../images/icon-blue-sosmed-white-ig.png);
 }
+.div-footer .icon-twitter {
+  background-image: url(../images/icon-blue-sosmed-white-twitter.png);
+}
+.div-footer .icon-telegram {
+  background-image: url(../images/icon-blue-sosmed-white-telegram.png);
+}
 a {
   color: #146656;
   font-weight: bold;
@@ -361,4 +367,13 @@ a {
 #clockdiv .smalltext {
   padding-top: 5px;
   font-size: 16px;
+}
+/* ---------- */
+/* Home */
+.background-banner {
+  width: 100%;
+  min-height: 577px;
+  height: calc(99%);
+  background-size: cover;
+  background-image: url(../images/icocheckr-home-image.jpg);
 }

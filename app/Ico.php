@@ -12,6 +12,8 @@ class Ico extends Model {
 	 * @var array
 	 */
 	protected $fillable = [ 
+													"user_id", 
+													"is_approved", 
 													"name", 
 													"rating", 
 													"about",

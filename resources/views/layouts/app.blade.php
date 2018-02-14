@@ -108,7 +108,8 @@
 											<li><a href="https://icocheckr.com/2018/02/06/start-icocheckr/">First Step</a></li>
 											<li><a href="https://icocheckr.com/ico-blog/">ICO Blog</a></li>
 											<li @if(Request::is('/')) class="active" @endif><a href="{{ url('/') }}">ICO Details</a></li>
-											<li @if(Request::is('coupon')) class="active" @endif><a href="{{ url('coupon') }}">Search</a></li>
+											<li @if(Request::is('/test1')) class="active" @endif><a href="{{ url('/') }}">Search</a></li>
+											<li @if(Request::is('/test2')) class="active" @endif><a href="{{ url('/') }}">Publish ICO</a></li>
 										
 											@guest
 											@else
@@ -142,9 +143,7 @@
 		</nav>
 
 		<div @if ( (Auth::guest()) && (!Request::is('test')) ) style="no-repeat center center fixed;  -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover,100%;" @endif class="main-content" >
-			<div class="container theme-showcase" role="main">
-				@yield('content')
-			</div>
+			@yield('content')
 		</div>
 
 
@@ -159,7 +158,7 @@
 							Contact US
 						</label>
 						<p>
-							emailus@icocheckr.com
+							support@icocheckr.com
 						</p>
 						<br>
 						<br>
@@ -167,8 +166,10 @@
 							Follow US
 						</label>
 						<div class="row">
-							<i class="icon icon-fb"></i>
-							<i class="icon icon-ig"></i>
+							<a href="https://www.facebook.com/icocheckr-824363917748955/" target="_blank"><i class="icon icon-fb"></i></a>
+							<a href="https://instagram.com/icocheckr" target="_blank"><i class="icon icon-ig"></i></a>
+							<a href="https://twitter.com/icocheckr" target="_blank"><i class="icon icon-twitter"></i></a>
+							<a href="https://t.me/icocheckr" target="_blank"><i class="icon icon-telegram"></i></a>
 						</div>
 						<br>
 						<br>

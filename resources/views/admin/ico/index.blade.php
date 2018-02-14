@@ -135,15 +135,16 @@
 			</div>
 	</div>	
 
-
-  <div class="cover-input-group">
-    <div class="input-group fl">
-      <input type="button" value="Add" id="button-add" data-loading-text="Loading..." class="btn btn-primary" style="margin-right:10px;" data-toggle="modal" data-target="#myModalIco"> 
-    </div>  
-	</div>  
-  <div class="alert alert-danger" id="alert" style="display:none;">
-  </div>  
-	<div class="" id="content">  
+	<div class="container">
+		<div class="cover-input-group">
+			<div class="input-group fl">
+				<input type="button" value="Add" id="button-add" data-loading-text="Loading..." class="btn btn-primary" style="margin-right:10px;" data-toggle="modal" data-target="#myModalIco"> 
+			</div>  
+		</div>  
+		<div class="alert alert-danger" id="alert" style="display:none;">
+		</div>  
+		<div class="" id="content">  
+		</div>  
 	</div>  
 	
   <script>
