@@ -376,4 +376,5 @@ a {
   height: calc(99%);
   background-size: cover;
   background-image: url(../images/icocheckr-home-image.jpg);
+  position: relative;
 }
