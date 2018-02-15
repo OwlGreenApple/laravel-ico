@@ -166,7 +166,7 @@
 							Follow US
 						</label>
 						<div class="row">
-							<a href="https://www.facebook.com/icocheckr-824363917748955/" target="_blank"><i class="icon icon-fb"></i></a>
+							<a href="https://www.facebook.com/icocheckr/" target="_blank"><i class="icon icon-fb"></i></a>
 							<a href="https://instagram.com/icocheckr" target="_blank"><i class="icon icon-ig"></i></a>
 							<a href="https://twitter.com/icocheckr" target="_blank"><i class="icon icon-twitter"></i></a>
 							<a href="https://t.me/icocheckr" target="_blank"><i class="icon icon-telegram"></i></a>

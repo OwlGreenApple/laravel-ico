@@ -12,13 +12,99 @@
 			Get the Latest update of ICO Ratings <br>
 			from Expert
 		</p>
-		<button>
-			Check ICO
-		</button>
+		<a href="{{ url('/icos') }}">
+			<button>
+				Check ICO
+			</button>
+		</a>
 	</div>
 </div>
 
-
+<div class="container main-ico-home">
+    <div class="row gap-blue">
+			<h2>
+				Check ICO
+			</h2>
+			<p>Select ICO Category</p>
+		</div>
+		<div class="row">
+			<div class="cover-input-group">
+				<div class="col-xs-12 col-md-3">
+					<select class="form-control">
+					</select>
+				</div>
+				<div class="col-xs-12 col-md-3">
+					<select class="form-control">
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+		
+			<!-- data record  -->
+			<div class="col-xs-12 col-md-3 ico-list">
+				<h3>ICO NAME</h3>
+				<div class="banner-ico">
+				</div>
+				<label>Rate </rate> <span class="rate-ico-list">AAA</span>
+				<p>
+					The worlds first decentralized 
+					blockchain based community driven
+					marketplace ecosystem.
+				</p>
+				<a href="" class="link-view-more">View More</a>
+			</div>
+			<div class="col-xs-12 col-md-3 ico-list">
+				<h3>ICO NAME</h3>
+				<div class="banner-ico">
+				</div>
+				<label>Rate </rate> <span class="rate-ico-list">AAA</span>
+				<p>
+					The worlds first decentralized 
+					blockchain based community driven
+					marketplace ecosystem.
+				</p>
+				<a href="" class="link-view-more">View More</a>
+			</div>
+			<div class="col-xs-12 col-md-3 ico-list">
+				<h3>ICO NAME</h3>
+				<div class="banner-ico">
+				</div>
+				<label>Rate </rate> <span class="rate-ico-list">AAA</span>
+				<p>
+					The worlds first decentralized 
+					blockchain based community driven
+					marketplace ecosystem.
+				</p>
+				<a href="" class="link-view-more">View More</a>
+			</div>
+			<div class="col-xs-12 col-md-3 ico-list">
+				<h3>ICO NAME</h3>
+				<div class="banner-ico">
+				</div>
+				<label>Rate </rate> <span class="rate-ico-list">AAA</span>
+				<p>
+					The worlds first decentralized 
+					blockchain based community driven
+					marketplace ecosystem.
+				</p>
+				<a href="" class="link-view-more">View More</a>
+			</div>
+			<div class="col-xs-12 col-md-3 ico-list">
+				<h3>ICO NAME</h3>
+				<div class="banner-ico">
+				</div>
+				<label>Rate </rate> <span class="rate-ico-list">AAA</span>
+				<p>
+					The worlds first decentralized 
+					blockchain based community driven
+					marketplace ecosystem.
+				</p>
+				<a href="" class="link-view-more">View More</a>
+			</div>
+			
+		</div>
+</div>
 
 <div class="container">
     <div class="row">
