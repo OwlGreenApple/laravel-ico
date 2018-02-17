@@ -410,6 +410,12 @@ a {
   color: #5d5d5d;
   font-size: 16px;
 }
+@media (min-width: 900px) {
+  .home-slideshow {
+    margin-top: 50px;
+    margin-bottom: 75px;
+  }
+}
 .ico-list .banner-ico {
   width: 175px;
   height: 112px;

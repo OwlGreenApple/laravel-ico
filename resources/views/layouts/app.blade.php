@@ -18,6 +18,8 @@
 		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 		<link href="{{ asset('css/main.css') }}" rel="stylesheet">
 		<link href="{{ asset('selectize/selectize.css') }}" rel="stylesheet">
+		<link href="{{ asset('slick/slick.css') }}" rel="stylesheet">
+		<link href="{{ asset('slick/slick-theme.css') }}" rel="stylesheet">
 		
     <!-- Scripts -->
     <!-- 
@@ -26,6 +28,7 @@
 		<script src="{{ asset('js/jquery-1.12.4.js') }}"></script>
 		<script src="{{ asset('js/app.js') }}"></script>
 		<script src="{{ asset('selectize/selectize.js') }}"></script>
+		<script src="{{ asset('slick/slick.min.js') }}"></script>
     <script type="text/javascript">
         $(window).on('load', function() { 
           $("#div-loading").hide();
