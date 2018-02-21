@@ -1,12 +1,14 @@
-  <table class="table table-bordered">  
+	<hr>
+	<table class="table table-bordered">  
     <thead>
       <tr>
-        <th>No. </th>
-        <th>ICO name</th>
+        <th>ICO</th>
+        <th>ICO Price</th>
+        <th>Token For sale</th>
+        <th>Presale Periode</th>
+        <th>Crowdsale Periode</th>
+        <th>List Exchange</th>
         <th>Rating</th>
-        <th>Status</th>
-        <th>Created</th>
-        <th></th>
       </tr>      
     </thead>
     
@@ -18,13 +20,10 @@
 				echo "<tr><td colspan='11' align='center'>Data tidak ada</td></tr>";
 			} else {
 				//search by username
-			$i=1;
-			foreach ($arr as $data_arr) {
-				?>
+
+				foreach ($arr as $data_arr) {
+		?>
 				<tr class="row{{$data_arr->id}}">
-					<td>
-						{{$i}}
-					</td>
 					<td>
 						{{$data_arr->name}}
 					</td>
@@ -37,21 +36,10 @@
 					<td>
 						{{$data_arr->created_at}}
 					</td>
-					<td align="center">
-						
-						<button type="button" class="btn btn-warning btn-update" data-toggle="modal" data-target="#myModalIco" data-id="{{$data_arr->id}}" data-name="{{$data_arr->name}}" data-rating="{{$data_arr->rating}}" data-about="{{$data_arr->about}}" data-description="{{$data_arr->description}}" data-categories="{{$data_arr->categories}}" data-status="{{$data_arr->status}}" data-url_link_video="{{$data_arr->url_link_video}}" data-url_link_blog="{{$data_arr->url_link_blog}}" data-ofc_website="{{$data_arr->ofc_website}}" data-price="{{$data_arr->price}}" >
-							Edit
-						</button>
-						
-						<button type="button" class="btn btn-danger btn-delete" data-toggle="modal" data-target="#confirm-delete" data-id="{{$data_arr->id}}" >
-							Delete
-						</button>
-					</td>
-				</tr>    
+				</tr>
 
 		<?php 
-				$i+=1;
-			} 
+				}
 			}
 		?>
     </tbody>

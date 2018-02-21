@@ -1,0 +1,43 @@
+h1 {
+  font-size: 41px;
+  color: #0e9fde;
+}
+.search-bar {
+  border: 1px #8f8f8f solid;
+  padding: 30px 50px 45px 50px;
+  -webkit-border-radius: 7px 7px 7px 7px;
+  border-radius: 7px 7px 7px 7px;
+  margin-bottom: 100px;
+}
+.search-bar input {
+  border: 1px #8f8f8f solid;
+}
+.search-bar label {
+  font-size: 20px;
+  color: #13506c;
+}
+.search-bar .btn {
+  color: #fff;
+}
+.search-bar .btn-search {
+  background-color: #20a7e2;
+}
+.search-bar .btn-filter {
+  background-color: #1fb27d;
+}
+.search-bar .btn-hide-expand {
+  background-color: #13506b;
+}
+#content table,
+#content td {
+  border: 0px;
+}
+#content table {
+  border-bottom: 2px #13506b solid;
+}
+#content th {
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom: 2px #13506b solid;
+}
