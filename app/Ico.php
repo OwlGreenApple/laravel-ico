@@ -12,8 +12,6 @@ class Ico extends Model {
 	 * @var array
 	 */
 	protected $fillable = [ 
-													"user_id", 
-													"is_approved", 
 													"name", 
 													"rating", 
 													"about",
@@ -24,6 +22,7 @@ class Ico extends Model {
 													"url_link_blog",
 													"ofc_website",
 													"price",
+													"restrictions",
 												];
 	/**
 	 * The attributes that should be mutated to dates.

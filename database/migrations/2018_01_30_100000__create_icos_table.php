@@ -15,8 +15,6 @@ class CreateIcosTable extends Migration
 	{
 		Schema::create('icos', function (Blueprint $table) {
 			$table->increments('id');
-			$table->integer('user_id');
-			$table->boolean('is_approved');
 			$table->string('name',50);
 			$table->double('rating')->nullable();
 			$table->text('about')->nullable();
@@ -27,6 +25,7 @@ class CreateIcosTable extends Migration
 			$table->string('url_link_blog',255)->nullable();
 			$table->string('ofc_website',255)->nullable();
 			$table->string('price',255)->nullable();
+			$table->string('restrictions',255)->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});
