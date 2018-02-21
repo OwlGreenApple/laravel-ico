@@ -20,7 +20,10 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/subscribe', 'HomeController@subscribe');
-Route::get('/icos', 'IcoController@index');
+
+//search
+Route::get('/ico', 'IcoController@index');
+Route::get('/load-ico', 'IcoController@load_ico');
 
 Route::group(['middleware' => 'auth'], function () {
 	//content writer  

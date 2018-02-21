@@ -111,7 +111,7 @@
 											<li><a href="https://icocheckr.com/2018/02/06/start-icocheckr/">First Step</a></li>
 											<li><a href="https://icocheckr.com/ico-blog/">ICO Blog</a></li>
 											<li @if(Request::is('/')) class="active" @endif><a href="{{ url('/') }}">ICO Details</a></li>
-											<li @if(Request::is('/test1')) class="active" @endif><a href="{{ url('/') }}">Search</a></li>
+											<li @if(Request::is('/ico')) class="active" @endif><a href="{{ url('/ico') }}">Search</a></li>
 											<li @if(Request::is('/test2')) class="active" @endif><a href="{{ url('/') }}">Publish ICO</a></li>
 										
 											@guest

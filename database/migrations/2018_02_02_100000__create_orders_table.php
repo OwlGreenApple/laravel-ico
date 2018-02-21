@@ -22,6 +22,7 @@ class CreateOrdersTable extends Migration
 			$table->string('status',255);
 			$table->timestamps();
 			$table->softDeletes();
+			$table->dateTime('confirmed_at')->nullable();
 		});
 	}
 

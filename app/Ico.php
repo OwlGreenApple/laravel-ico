@@ -22,7 +22,13 @@ class Ico extends Model {
 													"url_link_blog",
 													"ofc_website",
 													"price",
+													"platform",
+													"country_operation",
+													"token_ticker",
 													"restrictions",
+													"start_after",
+													"end_before",
+													"contact_email",
 												];
 	/**
 	 * The attributes that should be mutated to dates.

@@ -17,28 +17,25 @@ class IcoController extends Controller {
 	 */
 	public function index()
 	{
-		$user = Auth::user();
 					
-		return view('admin.ico.index')->with([
-			'user'=>$user,
+		return view('ico.index')->with([
 		]);
 	}
   
-	public function load_ico_admin(req $request)
+	public function load_ico(req $request)
   {
-		$user = Auth::user();
 		$perPage = 15;
 		$arr = Ico::paginate($perPage);
-					
-			
-			
+
+
+
 		//buat pagination
 		$total_data = count($arr);
 		$page = $request->page; // Get the current page or default to 1, this is what you miss!
 		// $offset = ($page * $perPage) - $perPage;
 		$totalPage = floor($total_data / $perPage) +1;
 			
-		return view('admin.ico.content')->with(
+		return view('ico.content')->with(
 								array(
 									'arr'=>$arr,
 									'page'=>$page,
@@ -46,29 +43,5 @@ class IcoController extends Controller {
 								));
   }
 
-	public function save_ico_admin(req $request)
-  {
-    $arr["type"] = "success";
-    $arr["message"] = "Proses save ico berhasil dilakukan";
-		
-		if ($request->idIco=="new"){
-			Ico::create($request->all());
-		}
-		else {
-			Ico::find($request->idIco)->update($request->all());
-		}
-		
-		return $arr;
-	}
-
-	public function delete_ico_admin(req $request)
-	{
-    $arr["type"] = "success";
-    $arr["message"] = "Proses save ico berhasil dilakukan";
-		
-		Ico::find($request->id)->delete();
-		
-		return $arr;
-	}
 }
 
