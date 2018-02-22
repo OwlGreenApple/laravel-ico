@@ -7,7 +7,7 @@ h1 {
   padding: 30px 50px 45px 50px;
   -webkit-border-radius: 7px 7px 7px 7px;
   border-radius: 7px 7px 7px 7px;
-  margin-bottom: 100px;
+  margin-bottom: 35px;
 }
 .search-bar input {
   border: 1px #8f8f8f solid;
@@ -28,6 +28,29 @@ h1 {
 .search-bar .btn-hide-expand {
   background-color: #13506b;
 }
+#content .details-ico-responsive {
+  display: none;
+}
+#content .details-ico-responsive .row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+#content .detail-ico-info {
+  margin-top: 0px;
+}
+#content .detail-ico-info h5 {
+  color: #0a0a0a;
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+#content .detail-ico-info a {
+  text-decoration: none;
+}
+#content .detail-ico-info .btn-view {
+  background-color: #1f9dc9;
+  color: #fff;
+  padding: 2px 15px 2px 15px;
+}
 #content table,
 #content td {
   border: 0px;
@@ -40,4 +63,17 @@ h1 {
   border-right: 0px;
   border-left: 0px;
   border-bottom: 2px #13506b solid;
+  font-weight: Bold;
+}
+@media (max-width: 740px) {
+  #content table {
+    border: 0px;
+  }
+  #content thead,
+  #content .remove-hp {
+    display: none;
+  }
+  #content .details-ico-responsive {
+    display: block;
+  }
 }

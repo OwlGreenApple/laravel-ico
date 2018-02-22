@@ -26,9 +26,13 @@ class Ico extends Model {
 													"country_operation",
 													"token_ticker",
 													"restrictions",
-													"start_after",
-													"end_before",
-													"contact_email",
+													"presale_start",
+													"presale_end",
+													"sale_start",
+													"sale_end",
+													"token_for_sale",
+													"list_exchange",
+													"twitter_username",
 												];
 	/**
 	 * The attributes that should be mutated to dates.

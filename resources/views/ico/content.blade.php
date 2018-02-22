@@ -1,5 +1,4 @@
-	<hr>
-	<table class="table table-bordered">  
+	<table class="table table-bordered" id="main-table">  
     <thead>
       <tr>
         <th>ICO</th>
@@ -23,18 +22,58 @@
 
 				foreach ($arr as $data_arr) {
 		?>
-				<tr class="row{{$data_arr->id}}">
-					<td>
-						{{$data_arr->name}}
+				<tr class="my-row{{$data_arr->id}}">
+					<td class="col-xs-12 col-md-3">
+							<div class="col-xs-3 col-md-4">
+								<img src="{{ asset('images/logo-square.png') }}" class="img-responsive">
+							</div>
+							<div class="col-xs-9 col-md-8 detail-ico-info">
+								<a href=""><h5>{{$data_arr->name}}</h5></a>
+								<!--<a href=""><input type="button" value="View" class="btn btn-view"></a>-->
+								<div class="details-ico-responsive">
+									<p>
+										<b>ICO Price : </b>
+										{{$data_arr->price}}
+										<br>
+										<b>Token for sale : </b>
+										{{$data_arr->price}}
+										<br>
+										<b>Presale Periode : </b>
+										{{$data_arr->presale_start." - ".$data_arr->presale_end}}
+										<br>
+										<b>Crowdsale Periode : </b>
+										{{$data_arr->sale_start." - ".$data_arr->sale_end}}
+										<br>
+										<b>List Exchange : </b>
+										{{$data_arr->price}}
+										<br>
+										<b>Rating: </b>
+										{{$data_arr->rating}}
+									</p>
+								</div>
+							</div>
 					</td>
-					<td>
+					<td class="remove-hp">
+						{{$data_arr->price}}
+					</td>
+					<td class="remove-hp">
+						{{$data_arr->price}}
+					</td>
+					<td class="remove-hp">
+						<?php 
+							echo $data_arr->presale_start." <br> - <br>".$data_arr->presale_end;
+						?>
+					</td>
+					<td class="remove-hp">
+						<?php 
+							echo $data_arr->sale_start." <br> - <br>".$data_arr->sale_end;
+						?>
+					</td>
+					<td class="remove-hp">
+						{{$data_arr->price}}
+					</td>
+					<td class="remove-hp">
 						{{$data_arr->rating}}
-					</td>
-					<td>
-						{{$data_arr->status}}
-					</td>
-					<td>
-						{{$data_arr->created_at}}
 					</td>
 				</tr>
 
@@ -47,7 +86,7 @@
 	
 
 	<nav>
-		<ul class="pagination" id="pagination">
+		<ul class="pagination fr" id="pagination">
 		<?php 
 		$counter =0;
 		if ( $arr->count()>0  ) {

@@ -73,7 +73,9 @@
 		</div>
 	</div>
 	<div class="container">
-		<div class="row table-responsive" id="content">
+		<div class="row">
+			<div class="col-xs-12 col-md-12" id="content">
+			</div>  
 		</div>  
 	</div>  
 	

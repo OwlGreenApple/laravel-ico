@@ -29,8 +29,13 @@ class CreateIcosTable extends Migration
 			$table->string('country_operation',255)->nullable();
 			$table->string('token_ticker',255)->nullable();
 			$table->string('restrictions',255)->nullable();
-			$table->dateTime('start_after')->nullable();
-			$table->dateTime('end_before')->nullable();
+			$table->dateTime('presale_start')->nullable();
+			$table->dateTime('presale_end')->nullable();
+			$table->dateTime('sale_start')->nullable();
+			$table->dateTime('sale_end')->nullable();
+			$table->double('token_for_sale')->nullable();
+			$table->text('list_exchange')->nullable();
+			$table->string('twitter_username',255)->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});
