@@ -39,8 +39,16 @@
 					</td>
 					<td align="center">
 						
-						<button type="button" class="btn btn-warning btn-update" data-toggle="modal" data-target="#myModalIco" data-id="{{$data_arr->id}}" data-name="{{$data_arr->name}}" data-rating="{{$data_arr->rating}}" data-about="{{$data_arr->about}}" data-description="{{$data_arr->description}}" data-categories="{{$data_arr->categories}}" data-status="{{$data_arr->status}}" data-url_link_video="{{$data_arr->url_link_video}}" data-url_link_blog="{{$data_arr->url_link_blog}}" data-ofc_website="{{$data_arr->ofc_website}}" data-price="{{$data_arr->price}}" >
+						<button type="button" class="btn btn-warning btn-update" data-toggle="modal" data-target="#myModalIco" data-id="{{$data_arr->id}}" data-name="{{$data_arr->name}}" data-rating="{{$data_arr->rating}}" data-about="{{$data_arr->about}}" data-description="{{$data_arr->description}}" data-categories="{{$data_arr->categories}}" data-status="{{$data_arr->status}}" data-url_link_video="{{$data_arr->url_link_video}}" data-url_link_blog="{{$data_arr->url_link_blog}}" data-ofc_website="{{$data_arr->ofc_website}}" data-price="{{$data_arr->price}}" data-platform="{{$data_arr->platform}}" data-country_operation="{{$data_arr->country_operation}}" data-restrictions="{{$data_arr->restrictions}}" data-token_ticker="{{$data_arr->token_ticker}}" data-presale_start="{{$data_arr->presale_start}}" data-presale_end="{{$data_arr->presale_end}}" data-sale_start="{{$data_arr->sale_start}}" data-sale_end="{{$data_arr->sale_end}}" data-list_exchange="{{$data_arr->list_exchange}}" >
 							Edit
+						</button>
+						
+						<button type="button" class="btn btn-warning btn-update-about" data-toggle="modal" data-target="#myModalAbout" data-id="{{$data_arr->id}}" data-about="{{$data_arr->about}}" >
+							About
+						</button>
+						
+						<button type="button" class="btn btn-warning btn-update-description" data-toggle="modal" data-target="#myModalDescription" data-id="{{$data_arr->id}}" data-description="{{$data_arr->description}}" >
+							Description
 						</button>
 						
 						<button type="button" class="btn btn-danger btn-delete" data-toggle="modal" data-target="#confirm-delete" data-id="{{$data_arr->id}}" >

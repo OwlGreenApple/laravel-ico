@@ -71,6 +71,26 @@ class IcoController extends Controller {
 		return $arr;
 	}
 
+	public function save_ico_about(req $request)
+  {
+    $arr["type"] = "success";
+    $arr["message"] = "Proses save about berhasil dilakukan";
+		
+		Ico::find($request->id)->update($request->all());
+		
+		return $arr;
+	}
+
+	public function save_ico_description(req $request)
+  {
+    $arr["type"] = "success";
+    $arr["message"] = "Proses save description berhasil dilakukan";
+		
+		Ico::find($request->id)->update($request->all());
+		
+		return $arr;
+	}
+
 	public function delete_ico_admin(req $request)
 	{
     $arr["type"] = "success";

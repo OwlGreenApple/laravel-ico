@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 class Ico extends Model {
 	use SoftDeletes;
@@ -39,5 +40,24 @@ class Ico extends Model {
 	 *
 	 * @var array
 	 */
-	protected $dates = ['deleted_at'];												
+	protected $dates = [
+		'deleted_at',
+	];
+	
+	public function setPresaleStartAttribute($date)
+	{
+			$this->attributes['presale_start'] = Carbon::parse($date);
+	}
+	public function setPresaleEndAttribute($date)
+	{
+			$this->attributes['presale_end'] = Carbon::parse($date);
+	}
+	public function setSaleStartAttribute($date)
+	{
+			$this->attributes['sale_start'] = Carbon::parse($date);
+	}
+	public function setSaleEndAttribute($date)
+	{
+			$this->attributes['sale_end'] = Carbon::parse($date);
+	}
 }
