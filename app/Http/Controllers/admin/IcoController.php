@@ -91,6 +91,15 @@ class IcoController extends Controller {
 		return $arr;
 	}
 
+	public function save_ico_icon(req $request)
+  {
+    $arr["type"] = "success";
+    $arr["message"] = "Proses save link icon berhasil dilakukan";
+		
+		
+		return $arr;
+	}
+
 	public function delete_ico_admin(req $request)
 	{
     $arr["type"] = "success";

@@ -255,6 +255,85 @@
     </div>
   </div>
 
+  <!-- Modal -->
+  <div class="modal fade" id="myModalIconLink" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="modal-description-header">Icon Link</h4>
+        </div>
+        <div class="modal-body">
+					<form enctype="multipart/form-data" id="form-ico-icon">
+            <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Twitter Link</label>
+              <div class="col-xs-12 col-md-9">
+								<input type="text" class="form-control" id="twitter-link" name="twitter_link">
+              </div>
+            </div>
+
+            <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Facebook Link</label>
+              <div class="col-xs-12 col-md-9">
+								<input type="text" class="form-control" id="facebook-link" name="facebook_link">
+              </div>
+            </div>
+
+            <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Github Link</label>
+              <div class="col-xs-12 col-md-9">
+								<input type="text" class="form-control" id="github-link" name="github_link">
+              </div>
+            </div>
+
+            <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Reddit Link</label>
+              <div class="col-xs-12 col-md-9">
+								<input type="text" class="form-control" id="reddit-link" name="reddit_link">
+              </div>
+            </div>
+
+            <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Bitcointalk Link</label>
+              <div class="col-xs-12 col-md-9">
+								<input type="text" class="form-control" id="bitcointalk-link" name="bitcointalk_link">
+              </div>
+            </div>
+
+            <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Medium Link</label>
+              <div class="col-xs-12 col-md-9">
+								<input type="text" class="form-control" id="medium-link" name="medium_link">
+              </div>
+            </div>
+
+            <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Telegram Link</label>
+              <div class="col-xs-12 col-md-9">
+								<input type="text" class="form-control" id="telegram-link" name="telegram_link">
+              </div>
+            </div>
+
+            <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Website Link</label>
+              <div class="col-xs-12 col-md-9">
+								<input type="text" class="form-control" id="website-link" name="website_link">
+              </div>
+            </div>
+
+            <input type="hidden" id="id-ico-icon">
+					</form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="button-process-icon">Submit</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
   <!-- Modal confirm delete -->
 	<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -530,7 +609,42 @@
           }
         });
 			});
-			
+
+			$( "body" ).on( "click", ".btn-update-icon", function() {
+				// $("#description").html($(this).attr("data-description"));
+				$("#id-ico-icon").val($(this).attr("data-id"));
+			});
+			$('#button-process-icon').click(function(e){
+        $.ajax({                                      
+          url: '<?php echo url('save-ico-icon'); ?>',
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          type: 'post',
+					data: $("#form-ico-icon").serialize(),
+          beforeSend: function()
+          {
+            $("#div-loading").show();
+          },
+          dataType: 'text',
+          success: function(result)
+          {
+            var data = jQuery.parseJSON(result);
+            $("#alert").show();
+            $("#alert").html(data.message);
+            if(data.type=='success') {
+              refresh_page(1);
+              $("#alert").addClass("alert-success");
+              $("#alert").removeClass("alert-danger");
+            } else if (data.type=='error') {
+              $("#alert").addClass("alert-danger");
+              $("#alert").removeClass("alert-success");
+            }
+						$("#div-loading").hide();
+          }
+        });
+			});
+
 			$( "body" ).on( "click", ".btn-delete", function() {
 				$("#id-ico-delete").val($(this).attr("data-id"));
 			});
