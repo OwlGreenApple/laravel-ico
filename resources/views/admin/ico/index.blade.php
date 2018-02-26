@@ -452,6 +452,11 @@
 			selectizeCategories.addOption({value:"Charity",text:"Charity"});
 			selectizeCategories.addOption({value:"Legal",text:"Legal"});
 			selectizeCategories.addOption({value:"Art",text:"Art"});
+			selectizeCategories.addOption({value:"Transportation",text:"Transportation"});
+			selectizeCategories.addOption({value:"Gaming",text:"Gaming"});
+			selectizeCategories.addOption({value:"Travelling",text:"Travelling"});
+			selectizeCategories.addOption({value:"Skills",text:"Skills"});
+			selectizeCategories.addOption({value:"Services",text:"Services"});
 			selectizeCategories.addOption({value:"Other",text:"Other"});
 		}
     function refresh_page(page)
