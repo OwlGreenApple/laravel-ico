@@ -78,9 +78,9 @@
               <div class="col-xs-12 col-md-9">
 								<!--<input type="text" class="form-control" id="status" name="status">-->
 								<select class="form-control" id="status" name="status">
-									<option value="upcoming">upcoming</option>
-									<option value="ongoing">ongoing(presale,private, or public sale)</option>
-									<option value="onexchange">onexchange</option>
+									<option value="upcoming">Upcoming</option>
+									<option value="ongoing">Ongoing(presale,private, or public sale)</option>
+									<option value="onexchange">Onexchange</option>
 								</select>
               </div>
             </div>
@@ -116,7 +116,14 @@
             <div class="form-group form-group-sm row">
               <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Platform</label>
               <div class="col-xs-12 col-md-9">
-								<input type="text" class="form-control" id="platform" name="platform">
+								<!--<input type="text" class="form-control" id="platform" name="platform">-->
+								<select class="form-control" id="platform" name="platform">
+									<option value="ethereum">Ethereum</option>
+									<option value="stellar">Stellar</option>
+									<option value="neo">Neo</option>
+									<option value="waves">Waves</option>
+									<option value="etc">etc</option>
+								</select>
               </div>
             </div>
 
