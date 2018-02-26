@@ -766,14 +766,14 @@
 				$("#id-ico-logo").val($(this).attr("data-id"));
 			});
 			$('#button-process-logo').click(function(e){
-				if($('#photo').val()=="") {
+				if($('#logo').val()=="") {
 					$("#alert").show();
 					$("#alert").html("file tidak boleh kosong");
 					$("#alert").addClass("alert-danger");
 					$("#alert").removeClass("alert-success");
 					return false;
 				}else{}
-				var ext = $('#photo').val().split('.').pop().toLowerCase();
+				var ext = $('#logo').val().split('.').pop().toLowerCase();
 				if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
 					$("#alert").show();
 					$("#alert").html("Extension file hanya boleh gif, png, jpg, jpeg ");
