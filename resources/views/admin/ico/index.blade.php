@@ -76,7 +76,12 @@
             <div class="form-group form-group-sm row">
               <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Status</label>
               <div class="col-xs-12 col-md-9">
-								<input type="text" class="form-control" id="status" name="status">
+								<!--<input type="text" class="form-control" id="status" name="status">-->
+								<select class="form-control" id="status" name="status">
+									<option value="upcoming">upcoming</option>
+									<option value="ongoing">ongoing(presale,private, or public sale)</option>
+									<option value="onexchange">onexchange</option>
+								</select>
               </div>
             </div>
 
