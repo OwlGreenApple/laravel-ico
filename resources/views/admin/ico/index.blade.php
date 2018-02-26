@@ -781,15 +781,6 @@
 					$("#alert").removeClass("alert-success");
 					return false;
 				}else{}				
-				var width = img.clientWidth;
-				var height = img.clientHeight;
-				if (width!=height){
-					$("#alert").show();
-					$("#alert").html("Ukuran logo harus square");
-					$("#alert").addClass("alert-danger");
-					$("#alert").removeClass("alert-success");
-					return false;
-				}
 				
 				var uf = $('#form-ico-logo');
 				var fd = new FormData(uf[0]);
