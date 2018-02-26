@@ -3,6 +3,7 @@
       <tr>
         <th>No. </th>
         <th>ICO name</th>
+        <th>Logo</th>
         <th>Rating</th>
         <th>Status</th>
         <th>Created</th>
@@ -15,6 +16,7 @@
     <tbody>
 		
 		<?php 
+			use Icocheckr\Meta;
 			if ( $arr->count()==0  ) {
 				echo "<tr><td colspan='11' align='center'>Data tidak ada</td></tr>";
 			} else {
@@ -30,6 +32,9 @@
 						{{$data_arr->name}}
 					</td>
 					<td>
+						<img src="{{asset('images/logo-ico').'/'.$data_arr->logo}}" class="img-responsive" style="height:50px;">
+					</td>
+					<td>
 						{{$data_arr->rating}}
 					</td>
 					<td>
@@ -43,19 +48,27 @@
 					</td>
 					<td align="center">
 						
-						<button type="button" class="btn btn-warning btn-update" data-toggle="modal" data-target="#myModalIco" data-id="{{$data_arr->id}}" data-name="{{$data_arr->name}}" data-rating="{{$data_arr->rating}}" data-about="{{$data_arr->about}}" data-description="{{$data_arr->description}}" data-categories="{{$data_arr->categories}}" data-status="{{$data_arr->status}}" data-url_link_video="{{$data_arr->url_link_video}}" data-url_link_blog="{{$data_arr->url_link_blog}}" data-ofc_website="{{$data_arr->ofc_website}}" data-price="{{$data_arr->price}}" data-platform="{{$data_arr->platform}}" data-country_operation="{{$data_arr->country_operation}}" data-restrictions="{{$data_arr->restrictions}}" data-token_ticker="{{$data_arr->token_ticker}}" data-presale_start="{{$data_arr->presale_start}}" data-presale_end="{{$data_arr->presale_end}}" data-sale_start="{{$data_arr->sale_start}}" data-sale_end="{{$data_arr->sale_end}}" data-list_exchange="{{$data_arr->list_exchange}}" style="margin-bottom:10px;">
+						<button type="button" class="btn btn-warning btn-update" data-toggle="modal" data-target="#myModalIco" data-id="{{$data_arr->id}}" data-name="{{$data_arr->name}}" data-rating="{{$data_arr->rating}}" data-about="{{$data_arr->about}}" data-description="{{$data_arr->description}}" data-categories="{{$data_arr->categories}}" data-status="{{$data_arr->status}}" data-url_link_video="{{$data_arr->url_link_video}}" data-url_link_blog="{{$data_arr->url_link_blog}}" data-ofc_website="{{$data_arr->ofc_website}}" data-price="{{$data_arr->price}}" data-platform="{{$data_arr->platform}}" data-country_operation="{{$data_arr->country_operation}}" data-restrictions="{{$data_arr->restrictions}}" data-token_ticker="{{$data_arr->token_ticker}}" data-presale_start="{{$data_arr->presale_start}}" data-presale_end="{{$data_arr->presale_end}}" data-sale_start="{{$data_arr->sale_start}}" data-sale_end="{{$data_arr->sale_end}}" data-list_exchange="{{$data_arr->list_exchange}}" data-tagline="{{$data_arr->tagline}}" style="margin-bottom:10px;">
 							Edit
 						</button>
 						
-						<button type="button" class="btn btn-warning btn-update-about" data-toggle="modal" data-target="#myModalAbout" data-id="{{$data_arr->id}}" data-about="{{$data_arr->about}}" style="margin-bottom:10px;">
-							About
+						<button type="button" class="btn btn-warning btn-update-logo" data-toggle="modal" data-target="#myModalLogo" data-id="{{$data_arr->id}}" style="margin-bottom:10px;">
+							Edit Logo
 						</button>
 						
 						<button type="button" class="btn btn-warning btn-update-description" data-toggle="modal" data-target="#myModalDescription" data-id="{{$data_arr->id}}" data-description="{{$data_arr->description}}" style="margin-bottom:10px;">
 							Description
 						</button>
 						
-						<button type="button" class="btn btn-warning btn-update-icon" data-toggle="modal" data-target="#myModalIconLink" data-id="{{$data_arr->id}}" style="margin-bottom:10px;">
+						<button type="button" class="btn btn-warning btn-update-about" data-toggle="modal" data-target="#myModalAbout" data-id="{{$data_arr->id}}" data-about="{{$data_arr->about}}" style="margin-bottom:10px;">
+							About
+						</button>
+						
+						<button type="button" class="btn btn-warning btn-update-financial" data-toggle="modal" data-target="#myModalFinancial" data-id="{{$data_arr->id}}" data-financial="{{$data_arr->financial}}" style="margin-bottom:10px;">
+							Financial
+						</button>
+						
+						<button type="button" class="btn btn-warning btn-update-icon" data-toggle="modal" data-target="#myModalIconLink" data-id="{{$data_arr->id}}" data-twitter_link="{{Meta::getMeta('twitter_link','icos',$data_arr->id)}}" data-facebook_link="{{Meta::getMeta('facebook_link','icos',$data_arr->id)}}" data-github_link="{{Meta::getMeta('github_link','icos',$data_arr->id)}}" data-reddit_link="{{Meta::getMeta('reddit_link','icos',$data_arr->id)}}" data-bitcointalk_link="{{Meta::getMeta('bitcointalk_link','icos',$data_arr->id)}}" data-medium_link="{{Meta::getMeta('medium_link','icos',$data_arr->id)}}" data-telegram_link="{{Meta::getMeta('telegram_link','icos',$data_arr->id)}}" data-website_link="{{Meta::getMeta('website_link','icos',$data_arr->id)}}" style="margin-bottom:10px;">
 							Icon link
 						</button>
 						

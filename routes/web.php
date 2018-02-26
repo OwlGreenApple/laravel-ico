@@ -33,6 +33,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/save-ico-admin', 'Admin\IcoController@save_ico_admin');
 	Route::post('/save-ico-about', 'Admin\IcoController@save_ico_about');
 	Route::post('/save-ico-description', 'Admin\IcoController@save_ico_description');
+	Route::post('/save-ico-financial', 'Admin\IcoController@save_ico_financial');
+	Route::post('/save-ico-logo', 'Admin\IcoController@save_ico_logo');
 	Route::post('/save-ico-icon', 'Admin\IcoController@save_ico_icon');
 	Route::post('/delete-ico-admin', 'Admin\IcoController@delete_ico_admin');
 	

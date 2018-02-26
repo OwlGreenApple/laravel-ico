@@ -4,6 +4,7 @@ use Illuminate\Http\Request as req;
 use Icocheckr\Http\Controllers\Controller;
 
 use Icocheckr\Ico;
+use Icocheckr\Meta;
 
 use View,Auth,Request,DB,Carbon,Excel, Mail, Validator, Input, Config;
 
@@ -28,7 +29,7 @@ class IcoController extends Controller {
 	public function index()
 	{
 		$user = Auth::user();
-					
+
 		return view('admin.ico.index')->with([
 			'user'=>$user,
 		]);
@@ -91,11 +92,49 @@ class IcoController extends Controller {
 		return $arr;
 	}
 
+	public function save_ico_financial(req $request)
+  {
+    $arr["type"] = "success";
+    $arr["message"] = "Proses save financial berhasil dilakukan";
+		
+		Ico::find($request->id)->update($request->all());
+		
+		return $arr;
+	}
+
+	public function save_ico_logo(req $request)
+  {
+    $arr["type"] = "success";
+    $arr["message"] = "Proses save logo berhasil dilakukan";
+		
+		$ico = Ico::find($request->id_ico_logo);
+		if (!is_null($ico)){
+			$destinationPath = base_path().'/public/images/logo-ico';
+			if (!file_exists($destinationPath)) {
+				mkdir($destinationPath,0755,true);
+			}
+			$filename = $ico->id.".".$request->logo->getClientOriginalExtension();
+			$request->logo->move($destinationPath, $filename);
+			$ico->logo = $filename;
+			$ico->save();
+		}
+		
+		return $arr;
+	}
+
 	public function save_ico_icon(req $request)
   {
     $arr["type"] = "success";
     $arr["message"] = "Proses save link icon berhasil dilakukan";
 		
+		Meta::createMeta("twitter_link","icos",$request->id_icon,$request->twitter_link);
+		Meta::createMeta("facebook_link","icos",$request->id_icon,$request->facebook_link);
+		Meta::createMeta("github_link","icos",$request->id_icon,$request->github_link);
+		Meta::createMeta("reddit_link","icos",$request->id_icon,$request->reddit_link);
+		Meta::createMeta("bitcointalk_link","icos",$request->id_icon,$request->bitcointalk_link);
+		Meta::createMeta("medium_link","icos",$request->id_icon,$request->medium_link);
+		Meta::createMeta("telegram_link","icos",$request->id_icon,$request->telegram_link);
+		Meta::createMeta("website_link","icos",$request->id_icon,$request->website_link);
 		
 		return $arr;
 	}

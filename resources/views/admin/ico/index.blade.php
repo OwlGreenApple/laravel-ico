@@ -24,25 +24,18 @@
 						</div>
 
             <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Tagline</label>
+              <div class="col-xs-12 col-md-9">
+								<input type="text" class="form-control" id="tagline" name="tagline">
+							</div>
+						</div>
+
+            <div class="form-group form-group-sm row">
               <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Rating</label>
               <div class="col-xs-12 col-md-9">
 								<input type="number" class="form-control" id="rating" name="rating">
               </div>
             </div>
-
-            <!--<div class="form-group form-group-sm row">
-              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">About</label>
-              <div class="col-xs-12 col-md-9">
-								<textarea class="form-control" rows="3" name="about" id="about"></textarea>
-              </div>
-            </div>
-
-            <div class="form-group form-group-sm row">
-              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Description</label>
-              <div class="col-xs-12 col-md-9">
-								<textarea class="form-control" rows="3" name="description" id="description"></textarea>
-              </div>
-            </div>-->
 
             <div class="form-group form-group-sm row">
               <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Categories</label>
@@ -61,11 +54,6 @@
 										},
 									});
 									
-									/*var selectCategories = $('#categories').selectize({
-											onChange: function (value) {
-
-											}
-									});*/
 									var selectizeCategories = selectCategories[0].selectize;
 
 								</script>
@@ -268,6 +256,34 @@
   </div>
 
   <!-- Modal -->
+  <div class="modal fade" id="myModalFinancial" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="modal-financial-header">ICO</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-12 control-label" for="formGroupInputSmall">Financial</label>
+              <div class="col-xs-12 col-md-12">
+								<textarea class="form-control" rows="3" name="financial" id="financial"></textarea>
+              </div>
+            </div>
+
+            <input type="hidden" id="id-ico-financial">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="button-process-financial">Submit</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Modal -->
   <div class="modal fade" id="myModalIconLink" role="dialog">
     <div class="modal-dialog">
     
@@ -335,11 +351,41 @@
               </div>
             </div>
 
-            <input type="hidden" id="id-ico-icon">
+            <input type="hidden" id="id-ico-icon" name="id_icon">
 					</form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal" id="button-process-icon">Submit</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModalLogo" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="modal-logo-header">Edit Logo</h4>
+        </div>
+        <div class="modal-body">
+					<form enctype="multipart/form-data" id="form-ico-logo">
+            <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-12 control-label" for="formGroupInputSmall">File</label>
+              <div class="col-xs-12 col-md-12">
+								<input type="file" class="form-control" placeholder="" id="logo" name="logo">
+              </div>
+            </div>
+
+            <input type="hidden" id="id-ico-logo" name="id_ico_logo">
+					</form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="button-process-logo">Submit</button>
         </div>
       </div>
       
@@ -436,6 +482,7 @@
 			
 			CKEDITOR.replace( 'about' );
 			CKEDITOR.replace( 'description' );
+			CKEDITOR.replace( 'financial' );
 				
       $('.formatted-date').datepicker({
         format: 'Y-m-d',
@@ -446,6 +493,7 @@
 			$('#button-add').click(function(e){
 				$("#id-ico").val("new");
 				$("#ico-name").val("");
+				$("#tagline").val("");
 				$("#rating").val("");
 				// $("#about").html("");
 				// $("#description").html("");
@@ -469,6 +517,7 @@
       $( "body" ).on( "click", ".btn-update", function() {
 				$("#id-ico").val($(this).attr("data-id"));
 				$("#ico-name").val($(this).attr("data-name"));
+				$("#tagline").val($(this).attr("data-tagline"));
 				$("#rating").val($(this).attr("data-rating"));
 				// $("#about").html($(this).attr("data-about"));
 				// $("#description").html($(this).attr("data-description"));
@@ -621,10 +670,55 @@
           }
         });
 			});
+			$( "body" ).on( "click", ".btn-update-financial", function() {
+				$("#id-ico-financial").val($(this).attr("data-id"));
+				CKEDITOR.instances.financial.setData($(this).attr("data-financial"));
+			});
+			$('#button-process-financial').click(function(e){
+        $.ajax({                                      
+          url: '<?php echo url('save-ico-financial'); ?>',
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          type: 'post',
+          data: {
+						id : $("#id-ico-financial").val(),
+						financial : CKEDITOR.instances.financial.getData(),
+					},
+          beforeSend: function()
+          {
+            $("#div-loading").show();
+          },
+          dataType: 'text',
+          success: function(result)
+          {
+            var data = jQuery.parseJSON(result);
+            $("#alert").show();
+            $("#alert").html(data.message);
+            if(data.type=='success') {
+              refresh_page(1);
+              $("#alert").addClass("alert-success");
+              $("#alert").removeClass("alert-danger");
+            } else if (data.type=='error') {
+              $("#alert").addClass("alert-danger");
+              $("#alert").removeClass("alert-success");
+            }
+						$("#div-loading").hide();
+          }
+        });
+			});
 
 			$( "body" ).on( "click", ".btn-update-icon", function() {
 				// $("#description").html($(this).attr("data-description"));
 				$("#id-ico-icon").val($(this).attr("data-id"));
+				$("#twitter-link").val($(this).attr("data-twitter_link"));
+				$("#facebook-link").val($(this).attr("data-facebook_link"));
+				$("#github-link").val($(this).attr("data-github_link"));
+				$("#reddit-link").val($(this).attr("data-reddit_link"));
+				$("#bitcointalk-link").val($(this).attr("data-bitcointalk_link"));
+				$("#medium-link").val($(this).attr("data-medium_link"));
+				$("#telegram-link").val($(this).attr("data-telegram_link"));
+				$("#website-link").val($(this).attr("data-website_link"));
 			});
 			$('#button-process-icon').click(function(e){
         $.ajax({                                      
@@ -634,6 +728,80 @@
           },
           type: 'post',
 					data: $("#form-ico-icon").serialize(),
+          beforeSend: function()
+          {
+            $("#div-loading").show();
+          },
+          dataType: 'text',
+          success: function(result)
+          {
+            var data = jQuery.parseJSON(result);
+            $("#alert").show();
+            $("#alert").html(data.message);
+            if(data.type=='success') {
+              refresh_page(1);
+              $("#alert").addClass("alert-success");
+              $("#alert").removeClass("alert-danger");
+            } else if (data.type=='error') {
+              $("#alert").addClass("alert-danger");
+              $("#alert").removeClass("alert-success");
+            }
+						$("#div-loading").hide();
+          }
+        });
+			});
+			
+			
+			$("body").on('change', '#logo',
+				function(e) {
+					var f=this.files[0];
+					
+					if ((f.size>5000000)||(f.fileSize>5000000)){
+					// if ((f.size>300000)||(f.fileSize>300000)){
+						$(this).val('');
+						alert('Image tidak boleh lebih besar dari 5MB');
+					}
+			});
+			$( "body" ).on( "click", ".btn-update-logo", function() {
+				$("#id-ico-logo").val($(this).attr("data-id"));
+			});
+			$('#button-process-logo').click(function(e){
+				if($('#photo').val()=="") {
+					$("#alert").show();
+					$("#alert").html("file tidak boleh kosong");
+					$("#alert").addClass("alert-danger");
+					$("#alert").removeClass("alert-success");
+					return false;
+				}else{}
+				var ext = $('#photo').val().split('.').pop().toLowerCase();
+				if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
+					$("#alert").show();
+					$("#alert").html("Extension file hanya boleh gif, png, jpg, jpeg ");
+					$("#alert").addClass("alert-danger");
+					$("#alert").removeClass("alert-success");
+					return false;
+				}else{}				
+				var width = img.clientWidth;
+				var height = img.clientHeight;
+				if (width!=height){
+					$("#alert").show();
+					$("#alert").html("Ukuran logo harus square");
+					$("#alert").addClass("alert-danger");
+					$("#alert").removeClass("alert-success");
+					return false;
+				}
+				
+				var uf = $('#form-ico-logo');
+				var fd = new FormData(uf[0]);
+        $.ajax({                                      
+          url: '<?php echo url('save-ico-logo'); ?>',
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          type: 'post',
+          data: fd,
+          processData:false,
+          contentType: false,
           beforeSend: function()
           {
             $("#div-loading").show();

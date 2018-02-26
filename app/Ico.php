@@ -34,6 +34,8 @@ class Ico extends Model {
 													"token_for_sale",
 													"list_exchange",
 													"twitter_username",
+													"financial",
+													"tagline",
 												];
 	/**
 	 * The attributes that should be mutated to dates.
