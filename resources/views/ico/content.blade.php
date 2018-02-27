@@ -28,7 +28,7 @@
 								<img src="{{ asset('images/logo-square.png') }}" class="img-responsive">
 							</div>
 							<div class="col-xs-9 col-md-8 detail-ico-info">
-								<a href=""><h5>{{$data_arr->name}}</h5></a>
+								<a href="{{ url('/ico').'/'.$data_arr->name }}" target="_blank"><h5>{{$data_arr->name}}</h5></a>
 								<!--<a href=""><input type="button" value="View" class="btn btn-view"></a>-->
 								<div class="details-ico-responsive">
 									<p>

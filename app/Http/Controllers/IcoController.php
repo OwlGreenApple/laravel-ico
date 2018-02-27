@@ -48,5 +48,12 @@ class IcoController extends Controller {
 		return view('ico.detail')->with([
 		]);
 	}
+	
+	public function publish(req $request)
+  {
+		return view('ico.publish')->with([
+		]);
+	}
+	
 }
 

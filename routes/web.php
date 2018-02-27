@@ -28,6 +28,9 @@ Route::get('/load-ico', 'IcoController@load_ico');
 //detail
 Route::get('/ico/{ico_name}', 'IcoController@detail');
 
+//publish
+Route::get('/publish', 'IcoController@publish');
+
 Route::group(['middleware' => 'auth'], function () {
 	//content writer  
 	//ICO

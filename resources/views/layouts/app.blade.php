@@ -110,7 +110,7 @@
 								<ul class="nav navbar-nav navbar-right">
 											<li><a href="https://icocheckr.com/article/first-step/">Start Here</a></li>
 											<li @if(Request::is('/ico')) class="active" @endif><a href="{{ url('/ico') }}">Search</a></li>
-											<li @if(Request::is('/test2')) class="active" @endif><a href="{{ url('/') }}">Publish ICO</a></li>
+											<li @if(Request::is('/publish')) class="active" @endif><a href="{{ url('/publish') }}">Publish ICO</a></li>
 										
 											@guest
 											<li @if(Request::is('/test2')) class="active" @endif><a href="{{ url('/login') }}">Login</a></li>

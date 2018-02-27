@@ -62,7 +62,7 @@
 
 <div class="container home-slideshow">
 	<div class="responsive-slick">
-		<div class="ico-list">
+		<div class="ico-list col-xs-12 col-md-12">
 				<h3>ICO NAME</h3>
 				<div class="banner-ico">
 				</div>
@@ -73,7 +73,7 @@
 					marketplace ecosystem.
 				</p>
 		</div>
-		<div class="ico-list">
+		<div class="ico-list col-xs-12 col-md-12">
 				<h3>ICO NAME</h3>
 				<div class="banner-ico">
 				</div>
@@ -84,7 +84,7 @@
 					marketplace ecosystem.
 				</p>
 		</div>
-		<div class="ico-list">
+		<div class="ico-list col-xs-12 col-md-12">
 				<h3>ICO NAME</h3>
 				<div class="banner-ico">
 				</div>
@@ -95,7 +95,7 @@
 					marketplace ecosystem.
 				</p>
 		</div>
-		<div class="ico-list">
+		<div class="ico-list col-xs-12 col-md-12">
 				<h3>ICO NAME</h3>
 				<div class="banner-ico">
 				</div>
@@ -106,7 +106,7 @@
 					marketplace ecosystem.
 				</p>
 		</div>
-		<div class="ico-list">
+		<div class="ico-list col-xs-12 col-md-12">
 				<h3>ICO NAME</h3>
 				<div class="banner-ico">
 				</div>
@@ -117,7 +117,7 @@
 					marketplace ecosystem.
 				</p>
 		</div>
-		<div class="ico-list">
+		<div class="ico-list col-xs-12 col-md-12">
 				<h3>ICO NAME</h3>
 				<div class="banner-ico">
 				</div>
@@ -128,7 +128,7 @@
 					marketplace ecosystem.
 				</p>
 		</div>
-		<div class="ico-list">
+		<div class="ico-list col-xs-12 col-md-12">
 				<h3>ICO NAME</h3>
 				<div class="banner-ico">
 				</div>
@@ -139,7 +139,7 @@
 					marketplace ecosystem.
 				</p>
 		</div>
-		<div class="ico-list">
+		<div class="ico-list col-xs-12 col-md-12">
 				<h3>ICO NAME</h3>
 				<div class="banner-ico">
 				</div>
