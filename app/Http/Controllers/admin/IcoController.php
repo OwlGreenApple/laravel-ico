@@ -134,7 +134,6 @@ class IcoController extends Controller {
 		Meta::createMeta("bitcointalk_link","icos",$request->id_icon,$request->bitcointalk_link);
 		Meta::createMeta("medium_link","icos",$request->id_icon,$request->medium_link);
 		Meta::createMeta("telegram_link","icos",$request->id_icon,$request->telegram_link);
-		Meta::createMeta("website_link","icos",$request->id_icon,$request->website_link);
 		
 		return $arr;
 	}

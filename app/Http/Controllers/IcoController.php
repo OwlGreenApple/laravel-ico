@@ -43,5 +43,10 @@ class IcoController extends Controller {
 								));
   }
 
+	public function detail(req $request, $ico_name)
+  {
+		return view('ico.detail')->with([
+		]);
+	}
 }
 

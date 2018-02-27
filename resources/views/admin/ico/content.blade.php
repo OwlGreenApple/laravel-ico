@@ -68,7 +68,7 @@
 							Financial
 						</button>
 						
-						<button type="button" class="btn btn-warning btn-update-icon" data-toggle="modal" data-target="#myModalIconLink" data-id="{{$data_arr->id}}" data-twitter_link="{{Meta::getMeta('twitter_link','icos',$data_arr->id)}}" data-facebook_link="{{Meta::getMeta('facebook_link','icos',$data_arr->id)}}" data-github_link="{{Meta::getMeta('github_link','icos',$data_arr->id)}}" data-reddit_link="{{Meta::getMeta('reddit_link','icos',$data_arr->id)}}" data-bitcointalk_link="{{Meta::getMeta('bitcointalk_link','icos',$data_arr->id)}}" data-medium_link="{{Meta::getMeta('medium_link','icos',$data_arr->id)}}" data-telegram_link="{{Meta::getMeta('telegram_link','icos',$data_arr->id)}}" data-website_link="{{Meta::getMeta('website_link','icos',$data_arr->id)}}" style="margin-bottom:10px;">
+						<button type="button" class="btn btn-warning btn-update-icon" data-toggle="modal" data-target="#myModalIconLink" data-id="{{$data_arr->id}}" data-twitter_link="{{Meta::getMeta('twitter_link','icos',$data_arr->id)}}" data-facebook_link="{{Meta::getMeta('facebook_link','icos',$data_arr->id)}}" data-github_link="{{Meta::getMeta('github_link','icos',$data_arr->id)}}" data-reddit_link="{{Meta::getMeta('reddit_link','icos',$data_arr->id)}}" data-bitcointalk_link="{{Meta::getMeta('bitcointalk_link','icos',$data_arr->id)}}" data-medium_link="{{Meta::getMeta('medium_link','icos',$data_arr->id)}}" data-telegram_link="{{Meta::getMeta('telegram_link','icos',$data_arr->id)}}" style="margin-bottom:10px;">
 							Icon link
 						</button>
 						

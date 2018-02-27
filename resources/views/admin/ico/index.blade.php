@@ -344,13 +344,6 @@
               </div>
             </div>
 
-            <div class="form-group form-group-sm row">
-              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Website Link</label>
-              <div class="col-xs-12 col-md-9">
-								<input type="text" class="form-control" id="website-link" name="website_link">
-              </div>
-            </div>
-
             <input type="hidden" id="id-ico-icon" name="id_icon">
 					</form>
         </div>
@@ -456,7 +449,6 @@
 			selectizeCategories.addOption({value:"Gaming",text:"Gaming"});
 			selectizeCategories.addOption({value:"Travelling",text:"Travelling"});
 			selectizeCategories.addOption({value:"Skills",text:"Skills"});
-			selectizeCategories.addOption({value:"Services",text:"Services"});
 			selectizeCategories.addOption({value:"Other",text:"Other"});
 		}
     function refresh_page(page)
@@ -723,7 +715,6 @@
 				$("#bitcointalk-link").val($(this).attr("data-bitcointalk_link"));
 				$("#medium-link").val($(this).attr("data-medium_link"));
 				$("#telegram-link").val($(this).attr("data-telegram_link"));
-				$("#website-link").val($(this).attr("data-website_link"));
 			});
 			$('#button-process-icon').click(function(e){
         $.ajax({                                      

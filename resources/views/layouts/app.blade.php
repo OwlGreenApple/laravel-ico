@@ -94,7 +94,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="https://icocheckr.com/">
+                <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('images/logo-icocheckr.png') }}" alt="ICOCheckr">
                 </a>
             </div>
@@ -108,13 +108,12 @@
 
 								<!-- Right Side Of Navbar -->
 								<ul class="nav navbar-nav navbar-right">
-											<li><a href="https://icocheckr.com/2018/02/06/start-icocheckr/">First Step</a></li>
-											<li><a href="https://icocheckr.com/ico-blog/">ICO Blog</a></li>
-											<li @if(Request::is('/')) class="active" @endif><a href="{{ url('/') }}">ICO Details</a></li>
+											<li><a href="https://icocheckr.com/article/first-step/">Start Here</a></li>
 											<li @if(Request::is('/ico')) class="active" @endif><a href="{{ url('/ico') }}">Search</a></li>
 											<li @if(Request::is('/test2')) class="active" @endif><a href="{{ url('/') }}">Publish ICO</a></li>
 										
 											@guest
+											<li @if(Request::is('/test2')) class="active" @endif><a href="{{ url('/login') }}">Login</a></li>
 											@else
 											<li class="dropdown">
 													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
@@ -163,7 +162,6 @@
 						<p>
 							support@icocheckr.com
 						</p>
-						<br>
 						<br>
 						<label>
 							Follow US

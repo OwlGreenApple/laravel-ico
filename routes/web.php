@@ -25,6 +25,9 @@ Route::post('/subscribe', 'HomeController@subscribe');
 Route::get('/ico', 'IcoController@index');
 Route::get('/load-ico', 'IcoController@load_ico');
 
+//detail
+Route::get('/ico/{ico_name}', 'IcoController@detail');
+
 Route::group(['middleware' => 'auth'], function () {
 	//content writer  
 	//ICO
