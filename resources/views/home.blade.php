@@ -42,9 +42,9 @@
         }
       });
     }
+		load_ico_home_banner();
+		load_ico_home();
 		$(document).ready(function() {
-			load_ico_home_banner();
-			load_ico_home();
 			$('#select-category').append($('<option>', {value:"All",text:"All"}));
 			$('#select-category').append($('<option>', {value:"Platform",text:"Platform"}));
 			$('#select-category').append($('<option>', {value:"Cryptocurrency",text:"Cryptocurrency"}));
