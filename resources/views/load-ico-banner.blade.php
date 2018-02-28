@@ -11,10 +11,10 @@
 				<?php 
 					$desc = strlen($data->description);
 					if ($desc >= 200) {
-						echo substr($desc, 0, 250); 
+						echo substr($data->description, 0, 250); 
 					}
 					else {
-						echo $desc;
+						echo $data->description;
 					}
 				?>
 				</p>
