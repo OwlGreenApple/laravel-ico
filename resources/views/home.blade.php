@@ -42,8 +42,6 @@
         }
       });
     }
-		load_ico_home_banner();
-		load_ico_home();
 		$(document).ready(function() {
 			$('#select-category').append($('<option>', {value:"All",text:"All"}));
 			$('#select-category').append($('<option>', {value:"Platform",text:"Platform"}));
@@ -114,6 +112,9 @@
 					// instead of a settings object
 				]
 			});			
+			load_ico_home_banner();
+			load_ico_home();
+			
 		});
 </script>
 
