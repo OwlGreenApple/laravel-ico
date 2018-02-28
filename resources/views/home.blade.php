@@ -3,8 +3,48 @@
 @section('content')
 
 <script>
+    function load_ico_home()
+    {
+      $.ajax({
+        url: '<?php echo url('load-ico-home'); ?>',
+        type: 'get',
+        data: {
+        },
+        beforeSend: function()
+        {
+          $("#div-loading").show();
+        },
+        dataType: 'text',
+        success: function(result)
+        {
+          $('#div-ico-home').html(result);
+          $("#div-loading").hide();
+        }
+      });
+    }
+    function load_ico_home_banner()
+    {
+      $.ajax({
+        url: '<?php echo url('load-ico-home-banner'); ?>',
+        type: 'get',
+        data: {
+					// filename: $("#file-name").val(),
+        },
+        beforeSend: function()
+        {
+          $("#div-loading").show();
+        },
+        dataType: 'text',
+        success: function(result)
+        {
+          $('#div-ico-home-banner').html(result);
+          $("#div-loading").hide();
+        }
+      });
+    }
 		$(document).ready(function() {
-			
+			load_ico_home_banner();
+			load_ico_home();
 			$('#select-category').append($('<option>', {value:"All",text:"All"}));
 			$('#select-category').append($('<option>', {value:"Platform",text:"Platform"}));
 			$('#select-category').append($('<option>', {value:"Cryptocurrency",text:"Cryptocurrency"}));
@@ -96,7 +136,7 @@
 </div>
 
 <div class="container home-slideshow">
-	<div class="responsive-slick">
+	<div class="responsive-slick" id="div-ico-home-banner">
 		<div class="ico-list col-xs-12 col-md-12">
 				<h3>ICO NAME</h3>
 				<div class="banner-ico">
@@ -207,7 +247,7 @@
 				</div>-->
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" id="div-ico-home">
 		
 			<!-- data record  -->
 			<div class="col-xs-12 col-md-3 ico-list">
