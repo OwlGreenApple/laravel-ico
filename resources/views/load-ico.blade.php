@@ -8,7 +8,15 @@
 				</div>
 				<label>Rate </rate> <span class="rate-ico-list">AAA</span>
 				<p>
-				<?php echo substr($data->description, 0, 250); ?>
+				<?php 
+					$desc = strlen($data->description);
+					if ($desc >= 200) {
+						echo substr($desc, 0, 250); 
+					}
+					else {
+						echo $desc;
+					}
+				?>
 				</p>
 				<a href="{{ url('/ico').'/'.$data->name }}" class="link-view-more">View More</a>
 			</div>
