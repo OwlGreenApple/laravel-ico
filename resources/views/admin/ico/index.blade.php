@@ -2,6 +2,8 @@
 
 @section('content')
 	<script type="text/javascript" src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
+	<script src="{{ asset('/js/datepicker.js') }}"></script>
+	<link href="{{ asset('/css/datepicker.css') }}" rel="stylesheet">
   <!-- Modal -->
   <div class="modal fade" id="myModalIco" role="dialog">
     <div class="modal-dialog">
