@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/load-ico-home-banner', 'HomeController@load_ico_home_banner');
+Route::get('/load-ico-home', 'HomeController@load_ico_home');
 Route::post('/subscribe', 'HomeController@subscribe');
 
 //search

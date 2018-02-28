@@ -4,6 +4,7 @@ namespace Icocheckr\Http\Controllers;
 
 use Illuminate\Http\Request as req;
 
+use Icocheckr\Ico;
 use Icocheckr\Subscribe;
 use Validator;
 
@@ -26,9 +27,30 @@ class HomeController extends Controller
 	 */
 	public function index()
 	{
-			return view('home');
+		return view('home')->with([
+		]);
 	}
 	
+	public function load_ico_home_banner(req $request)
+  {
+		$arr = Ico::all();
+
+		return view('load-ico-banner')->with(
+								array(
+									'arr'=>$arr,
+								));
+  }
+
+	public function load_ico_home(req $request)
+  {
+		$arr = Ico::all();
+
+		return view('load-ico')->with(
+								array(
+									'arr'=>$arr,
+								));
+  }
+
 	public function subscribe(req $request)
 	{
 		$arr["type"] = "success";
