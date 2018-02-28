@@ -11,7 +11,7 @@
 				<?php 
 					$desc = strlen($data->description);
 					if ($desc >= 200) {
-						echo substr($data->description, 0, 250); 
+						echo substr($data->description, 0, 200); 
 					}
 					else {
 						echo $data->description;
