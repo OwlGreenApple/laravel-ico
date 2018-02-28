@@ -8,7 +8,7 @@
 				</div>
 				<label>Rate </rate> <span class="rate-ico-list">AAA</span>
 				<p>
-				<?php echo $data->description; ?>
+				<?php echo substr($data->description, 0, 250); ?>
 				</p>
 				<a href="{{ url('/ico').'/'.$data->name }}" class="link-view-more">View More</a>
 			</div>
