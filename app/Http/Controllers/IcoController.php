@@ -4,6 +4,7 @@ use Illuminate\Http\Request as req;
 use Icocheckr\Http\Controllers\Controller;
 
 use Icocheckr\Ico;
+use Icocheckr\Submit;
 
 use View,Auth,Request,DB,Carbon,Excel, Mail, Validator, Input, Config;
 
@@ -54,6 +55,17 @@ class IcoController extends Controller {
 		return view('ico.publish')->with([
 		]);
 	}
+
+	public function submit_publish_ico(req $request)
+  {
+    $arr["type"] = "success";
+    $arr["message"] = "Submit success";
+		
+		Submit::create($request->all());
+		
+		return $arr;
+	}
+
 	
 }
 

@@ -30,6 +30,7 @@ Route::get('/ico/{ico_name}', 'IcoController@detail');
 
 //publish
 Route::get('/publish', 'IcoController@publish');
+Route::post('/submit-publish-ico', 'IcoController@submit_publish_ico');
 
 Route::group(['middleware' => 'auth'], function () {
 	//content writer  

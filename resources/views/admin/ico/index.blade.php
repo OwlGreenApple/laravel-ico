@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-	<link href="{{ asset('/css/datepicker.css') }}" rel="stylesheet">
-	<script src="{{ asset('/js/datepicker.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
   <!-- Modal -->
   <div class="modal fade" id="myModalIco" role="dialog">
