@@ -2,6 +2,7 @@
 
 @section('content')
 	<script type="text/javascript" src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
+	<script src="{{ asset('/js/jquery.country.select.js') }}"></script>
 	<script src="{{ asset('/js/datepicker.js') }}"></script>
 	<link href="{{ asset('/css/datepicker.css') }}" rel="stylesheet">
   <!-- Modal -->
@@ -106,10 +107,12 @@
               <div class="col-xs-12 col-md-9">
 								<!--<input type="text" class="form-control" id="platform" name="platform">-->
 								<select class="form-control" id="platform" name="platform">
+									<option value="bitcoin">Bitcoin</option>
 									<option value="ethereum">Ethereum</option>
 									<option value="stellar">Stellar</option>
 									<option value="neo">Neo</option>
 									<option value="waves">Waves</option>
+									<option value="ardor">Ardor</option>
 									<option value="etc">etc</option>
 								</select>
               </div>
@@ -118,7 +121,9 @@
             <div class="form-group form-group-sm row">
               <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Country Operation</label>
               <div class="col-xs-12 col-md-9">
-								<input type="text" class="form-control" id="country-operation" name="country_operation">
+								<!--<input type="text" class="form-control" id="country-operation" name="country_operation">-->
+								<select class="form-control" id="country-operation" name="country_operation">
+								</select>
               </div>
             </div>
 
@@ -480,6 +485,8 @@
 			CKEDITOR.replace( 'about' );
 			CKEDITOR.replace( 'description' );
 			CKEDITOR.replace( 'financial' );
+			
+			$('#country-operation').countrySelect();
 				
       $('.formatted-date').datepicker({
         format: 'Y-m-d',

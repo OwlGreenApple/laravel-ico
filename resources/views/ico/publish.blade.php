@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+	<script src="{{ asset('/js/jquery.country.select.js') }}"></script>
 	<link href="{{ asset('/css/datepicker.css') }}" rel="stylesheet">
 	<script src="{{ asset('/js/datepicker.js') }}"></script>
 	<link href="{{ asset('css/publish.css') }}" rel="stylesheet">
@@ -49,7 +50,8 @@
 				</div>
 				<div class="row">
 					<label class="control-label">Country of Operation</label>
-					<input type="text" class="form-control" id="" name="country_operation" placeholder="Name of country">
+					<select class="form-control" id="country-operation" name="country_operation" placeholder="Name of country">
+					</select>
 				</div>
 				<div class="row">
 					<label class="control-label">Pre ICO Start and End date</label>
@@ -94,7 +96,16 @@
 				</div>
 				<div class="row">
 					<label class="control-label">Platform</label>
-					<input type="text" class="form-control" id="" name="platform" placeholder="e.g Ethereum, ERC20">
+					<select class="form-control" id="platform" name="platform">
+						<option value="none">Select Platform</option>
+						<option value="bitcoin">Bitcoin</option>
+						<option value="ethereum">Ethereum</option>
+						<option value="stellar">Stellar</option>
+						<option value="neo">Neo</option>
+						<option value="waves">Waves</option>
+						<option value="ardor">Ardor</option>
+						<option value="etc">etc</option>
+					</select>
 				</div>
 				<div class="row">
 					<label class="control-label">Price</label>
@@ -125,6 +136,7 @@
     $(document).ready(function(){
       document.title = 'Publish your ICO';
 
+			$('#country-operation').countrySelect();
 			selectizeCategories.addOption({value:"Platform",text:"Platform"});
 			selectizeCategories.addOption({value:"Cryptocurrency",text:"Cryptocurrency"});
 			selectizeCategories.addOption({value:"Business services",text:"Business services"});

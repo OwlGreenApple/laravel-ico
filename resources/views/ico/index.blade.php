@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+	<script src="{{ asset('/js/jquery.country.select.js') }}"></script>
 	<link href="{{ asset('css/search.css') }}" rel="stylesheet">
+	<script src="{{ asset('/js/datepicker.js') }}"></script>
+	<link href="{{ asset('/css/datepicker.css') }}" rel="stylesheet">
 	
 	<div class="container">
 		<h1>Check ICO</h1>
@@ -11,21 +14,51 @@
 					<label class="control-label">Search Name</label>
 					<input type="text" class="form-control">
 				</div>
-				<div class="col-xs-12 col-md-2">
+				<div class="col-xs-12 col-md-3">
 					<label class="control-label">Rating</label>
 					<input type="text" class="form-control">
 				</div>
-				<div class="col-xs-12 col-md-2">
+				<div class="col-xs-12 col-md-3">
 					<label class="control-label">Start</label>
-					<input type="text" class="form-control">
-				</div>
-				<div class="col-xs-12 col-md-2">
-					<label class="control-label">End</label>
-					<input type="text" class="form-control">
+					<input type="text" class="form-control formatted-date">
 				</div>
 				<div class="col-xs-12 col-md-3">
+					<label class="control-label">End</label>
+					<input type="text" class="form-control formatted-date">
+				</div>
+			</div>
+			<div class="row div-expand">
+				<div class="col-xs-12 col-md-3">
 					<label class="control-label">Status</label>
-					<input type="text" class="form-control">
+					<select class="form-control" id="select-status">
+						<option value="any">Any</option>
+						<option value="upcoming">Upcoming</option>
+						<option value="ongoing">Ongoing</option>
+						<option value="onexchange">Onexchange</option>
+					</select>
+				</div>
+				<div class="col-xs-12 col-md-3">
+					<label class="control-label">Category</label>
+					<select class="form-control" id="select-category">
+					</select>
+				</div>
+				<div class="col-xs-12 col-md-3">
+					<label class="control-label">Country</label>
+					<select class="form-control" id="country-operation" name="country_operation">
+					</select>
+				</div>
+				<div class="col-xs-12 col-md-3">
+					<label class="control-label">Platform</label>
+					<select class="form-control" id="platform" name="platform">
+						<option value="any">Any</option>
+						<option value="bitcoin">Bitcoin</option>
+						<option value="ethereum">Ethereum</option>
+						<option value="stellar">Stellar</option>
+						<option value="neo">Neo</option>
+						<option value="waves">Waves</option>
+						<option value="ardor">Ardor</option>
+						<option value="etc">etc</option>
+					</select>
 				</div>
 			</div>
 			<div class="row div-collapse">
@@ -36,25 +69,6 @@
 				<div class="col-xs-12 col-md-2">
 					<label class="control-label"></label>
 					<input type="button" class="btn btn-hide-expand form-control" id="btn-expand" value="Expand Search">
-				</div>
-			</div>
-			<div class="row div-expand">
-				<div class="col-xs-12 col-md-3">
-					<label class="control-label">Category</label>
-					<select class="form-control" id="select-category">
-					</select>
-				</div>
-				<div class="col-xs-12 col-md-3">
-					<label class="control-label">Country</label>
-					<input type="text" class="form-control">
-				</div>
-				<div class="col-xs-12 col-md-3">
-					<label class="control-label">Platform</label>
-					<input type="text" class="form-control">
-				</div>
-				<div class="col-xs-12 col-md-3">
-					<label class="control-label">Accepted Currency</label>
-					<input type="text" class="form-control">
 				</div>
 			</div>
 			<div class="row div-expand" >
@@ -151,6 +165,12 @@
 			$('#select-category').append($('<option>', {value:"Skills",text:"Skills"}));
 			$('#select-category').append($('<option>', {value:"Other",text:"Other"}));
 			
+			$('#country-operation').countrySelect();
+      $('.formatted-date').datepicker({
+        format: 'Y-m-d',
+        // format: 'Y-MM-DD HH:mm',
+        // format: 'YYYY-MM-DD HH:mm',
+      });
     });
   </script>		
 	
