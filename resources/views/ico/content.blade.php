@@ -25,7 +25,7 @@
 				<tr class="my-row{{$data_arr->id}}">
 					<td class="col-xs-12 col-md-3">
 							<div class="col-xs-3 col-md-4">
-								<img src="{{ asset('images/logo-square.png') }}" class="img-responsive">
+								<img src="{{asset('images/logo-ico').'/'.$data_arr->logo}}" class="img-responsive" style="height:50px;">
 							</div>
 							<div class="col-xs-9 col-md-8 detail-ico-info">
 								<a href="{{ url('/ico').'/'.$data_arr->name }}" target="_blank"><h5>{{$data_arr->name}}</h5></a>
