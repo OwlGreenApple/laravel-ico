@@ -1,0 +1,36 @@
+.banner-ico {
+  width: 175px;
+  height: 112px;
+  border: 1px #ebebeb solid;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  position: relative;
+}
+.banner-name {
+  padding-left: 30px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+}
+.banner-name h1 {
+  color: #13506b;
+  display: inline-block;
+}
+.banner-name h2 {
+  display: inline-block;
+  margin-top: -15px;
+  color: #343434;
+  padding: 0;
+}
+.ico-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  /* Half the height */
+  margin-left: -25px;
+  /* Half the width */
+}

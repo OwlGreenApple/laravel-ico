@@ -5,6 +5,10 @@
 	<script src="{{ asset('/js/jquery.country.select.js') }}"></script>
 	<script src="{{ asset('/js/datepicker.js') }}"></script>
 	<link href="{{ asset('/css/datepicker.css') }}" rel="stylesheet">
+	
+	<script>
+		pageNow = 1;
+	</script>
   <!-- Modal -->
   <div class="modal fade" id="myModalIco" role="dialog">
     <div class="modal-dialog">
@@ -480,7 +484,7 @@
     $(document).ready(function(){
       $("#alert").hide();
       document.title = 'ICO - Content';
-			refresh_page(1);
+			refresh_page(pageNow);
 			
 			CKEDITOR.replace( 'about' );
 			CKEDITOR.replace( 'description' );
@@ -587,7 +591,7 @@
             $("#alert").show();
             $("#alert").html(data.message);
             if(data.type=='success') {
-              refresh_page(1);
+              refresh_page(pageNow);
               $("#alert").addClass("alert-success");
               $("#alert").removeClass("alert-danger");
             } else if (data.type=='error') {
@@ -625,7 +629,7 @@
             $("#alert").show();
             $("#alert").html(data.message);
             if(data.type=='success') {
-              refresh_page(1);
+              refresh_page(pageNow);
               $("#alert").addClass("alert-success");
               $("#alert").removeClass("alert-danger");
             } else if (data.type=='error') {
@@ -663,7 +667,7 @@
             $("#alert").show();
             $("#alert").html(data.message);
             if(data.type=='success') {
-              refresh_page(1);
+              refresh_page(pageNow);
               $("#alert").addClass("alert-success");
               $("#alert").removeClass("alert-danger");
             } else if (data.type=='error') {
@@ -700,7 +704,7 @@
             $("#alert").show();
             $("#alert").html(data.message);
             if(data.type=='success') {
-              refresh_page(1);
+              refresh_page(pageNow);
               $("#alert").addClass("alert-success");
               $("#alert").removeClass("alert-danger");
             } else if (data.type=='error') {
@@ -742,7 +746,7 @@
             $("#alert").show();
             $("#alert").html(data.message);
             if(data.type=='success') {
-              refresh_page(1);
+              refresh_page(pageNow);
               $("#alert").addClass("alert-success");
               $("#alert").removeClass("alert-danger");
             } else if (data.type=='error') {
@@ -807,7 +811,7 @@
             $("#alert").show();
             $("#alert").html(data.message);
             if(data.type=='success') {
-              refresh_page(1);
+              refresh_page(pageNow);
               $("#alert").addClass("alert-success");
               $("#alert").removeClass("alert-danger");
             } else if (data.type=='error') {
@@ -843,7 +847,7 @@
             $("#alert").show();
             $("#alert").html(data.message);
             if(data.type=='success') {
-              refresh_page(1);
+              refresh_page(pageNow);
               $("#alert").addClass("alert-success");
               $("#alert").removeClass("alert-danger");
             } else if (data.type=='error') {

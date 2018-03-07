@@ -39,10 +39,10 @@
 										{{$data_arr->price}}
 										<br>
 										<b>Presale Periode : </b>
-										{{$data_arr->presale_start." - ".$data_arr->presale_end}}
+										<?php echo $data_arr->presale_start->format('d M Y')." - ".$data_arr->presale_end->format('d M Y'); ?>
 										<br>
 										<b>Crowdsale Periode : </b>
-										{{$data_arr->sale_start." - ".$data_arr->sale_end}}
+										<?php echo $data_arr->sale_start->format('d M Y')." - ".$data_arr->sale_end->format('d M Y'); ?>
 										<br>
 										<b>List Exchange : </b>
 										{{$data_arr->price}}
@@ -61,12 +61,12 @@
 					</td>
 					<td class="remove-hp">
 						<?php 
-							echo $data_arr->presale_start." <br> - <br>".$data_arr->presale_end;
+							echo $data_arr->presale_start->format('d M Y')." <br> - <br>".$data_arr->presale_end->format('d M Y');
 						?>
 					</td>
 					<td class="remove-hp">
-						<?php 
-							echo $data_arr->sale_start." <br> - <br>".$data_arr->sale_end;
+						<?php
+							echo $data_arr->sale_start->format('d M Y')." <br> - <br>".$data_arr->sale_end->format('d M Y');
 						?>
 					</td>
 					<td class="remove-hp">

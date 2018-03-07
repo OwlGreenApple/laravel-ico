@@ -46,7 +46,9 @@ class IcoController extends Controller {
 
 	public function detail(req $request, $ico_name)
   {
+		$ico = Ico::where("name",$ico_name)->first();
 		return view('ico.detail')->with([
+			"ico"=>$ico,
 		]);
 	}
 	

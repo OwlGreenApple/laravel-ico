@@ -12,6 +12,9 @@ h1 {
 .search-bar input {
   border: 1px #8f8f8f solid;
 }
+.search-bar select {
+  border: 1px #8f8f8f solid;
+}
 .search-bar label {
   font-size: 20px;
   color: #13506c;

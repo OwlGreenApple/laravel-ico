@@ -160,6 +160,7 @@
 		} else {
 			page = parseInt($(this).html());
 		}
+		pageNow = page;
 		refresh_page(page);
 	});
 

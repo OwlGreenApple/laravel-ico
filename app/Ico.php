@@ -43,6 +43,10 @@ class Ico extends Model {
 	 * @var array
 	 */
 	protected $dates = [
+		'presale_start',
+		'presale_end',
+		'sale_start',
+		'sale_end',
 		'deleted_at',
 	];
 	
