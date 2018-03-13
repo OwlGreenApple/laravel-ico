@@ -44,7 +44,7 @@ class IcoController extends Controller {
 			
 			
 		//buat pagination
-		$total_data = count($arr);
+		$total_data = count(Ico::all());
 		$page = $request->page; // Get the current page or default to 1, this is what you miss!
 		// $offset = ($page * $perPage) - $perPage;
 		$totalPage = floor($total_data / $perPage) +1;

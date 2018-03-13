@@ -20,8 +20,14 @@
 			if ( $arr->count()==0  ) {
 				echo "<tr><td colspan='11' align='center'>Data tidak ada</td></tr>";
 			} else {
+				if ($page=="") {
+					$currentPage = 1;
+				} else {
+					$currentPage = $page;
+				}
+			
 				//search by username
-			$i=1;
+			$i=(($currentPage-1)*15)+1;
 			foreach ($arr as $data_arr) {
 				?>
 				<tr class="row{{$data_arr->id}}">
@@ -92,12 +98,6 @@
 		<?php 
 		$counter =0;
 		if ( $arr->count()>0  ) {
-			if ($page=="") {
-				$currentPage = 1;
-			} else {
-				$currentPage = $page;
-			}
-			
 			$startPage = $currentPage - 4;
 			$endPage = $currentPage + 4;
 
