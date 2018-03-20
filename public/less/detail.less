@@ -7,21 +7,33 @@
 	position: relative;
 }
 .banner-name{
-	width:auto;
-	padding-left:30px;
+	width: ~"calc(100% - 200px)";
+	margin-left:20px;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	display:inline-block;
 	h1{
 		color:#13506b;
-		display:inline-block;
+		line-height: 1;
+		display: block;
+		@media (max-width:600px){
+			font-weight: 400;
+			margin-top: 5px;
+			font-size:20px;
+		}
 	}
 	h2{
-		display:inline-block;
+		display: block;
 		margin-top:-15px;
 		color:#343434;
     padding: 0;
+		line-height: 1;
+		@media (max-width:600px){
+			font-weight: 400;
+			margin-top: 5px;
+			font-size:18px;
+		}
 	}
 }
 .ico-logo{

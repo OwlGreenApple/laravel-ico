@@ -17,7 +17,6 @@
 		
 		<?php 
 			use Icocheckr\Meta;
-			// use Carbon as CB;
 			if ( $arr->count()==0  ) {
 				echo "<tr><td colspan='11' align='center'>Data tidak ada</td></tr>";
 			} else {

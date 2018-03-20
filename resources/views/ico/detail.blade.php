@@ -20,7 +20,6 @@
   <script>
     $(document).ready(function(){
       document.title = 'ICO rating and details';
-			
     });
   </script>
 	
