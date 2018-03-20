@@ -493,7 +493,8 @@
 			$('#country-operation').countrySelect();
 				
       $('.formatted-date').datepicker({
-        format: 'Y-m-d',
+        // format: 'Y-m-d',
+        format: 'm/d/Y',
         // format: 'Y-MM-DD HH:mm',
         // format: 'YYYY-MM-DD HH:mm',
       });

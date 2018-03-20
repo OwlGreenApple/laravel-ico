@@ -17,6 +17,7 @@
 		
 		<?php 
 			use Icocheckr\Meta;
+			// use Carbon as CB;
 			if ( $arr->count()==0  ) {
 				echo "<tr><td colspan='11' align='center'>Data tidak ada</td></tr>";
 			} else {
@@ -54,7 +55,7 @@
 					</td>
 					<td align="center">
 						
-						<button type="button" class="btn btn-warning btn-update" data-toggle="modal" data-target="#myModalIco" data-id="{{$data_arr->id}}" data-name="{{$data_arr->name}}" data-rating="{{$data_arr->rating}}" data-about="{{$data_arr->about}}" data-description="{{$data_arr->description}}" data-categories="{{$data_arr->categories}}" data-status="{{$data_arr->status}}" data-url_link_video="{{$data_arr->url_link_video}}" data-url_link_blog="{{$data_arr->url_link_blog}}" data-ofc_website="{{$data_arr->ofc_website}}" data-price="{{$data_arr->price}}" data-platform="{{$data_arr->platform}}" data-country_operation="{{$data_arr->country_operation}}" data-restrictions="{{$data_arr->restrictions}}" data-token_ticker="{{$data_arr->token_ticker}}" data-presale_start="{{$data_arr->presale_start}}" data-presale_end="{{$data_arr->presale_end}}" data-sale_start="{{$data_arr->sale_start}}" data-sale_end="{{$data_arr->sale_end}}" data-list_exchange="{{$data_arr->list_exchange}}" data-tagline="{{$data_arr->tagline}}" style="margin-bottom:10px;">
+						<button type="button" class="btn btn-warning btn-update" data-toggle="modal" data-target="#myModalIco" data-id="{{$data_arr->id}}" data-name="{{$data_arr->name}}" data-rating="{{$data_arr->rating}}" data-about="{{$data_arr->about}}" data-description="{{$data_arr->description}}" data-categories="{{$data_arr->categories}}" data-status="{{$data_arr->status}}" data-url_link_video="{{$data_arr->url_link_video}}" data-url_link_blog="{{$data_arr->url_link_blog}}" data-ofc_website="{{$data_arr->ofc_website}}" data-price="{{$data_arr->price}}" data-platform="{{$data_arr->platform}}" data-country_operation="{{$data_arr->country_operation}}" data-restrictions="{{$data_arr->restrictions}}" data-token_ticker="{{$data_arr->token_ticker}}" data-presale_start="<?php if (!is_null($data_arr->presale_start)) { echo \Carbon::createFromFormat('Y-m-d H:i:s', $data_arr->presale_start)->format('m/d/Y'); } ?>" data-presale_end="<?php if (!is_null($data_arr->presale_end)) { echo \Carbon::createFromFormat('Y-m-d H:i:s', $data_arr->presale_end)->format('m/d/Y'); } ?>" data-sale_start="<?php if (!is_null($data_arr->sale_start)) { echo \Carbon::createFromFormat('Y-m-d H:i:s', $data_arr->sale_start)->format('m/d/Y'); } ?>" data-sale_end="<?php if (!is_null($data_arr->sale_end)) { echo \Carbon::createFromFormat('Y-m-d H:i:s', $data_arr->sale_end)->format('m/d/Y'); } ?>" data-list_exchange="{{$data_arr->list_exchange}}" data-tagline="{{$data_arr->tagline}}" style="margin-bottom:10px;">
 							Edit
 						</button>
 						

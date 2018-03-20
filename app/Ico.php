@@ -52,18 +52,19 @@ class Ico extends Model {
 	
 	public function setPresaleStartAttribute($date)
 	{
-			$this->attributes['presale_start'] = Carbon::parse($date);
+			// $this->attributes['presale_start'] = Carbon::parse($date);
+			$this->attributes['presale_start'] = $date ? Carbon::parse($date)->toDateString() : null;
 	}
 	public function setPresaleEndAttribute($date)
 	{
-			$this->attributes['presale_end'] = Carbon::parse($date);
+			$this->attributes['presale_end'] = $date ? Carbon::parse($date)->toDateString() : null;
 	}
 	public function setSaleStartAttribute($date)
 	{
-			$this->attributes['sale_start'] = Carbon::parse($date);
+			$this->attributes['sale_start'] = $date ? Carbon::parse($date)->toDateString() : null;
 	}
 	public function setSaleEndAttribute($date)
 	{
-			$this->attributes['sale_end'] = Carbon::parse($date);
+			$this->attributes['sale_end'] = $date ? Carbon::parse($date)->toDateString() : null;
 	}
 }
