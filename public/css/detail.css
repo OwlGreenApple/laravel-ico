@@ -57,3 +57,95 @@
   border: 1px solid #a4a4a4;
   padding: 10px 20px 30px 20px;
 }
+.div-rating hr {
+  border-top: 1px solid #5d5d5d;
+}
+.div-rating .btn-buy {
+  background-color: #3dc1a1;
+  color: #fff;
+}
+.div-rating .label-header-rating {
+  font-size: 22px;
+  color: #343434;
+  font-family: "Open Sans";
+  font-weight: 500;
+  margin-top: 3px;
+  display: inline-block;
+}
+.div-rating .label-header-rating-value {
+  font-size: 24px;
+  color: #fff;
+  background-color: #20a7e2;
+  font-family: "Open Sans";
+  font-weight: Bold;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  padding: 1px 3px;
+}
+.div-rating .label-rating {
+  font-size: 16px;
+  color: #343434;
+  font-family: "Open Sans";
+}
+.div-rating .label-rating-value {
+  font-size: 20px;
+  color: #0a486f;
+  font-family: "Open Sans";
+  font-weight: 500;
+}
+.mini-icon {
+  padding: 3px;
+}
+.mini-icon .icon {
+  background-size: 20px 20px;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.mini-icon .icon-1 {
+  background-image: url(../images/mini-icon/icon-grey-sosmed1.png) !important;
+}
+.mini-icon .icon-2 {
+  background-image: url(../images/mini-icon/icon-grey-sosmed2.png) !important;
+}
+.mini-icon .icon-3 {
+  background-image: url(../images/mini-icon/icon-grey-sosmed3.png) !important;
+}
+.mini-icon .icon-4 {
+  background-image: url(../images/mini-icon/icon-grey-sosmed4.png) !important;
+}
+.mini-icon .icon-5 {
+  background-image: url(../images/mini-icon/icon-grey-sosmed5.png) !important;
+}
+.mini-icon .icon-6 {
+  background-image: url(../images/mini-icon/icon-grey-sosmed6.png) !important;
+}
+.mini-icon .icon-7 {
+  background-image: url(../images/mini-icon/icon-grey-sosmed7.png) !important;
+}
+.mini-icon .icon-8 {
+  background-image: url(../images/mini-icon/icon-grey-sosmed8.png) !important;
+}
+.navbar-detail {
+  margin-top: 35px;
+  display: inline-block;
+}
+.navbar-detail .navbar-nav > li > a,
+.navbar-detail .navbar-detail .navbar-text {
+  width: 100%;
+  font-size: 22px;
+  color: #13506b!important;
+  font-weight: 500;
+}
+.navbar-detail .navbar-nav > li > a:hover {
+  color: #0e9fde;
+  border-bottom: 3px solid #52d4f7;
+  padding-bottom: 3px;
+  background-color: transparent;
+}
+.main-content {
+  padding: 2px 25px;
+  width: 100%;
+}
