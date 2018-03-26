@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+	<?php 
+header('Access-Control-Allow-Origin: https://www.youtube.com/');
+header('Content-type: application/json');
+	?>
 	<link href="{{ asset('css/detail.css') }}" rel="stylesheet">
 	
 	<div class="container">

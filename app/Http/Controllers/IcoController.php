@@ -47,9 +47,12 @@ class IcoController extends Controller {
 	public function detail(req $request, $ico_name)
   {
 		$ico = Ico::where("name",$ico_name)->first();
-		return view('ico.detail')->with([
+		// return view('ico.detail')->with([
+			// "ico"=>$ico,
+		// ]);
+		return response()->view('ico.detail',[
 			"ico"=>$ico,
-		]);
+		],200)->header('X-Frame-Options', 'https://youtube.com/');;
 	}
 	
 	public function publish(req $request)

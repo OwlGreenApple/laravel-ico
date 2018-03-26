@@ -17,10 +17,10 @@ class FrameHeadersMiddleware
     {
         // return $next($request);
 			$response = $next($request);
-			// $response->header('X-Frame-Options', 'ALLOW FROM https://youtu.be');
+			$response->header('X-Frame-Options', 'ALLOW FROM https://youtube.com');
 			// $response->header('X-Frame-Options', '*');
-			$response->header('X-XSS-Protection', '1; mode=block');
-			$response->header('X-Content-Type-Options', 'nosniff');
+			// $response->header('X-XSS-Protection', '1; mode=block');
+			// $response->header('X-Content-Type-Options', 'nosniff');
 			return $response;				
     }
 }
