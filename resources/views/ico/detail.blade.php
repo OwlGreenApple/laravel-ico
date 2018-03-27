@@ -2,8 +2,7 @@
 
 @section('content')
 	<?php 
-header('Access-Control-Allow-Origin: https://www.youtube.com/');
-header('Content-type: application/json');
+		use Icocheckr\Meta;
 	?>
 	<link href="{{ asset('css/detail.css') }}" rel="stylesheet">
 	
@@ -24,16 +23,17 @@ header('Content-type: application/json');
 	<div class="container">
 		<div class="row">
 			<!-- little menu -->
-			<div class="col-xs-12 col-md-10 pull-right">
+			<div class="col-xs-12 col-md-10 pull-right main-part">
 				<div class="navbar navbar-default navbar-static-top navbar-detail">
 					<ul class="nav navbar-nav">
-						<li><a href="#" id="nav-about">About</a></li>
-						<li><a href="#" id="nav-trading">Trading</a></li>
-						<li><a href="#" id="nav-financial">Financial</a></li>
-						<li><a href="#" id="nav-detail">Details</a></li>
-						<li><a href="#" id="nav-about">Bookmark</a></li>
+						<li><a href="#" class="nav-content" id="nav-about">About</a></li>
+						<li><a href="#" class="nav-content" id="nav-trading">Trading</a></li>
+						<li><a href="#" class="nav-content" id="nav-financial">Financial</a></li>
+						<li><a href="#" class="nav-content" id="nav-detail">Details</a></li>
+						<li><a href="#" class="nav-content" id="nav-about">Bookmark</a></li>
 					</ul>
 				</div>
+				
 				<div class="main-content content-ico-about">
 					<?php echo $ico->description; ?>
 					<div class="embed-responsive embed-responsive-16by9">
@@ -41,16 +41,20 @@ header('Content-type: application/json');
 					</div>					
 					<?php echo $ico->about; ?>
 				</div>
+				
 				<div class="main-content content-ico-trading">
 				</div>
+				
 				<div class="main-content content-ico-financial">
+					<?php echo $ico->financial; ?>
 				</div>
+				
 				<div class="main-content content-ico-detail">
 				</div>
 			</div>
 
-
-			<div class="col-xs-12 col-md-2 pull-right">
+			
+			<div class="col-xs-12 col-md-2 pull-left side-part">
 				<div class="div-rating row">
 					<div class="row">
 						<div class="col-xs-5 col-md-5">
@@ -83,19 +87,42 @@ header('Content-type: application/json');
 					</div>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
-							<input type="button" class="btn btn-buy" value="Buy ICO">
+							<a href="{{$ico->ofc_website}}"><input type="button" class="btn btn-buy" value="Buy ICO"></a>
 						</div>
 					</div>
 				</div>
 				<div class="mini-icon row">
-					<a class="icon icon-1" href="" target="_blank"></a>
-					<a class="icon icon-2" href="" target="_blank"></a>
-					<a class="icon icon-3" href="" target="_blank"></a>
-					<a class="icon icon-4" href="" target="_blank"></a>
-					<a class="icon icon-5" href="" target="_blank"></a>
-					<a class="icon icon-6" href="" target="_blank"></a>
-					<a class="icon icon-7" href="" target="_blank"></a>
-					<a class="icon icon-8" href="" target="_blank"></a>
+					<?php if ($ico->ofc_website<>"") {?>
+					<a class="icon icon-1" href="{{$ico->ofc_website}}" target="_blank"></a>
+					<?php } ?>
+					
+					<?php if (Meta::getMeta("github_link","icos",$ico->id)<>"") {?>
+					<a class="icon icon-2" href='Meta::getMeta("github_link","icos",$ico->id)' target="_blank"></a>
+					<?php } ?>
+					
+					<?php if (Meta::getMeta("facebook_link","icos",$ico->id)<>"") {?>
+					<a class="icon icon-3" href='{{Meta::getMeta("facebook_link","icos",$ico->id)}}' target="_blank"></a>
+					<?php } ?>
+					
+					<?php if (Meta::getMeta("twitter_link","icos",$ico->id)<>"") {?>
+					<a class="icon icon-4" href='{{Meta::getMeta("twitter_link","icos",$ico->id)}}' target="_blank"></a>
+					<?php } ?>
+					
+					<?php if (Meta::getMeta("bitcointalk_link","icos",$ico->id)<>"") {?>
+					<a class="icon icon-5" href='{{Meta::getMeta("bitcointalk_link","icos",$ico->id)}}' target="_blank"></a>
+					<?php } ?>
+					
+					<?php if (Meta::getMeta("telegram_link","icos",$ico->id)<>"") {?>
+					<a class="icon icon-6" href='{{Meta::getMeta("telegram_link","icos",$ico->id)}}' target="_blank"></a>
+					<?php } ?>
+					
+					<?php if (Meta::getMeta("medium_link","icos",$ico->id)<>"") {?>
+					<a class="icon icon-7" href='{{Meta::getMeta("medium_link","icos",$ico->id)}}' target="_blank"></a>
+					<?php } ?>
+					
+					<?php if (Meta::getMeta("reddit_link","icos",$ico->id)<>"") {?>
+					<a class="icon icon-8" href='Meta::getMeta("reddit_link","icos",$ico->id)' target="_blank"></a>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
@@ -104,29 +131,44 @@ header('Content-type: application/json');
   <script>
     $(document).ready(function(){
       document.title = 'ICO rating and details';
+			// $("#nav-about").trigger("click");
+			$("#nav-about").addClass("active");
 			$(".content-ico-about").show();
 			$(".content-ico-trading").hide();
 			$(".content-ico-financial").hide();
 			$(".content-ico-detail").hide();
+			
 			$('#nav-about').click(function(e){
+				$(".nav-content").removeClass("active");
+				$(this).addClass("active");
+				
 				$(".content-ico-about").show();
 				$(".content-ico-trading").hide();
 				$(".content-ico-financial").hide();
 				$(".content-ico-detail").hide();
 			});
 			$('#nav-trading').click(function(e){
+				$(".nav-content").removeClass("active");
+				$(this).addClass("active");
+				
 				$(".content-ico-about").hide();
 				$(".content-ico-trading").show();
 				$(".content-ico-financial").hide();
 				$(".content-ico-detail").hide();
 			});
 			$('#nav-financial').click(function(e){
+				$(".nav-content").removeClass("active");
+				$(this).addClass("active");
+
 				$(".content-ico-about").hide();
 				$(".content-ico-trading").hide();
 				$(".content-ico-financial").show();
 				$(".content-ico-detail").hide();
 			});
 			$('#nav-detail').click(function(e){
+				$(".nav-content").removeClass("active");
+				$(this).addClass("active");
+
 				$(".content-ico-about").hide();
 				$(".content-ico-trading").hide();
 				$(".content-ico-financial").hide();

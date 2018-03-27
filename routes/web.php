@@ -28,7 +28,9 @@ Route::get('/ico', 'IcoController@index');
 Route::get('/load-ico', 'IcoController@load_ico');
 
 //detail
-Route::get('/ico/{ico_name}', 'IcoController@detail');
+// Route::group(['middleware' => 'cors'], function () {
+	Route::get('/ico/{ico_name}', 'IcoController@detail');
+// });
 
 //publish
 Route::get('/publish', 'IcoController@publish');

@@ -19,7 +19,6 @@ class Kernel extends HttpKernel
         \Icocheckr\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \Icocheckr\Http\Middleware\TrustProxies::class,
-				\Icocheckr\Http\Middleware\FrameHeadersMiddleware::class,
     ];
 
     /**

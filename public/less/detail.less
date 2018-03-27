@@ -7,8 +7,14 @@
 	position: relative;
 }
 .banner-name{
-	width: ~"calc(100% - 200px)";
-	margin-left:20px;
+	@media (max-width:1700px){
+		width: ~"calc(100% - 255px)";
+		margin-left:75px;
+	}
+	@media (max-width:900px){
+		width: ~"calc(100% - 200px)";
+		margin-left:20px;
+	}
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -92,6 +98,7 @@
 
 .mini-icon{
 	padding:3px;
+	text-align: center;
 	.icon{
 		background-size: 20px 20px;
 		width:20px;
@@ -144,7 +151,27 @@
     background-color: transparent;
 	}	
 }
+
+.main-part{
+	@media (max-width:1700px){
+		padding-left:50px;
+		padding-right:50px;
+	}
+	@media (max-width:900px){
+		padding-left:20px;
+		padding-right:20px;
+	}
+}
 .main-content{
 	padding:2px 25px;
+	padding-bottom:35px;
 	width:100%;
+	.content-ico-about{
+		.embed-responsive{
+			margin-top: 35px;
+			margin-bottom: 50px;
+		}
+	}
+}
+.side-part{
 }
