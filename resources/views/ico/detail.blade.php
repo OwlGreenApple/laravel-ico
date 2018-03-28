@@ -22,45 +22,53 @@
 
 	<div class="container">
 		<div class="row">
-			<!-- little menu -->
-			<div class="col-xs-12 col-md-10 pull-right main-part">
-				<div class="navbar navbar-default navbar-static-top navbar-detail">
-					<ul class="nav navbar-nav">
-						<li><a href="#" class="nav-content" id="nav-about">About</a></li>
-						<li><a href="#" class="nav-content" id="nav-trading">Trading</a></li>
-						<li><a href="#" class="nav-content" id="nav-financial">Financial</a></li>
-						<li><a href="#" class="nav-content" id="nav-detail">Details</a></li>
-						<li><a href="#" class="nav-content" id="nav-about">Bookmark</a></li>
-					</ul>
+			<div class="col-xs-12 col-md-3 pull-left side-part">
+				<div class="div-rating row">
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<h3 class="label-header-rating">ICO Detail</h3>
+						</div>
+					</div>
+					<hr class="row">
+					<div class="row">
+						<div class="col-xs-12 col-md-12">
+							<label class="">Token</label>
+							<p class="description"><?php if ($ico->token_ticker=="") { echo "-"; } else { echo $ico->token_ticker; } ?></p>
+						</div>
+						
+						<div class="col-xs-12 col-md-12">
+							<label>Price</label>
+							<p class="description"><?php if ($ico->price=="") { echo "-"; } else { echo $ico->price; } ?></p>
+						</div>
+						
+						<div class="col-xs-12 col-md-12">
+							<label>Country</label>
+							<p class="description"><?php if ($ico->country_operation=="") { echo "-"; } else { echo $ico->country_operation; } ?></p>
+						</div>
+						
+						<div class="col-xs-12 col-md-12">
+							<label>Status</label>
+							<p class="description"><?php if ($ico->status=="") { echo "-"; } else { echo $ico->status; } ?></p>
+						</div>
+						
+						<div class="col-xs-12 col-md-12">
+							<label>Presale</label>
+							<p class="description"><?php if ($ico->presale_start=="") { echo "-"; } else { echo $ico->presale_start; } ?></p>
+						</div>
+						
+						<div class="col-xs-12 col-md-12">
+							<label>Restrictions</label>
+							<p class="description"><?php if ($ico->restrictions=="") { echo "-"; } else { echo $ico->restrictions; } ?></p>
+						</div>
+						
+					</div>
 				</div>
-				
-				<div class="main-content content-ico-about">
-					<?php echo $ico->description; ?>
-					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item" src="{{$ico->url_link_video}}" allowfullscreen></iframe>
-					</div>					
-					<?php echo $ico->about; ?>
-				</div>
-				
-				<div class="main-content content-ico-trading">
-				</div>
-				
-				<div class="main-content content-ico-financial">
-					<?php echo $ico->financial; ?>
-				</div>
-				
-				<div class="main-content content-ico-detail">
-				</div>
-			</div>
-
-			
-			<div class="col-xs-12 col-md-2 pull-left side-part">
 				<div class="div-rating row">
 					<div class="row">
 						<div class="col-xs-5 col-md-5">
 							<span class="label-header-rating">Rating</span>
 						</div>
-						<div class="col-xs-5 col-md-5 col-lg-offset-2">	
+						<div class="col-xs-5 col-md-5 col-lg-offset-1">	
 							<span class="label-header-rating-value pull-right">AAA</span>
 						</div>
 					</div>
@@ -87,7 +95,7 @@
 					</div>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
-							<a href="{{$ico->ofc_website}}"><input type="button" class="btn btn-buy" value="Buy ICO"></a>
+							<a href="{{$ico->ofc_website}}"><input type="button" class="btn btn-buy form-control" value="Buy ICO"></a>
 						</div>
 					</div>
 				</div>
@@ -125,6 +133,36 @@
 					<?php } ?>
 				</div>
 			</div>
+		
+		
+			<div class="col-xs-12 col-md-9 pull-right main-part">
+				<div class="navbar navbar-default navbar-static-top navbar-detail">
+					<ul class="nav navbar-nav">
+						<li><a href="#" class="nav-content" id="nav-about">About</a></li>
+						<li><a href="#" class="nav-content" id="nav-trading">Trading</a></li>
+						<li><a href="#" class="nav-content" id="nav-financial">Financial</a></li>
+						<li><button class="btn" id="btn-bookmark">Bookmark</button></li>
+					</ul>
+				</div>
+				
+				<div class="main-content content-ico-about">
+					<?php echo $ico->description; ?>
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe class="embed-responsive-item" src="{{$ico->url_link_video}}" allowfullscreen></iframe>
+					</div>					
+					<?php echo $ico->about; ?>
+				</div>
+				
+				<div class="main-content content-ico-trading">
+				</div>
+				
+				<div class="main-content content-ico-financial">
+					<?php echo $ico->financial; ?>
+				</div>
+				
+			</div>
+
+			
 		</div>
 	</div>
 
@@ -136,7 +174,6 @@
 			$(".content-ico-about").show();
 			$(".content-ico-trading").hide();
 			$(".content-ico-financial").hide();
-			$(".content-ico-detail").hide();
 			
 			$('#nav-about').click(function(e){
 				$(".nav-content").removeClass("active");
@@ -145,7 +182,6 @@
 				$(".content-ico-about").show();
 				$(".content-ico-trading").hide();
 				$(".content-ico-financial").hide();
-				$(".content-ico-detail").hide();
 			});
 			$('#nav-trading').click(function(e){
 				$(".nav-content").removeClass("active");
@@ -154,7 +190,6 @@
 				$(".content-ico-about").hide();
 				$(".content-ico-trading").show();
 				$(".content-ico-financial").hide();
-				$(".content-ico-detail").hide();
 			});
 			$('#nav-financial').click(function(e){
 				$(".nav-content").removeClass("active");
@@ -163,16 +198,6 @@
 				$(".content-ico-about").hide();
 				$(".content-ico-trading").hide();
 				$(".content-ico-financial").show();
-				$(".content-ico-detail").hide();
-			});
-			$('#nav-detail').click(function(e){
-				$(".nav-content").removeClass("active");
-				$(this).addClass("active");
-
-				$(".content-ico-about").hide();
-				$(".content-ico-trading").hide();
-				$(".content-ico-financial").hide();
-				$(".content-ico-detail").show();
 			});
     });
   </script>
