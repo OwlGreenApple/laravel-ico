@@ -26,7 +26,7 @@
 				<div class="navbar navbar-default navbar-static-top navbar-detail">
 					<ul class="nav navbar-nav">
 						<li><a href="#" class="nav-content" id="nav-about">About</a></li>
-						<li><a href="#" class="nav-content" id="nav-trading">Trading</a></li>
+						<!--<li><a href="#" class="nav-content" id="nav-trading">Trading</a></li>-->
 						<li><a href="#" class="nav-content" id="nav-financial">Financial</a></li>
 						<li><button class="btn" id="btn-bookmark">Bookmark</button></li>
 					</ul>
@@ -40,8 +40,8 @@
 					<?php echo $ico->about; ?>
 				</div>
 				
-				<div class="main-content content-ico-trading">
-				</div>
+				<!--<div class="main-content content-ico-trading">
+				</div>-->
 				
 				<div class="main-content content-ico-financial">
 					<?php echo $ico->financial; ?>
@@ -170,7 +170,7 @@
 			// $("#nav-about").trigger("click");
 			$("#nav-about").addClass("active");
 			$(".content-ico-about").show();
-			$(".content-ico-trading").hide();
+			// $(".content-ico-trading").hide();
 			$(".content-ico-financial").hide();
 			
 			$('#nav-about').click(function(e){
@@ -178,7 +178,7 @@
 				$(this).addClass("active");
 				
 				$(".content-ico-about").show();
-				$(".content-ico-trading").hide();
+				// $(".content-ico-trading").hide();
 				$(".content-ico-financial").hide();
 			});
 			$('#nav-trading').click(function(e){
@@ -186,7 +186,7 @@
 				$(this).addClass("active");
 				
 				$(".content-ico-about").hide();
-				$(".content-ico-trading").show();
+				// $(".content-ico-trading").show();
 				$(".content-ico-financial").hide();
 			});
 			$('#nav-financial').click(function(e){
@@ -194,7 +194,7 @@
 				$(this).addClass("active");
 
 				$(".content-ico-about").hide();
-				$(".content-ico-trading").hide();
+				// $(".content-ico-trading").hide();
 				$(".content-ico-financial").show();
 			});
     });
