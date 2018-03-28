@@ -28,13 +28,14 @@ Route::get('/ico', 'IcoController@index');
 Route::get('/load-ico', 'IcoController@load_ico');
 
 //detail
-// Route::group(['middleware' => 'cors'], function () {
-	Route::get('/ico/{ico_name}', 'IcoController@detail');
-// });
+Route::get('/ico/{ico_name}', 'IcoController@detail');
 
 //publish
 Route::get('/publish', 'IcoController@publish');
 Route::post('/submit-publish-ico', 'IcoController@submit_publish_ico');
+
+//premium
+Route::get('/premium', 'IcoController@premium');
 
 Route::group(['middleware' => 'auth'], function () {
 	//content writer  

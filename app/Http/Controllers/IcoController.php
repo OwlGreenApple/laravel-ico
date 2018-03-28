@@ -68,6 +68,12 @@ class IcoController extends Controller {
 		return $arr;
 	}
 
+	public function premium(req $request)
+  {
+		return view('ico.premium')->with([
+		]);
+	}
+
 	
 }
 
