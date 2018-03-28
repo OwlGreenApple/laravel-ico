@@ -8,20 +8,47 @@
 	
 	<div class="container">
 		<div class="row">
-			<div class="banner-ico fl">
-				<img src="{{asset('images/logo-ico').'/'.$ico->logo}}" class="ico-logo">
-			</div>
-			<div class="banner-name fl">
-				<h1>{{$ico->name}}</h1>
-				<h2>{{$ico->tagline}}</h2>
-			</div>
-			<div class="fn">
-			</div>
-		</div>
-	</div>
+			<div class="col-xs-12 col-md-9 pull-right main-part">
+			
+				<div class="row">
+					<div class="col-xs-12 col-md-12">
+						<div class="banner-ico fl">
+							<img src="{{asset('images/logo-ico').'/'.$ico->logo}}" class="ico-logo">
+						</div>
+						<div class="banner-name fl">
+							<h1>{{$ico->name}}</h1>
+							<h2>{{$ico->tagline}}</h2>
+						</div>
+						<div class="fn"></div>
+					</div>
+				</div>
 
-	<div class="container">
-		<div class="row">
+				<div class="navbar navbar-default navbar-static-top navbar-detail">
+					<ul class="nav navbar-nav">
+						<li><a href="#" class="nav-content" id="nav-about">About</a></li>
+						<li><a href="#" class="nav-content" id="nav-trading">Trading</a></li>
+						<li><a href="#" class="nav-content" id="nav-financial">Financial</a></li>
+						<li><button class="btn" id="btn-bookmark">Bookmark</button></li>
+					</ul>
+				</div>
+				
+				<div class="main-content content-ico-about">
+					<?php echo $ico->description; ?>
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe class="embed-responsive-item" src="{{$ico->url_link_video}}" allowfullscreen></iframe>
+					</div>					
+					<?php echo $ico->about; ?>
+				</div>
+				
+				<div class="main-content content-ico-trading">
+				</div>
+				
+				<div class="main-content content-ico-financial">
+					<?php echo $ico->financial; ?>
+				</div>
+				
+			</div>
+
 			<div class="col-xs-12 col-md-3 pull-left side-part">
 				<div class="div-rating row">
 					<div class="row">
@@ -134,35 +161,6 @@
 				</div>
 			</div>
 		
-		
-			<div class="col-xs-12 col-md-9 pull-right main-part">
-				<div class="navbar navbar-default navbar-static-top navbar-detail">
-					<ul class="nav navbar-nav">
-						<li><a href="#" class="nav-content" id="nav-about">About</a></li>
-						<li><a href="#" class="nav-content" id="nav-trading">Trading</a></li>
-						<li><a href="#" class="nav-content" id="nav-financial">Financial</a></li>
-						<li><button class="btn" id="btn-bookmark">Bookmark</button></li>
-					</ul>
-				</div>
-				
-				<div class="main-content content-ico-about">
-					<?php echo $ico->description; ?>
-					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item" src="{{$ico->url_link_video}}" allowfullscreen></iframe>
-					</div>					
-					<?php echo $ico->about; ?>
-				</div>
-				
-				<div class="main-content content-ico-trading">
-				</div>
-				
-				<div class="main-content content-ico-financial">
-					<?php echo $ico->financial; ?>
-				</div>
-				
-			</div>
-
-			
 		</div>
 	</div>
 
