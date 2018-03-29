@@ -39,7 +39,7 @@ class IcoController extends Controller {
   {
 		$user = Auth::user();
 		$perPage = 15;
-		$arr = Ico::paginate($perPage);
+		$arr = Ico::orderBy("id")->paginate($perPage);
 					
 			
 			
