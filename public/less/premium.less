@@ -23,7 +23,7 @@
 .main-word{
 	text-align:center;
 	margin-top:39px;
-	h5{
+	h2{
 		font-size:21px;
 		font-weight:Bold;
 	}
@@ -43,13 +43,77 @@
 	}
 }
 
-.div-button-submit{
-	margin-top:45px;
-	margin-bottom:75px;
-	.btn{
-		font-size:20px;
-		font-weight:Bold;
-		padding-top:10px;
-		padding-bottom:42px;
+.choose-package{
+	.wrap-choose-package{
+		padding:3px;
 	}
+	@media (max-width:1700px){
+		.wrap-choose-package-boost{
+			margin-top:-30px;
+		}
+	}
+	@media (max-width:900px){
+		.wrap-choose-package-boost{
+			margin-top:0px;
+		}
+	}
+	.header-package{
+		font-size:25px;
+		color:#000;
+		font-weight:Bold;
+		padding-bottom: 50px;
+	}
+	p{
+		font-size:18px;
+	}
+	.btn{
+		-webkit-border-radius: 5px 5px 5px 5px;
+		border-radius: 5px 5px 5px 5px;
+		margin-bottom:10px;
+	}
+	.btn-basic{
+		background-color:#91b1bc;
+	}
+	.btn-boost{
+		background-color:#f43a16;
+		color:#fff;
+	}
+	.btn-premium{
+		background-color:#e0ac5a;
+	}
+	.btn-platinum{
+		background-color:#d6d0c8;
+	}
+	.price{
+		font-size:30px;
+		font-weight:Bold;
+	}
+	.content-package{
+		padding:20px;
+		text-align:center;
+		-webkit-border-radius: 5px 5px 5px 5px;
+		border-radius: 5px 5px 5px 5px;
+		background-color:#21aac1;
+		color:#fff;
+		hr{
+		  border-top: 2px solid #13506b;
+		}
+	}
+	.content-boost{
+		background-color:#20a7e2;
+		hr{
+		  border-top: 2px solid #16efbb;
+		}
+	}
+	.btn-order{
+		background-color:#20a7e2;
+		color:#fff;
+		font-size:25px;
+		padding-bottom:50px;
+		margin-top:10px;
+	}
+	.btn-order-boost{
+		background-color:#33cc99;
+	}
+	margin-bottom:70px;
 }
