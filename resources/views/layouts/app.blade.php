@@ -110,7 +110,7 @@
 								<ul class="nav navbar-nav navbar-right">
 											<li><a href="https://icocheckr.com/article/first-step/">Start Here</a></li>
 											<li @if(Request::is('ico')) class="active" @endif><a href="{{ url('/ico') }}">Search</a></li>
-											<li @if(Request::is('publish')) class="active" @endif><a href="{{ url('/publish') }}">Publish ICO</a></li>
+											<li @if(Request::is('premium')) class="active" @endif><a href="{{ url('/premium') }}">Publish ICO</a></li>
 										
 											@guest
 											<li @if(Request::is('/test2')) class="active" @endif><a href="{{ url('/login') }}">Login</a></li>
@@ -126,13 +126,13 @@
 															<li @if(Request::is('rating-admin')) class="active" @endif><a href="{{ url('rating-admin') }}">Rating	</a></li>
 														<?php } ?>
 															<li>
-																	<a href="{{ route('logout') }}"
+																	<a href="{{ url('logout') }}"
 																			onclick="event.preventDefault();
 																							 document.getElementById('logout-form').submit();">
 																			Logout
 																	</a>
 
-																	<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+																	<form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
 																			{{ csrf_field() }}
 																	</form>
 															</li>

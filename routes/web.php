@@ -1,21 +1,27 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-// Route::get('/', function () {
-    // return view('welcome');
-// });
+// Auth::routes();
+/* LOGIN / LOGOUT */
+// Route::get('/', 'Auth	\LoginController@getLogin');
+Route::get('login', 'Auth\LoginController@getLogin');
+Route::post('auth/login', ['as'=>'auth.login', 'uses'=> 'Auth\LoginController@postLogin']);
+Route::get('logout', 'Auth\LoginController@getLogout');
 
-Auth::routes();
+/* register */
+Route::get('register', 'Auth\RegisterController@getRegister');
+Route::get('register-checkout', 'LandingPageController@register_checkout');
+Route::post('auth/register', ['as'=>'auth.register', 'uses'=> 'Auth\RegisterController@postRegister']);
+
+Route::get('verifyemail/{cryptedcode}', 'Member\EmailController@verifyEmail');
+
+/* FORGOT PASSWORD */
+Route::get('forgot-password', 'LandingPageController@forgot_password');
+Route::get('redirect-auth/{cryptedcode}', 'LandingPageController@redirect_auth');
+Route::post('auth/forgot', ['as'=>'auth.forgot', 'uses'=> 'LandingPageController@auth_forgot']);
+Route::post('change-password', ['as'=>'change.password', 'uses'=> 'LandingPageController@change_password']);
+
+
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');

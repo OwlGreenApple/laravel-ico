@@ -1,14 +1,23 @@
+body, .navbar, .main-content{
+	background-color:#e4ecef;
+}
 .main-banner{
-	background-color:#e0ac5a;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0b7ab6+1,0d80bb+13,1088c1+26,1492c8+37,179cd0+52,18a0d4+66,1ba6d9+78,1eafdf+89,20b6e5+100 */
+	background: #0b7ab6; /* Old browsers */
+	background: -moz-linear-gradient(left, #0b7ab6 1%, #0d80bb 13%, #1088c1 26%, #1492c8 37%, #179cd0 52%, #18a0d4 66%, #1ba6d9 78%, #1eafdf 89%, #20b6e5 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, #0b7ab6 1%,#0d80bb 13%,#1088c1 26%,#1492c8 37%,#179cd0 52%,#18a0d4 66%,#1ba6d9 78%,#1eafdf 89%,#20b6e5 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #0b7ab6 1%,#0d80bb 13%,#1088c1 26%,#1492c8 37%,#179cd0 52%,#18a0d4 66%,#1ba6d9 78%,#1eafdf 89%,#20b6e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b7ab6', endColorstr='#20b6e5',GradientType=1 ); /* IE6-9 */
+
 	color:#fff;
 	width:100%;
 	padding:10px 30px;
+	padding-bottom:50px;
 	h1{
 		font-size:41px;
 	}
 	p{
-		margin-bottom:25px;
-		margin-bottom:80px;
+		margin-top:25px;
 	}
 	.premium-icon{
 		background-size: 30px 30px;
@@ -18,29 +27,7 @@
 		display: inline-block;
 		background-image: url(../images/premium-2.png) !important;
 	}
-}
-
-.main-word{
-	text-align:center;
-	margin-top:39px;
-	h2{
-		font-size:21px;
-		font-weight:Bold;
-	}
-	.word-for-free{
-		font-size:33px;
-		color:#353535;
-		font-weight:Bold;
-		display:block;
-		margin-top:90px;
-	}
-	.word-for-premium{
-		font-size:33px;
-		color:#13506b;
-		font-weight:Bold;
-		display:block;
-		margin-bottom:120px;
-	}
+	margin-bottom:120px;
 }
 
 .choose-package{
@@ -65,44 +52,52 @@
 	}
 	p{
 		font-size:18px;
+		font-family:"Open Sans";
 	}
 	.btn{
 		-webkit-border-radius: 5px 5px 5px 5px;
 		border-radius: 5px 5px 5px 5px;
 		margin-bottom:10px;
-	}
-	.btn-basic{
-		background-color:#91b1bc;
-	}
-	.btn-boost{
-		background-color:#f43a16;
 		color:#fff;
 	}
+	.btn-basic{
+		background-color:#066a95;
+	}
+	.btn-boost{
+		background-color:#10b03d;
+		color:#fff;
+		width:100%;
+		display:block;
+		position: absolute;
+		top:0px;
+		left:0px;
+		-webkit-border-radius: 5px 5px 50% 50%;
+		border-radius: 5px 5px 50% 50%;
+		font-size:25px;
+	}
 	.btn-premium{
-		background-color:#e0ac5a;
+		background-color:#066a95;
 	}
 	.btn-platinum{
-		background-color:#d6d0c8;
+		background-color:#066a95;
 	}
 	.price{
-		font-size:30px;
+		font-size:62px;
 		font-weight:Bold;
+		color:#066a95;
+		font-family : "Open Sans";
 	}
 	.content-package{
 		padding:20px;
 		text-align:center;
 		-webkit-border-radius: 5px 5px 5px 5px;
 		border-radius: 5px 5px 5px 5px;
-		background-color:#21aac1;
-		color:#fff;
-		hr{
-		  border-top: 2px solid #13506b;
-		}
+		background-color:#fff;
 	}
 	.content-boost{
-		background-color:#20a7e2;
-		hr{
-		  border-top: 2px solid #16efbb;
+		padding-top:230px;
+		.price{
+		  color:#fff;
 		}
 	}
 	.btn-order{
@@ -113,7 +108,7 @@
 		margin-top:10px;
 	}
 	.btn-order-boost{
-		background-color:#33cc99;
+		background-color:#10b03d;
 	}
 	margin-bottom:70px;
 }
