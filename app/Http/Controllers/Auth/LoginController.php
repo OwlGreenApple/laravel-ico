@@ -10,6 +10,8 @@ use Illuminate\Http\Request as loginRequest, Input, Redirect, App, Carbon, Crypt
 use Illuminate\Contracts\Encryption\DecryptException;
 use Icocheckr\User;
 
+use Icocheckr\Mail\UserRegistered;
+
 class LoginController extends Controller
 {
     /*
@@ -123,11 +125,16 @@ class LoginController extends Controller
 		$emaildata = [
 			'url' => $url.Crypt::encrypt(json_encode($secret_data)),
 		];
-		Mail::queue('emails.forgot-password', $emaildata, function ($message) use ($email) {
+		/*Mail::queue('emails.forgot-password', $emaildata, function ($message) use ($email) {
 			$message->from('no-reply@celebgramme.com', 'Celebgramme');
 			$message->to($email);
 			$message->subject('[Celebgramme] Email Forgot & RESET Password');
-		});
+		});*/
+		//new ways to send email
+		Mail::to($user->email)->bcc($adminEmails)->queue(new UserRegistered($emaildata));
+
+
+
 		return redirect('forgot-password')->with(array('success'=>'1',));
 	}
 	
