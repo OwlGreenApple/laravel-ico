@@ -103,8 +103,8 @@ class LoginController extends Controller
 		return view('auth.forgot-password');
 	}
 	
-	public function auth_forgot() {
-		$email = Request::input("username");
+	public function auth_forgot(loginRequest $request) {
+		$email = $request->username;
 		$user = User::where('email','=',$email)->first();
 		if (is_null($user)) {
 			return redirect('forgot-password')->with(array('error'=>'1',));
