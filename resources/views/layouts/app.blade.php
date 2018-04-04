@@ -126,15 +126,10 @@
 															<li @if(Request::is('rating-admin')) class="active" @endif><a href="{{ url('rating-admin') }}">Rating	</a></li>
 														<?php } ?>
 															<li>
-																	<a href="{{ url('logout') }}"
-																			onclick="event.preventDefault();
-																							 document.getElementById('logout-form').submit();">
+																	<a href="{{ url('logout') }}">
 																			Logout
 																	</a>
 
-																	<form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
-																			{{ csrf_field() }}
-																	</form>
 															</li>
 													</ul>
 											</li>
