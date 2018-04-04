@@ -131,7 +131,7 @@ class LoginController extends Controller
 			$message->subject('[Celebgramme] Email Forgot & RESET Password');
 		});*/
 		//new ways to send email
-		Mail::to($user->email)->bcc($adminEmails)->queue(new UserRegistered($emaildata));
+		Mail::to($user->email)->queue(new UserRegistered($emaildata));
 
 
 
