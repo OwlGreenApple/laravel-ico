@@ -4,7 +4,7 @@
 // Auth::routes();
 /* LOGIN / LOGOUT */
 // Route::get('/', 'Auth	\LoginController@getLogin');
-Route::get('login', 'Auth\LoginController@getLogin');
+Route::get('login', 'Auth\LoginController@getLogin')->name('login');
 Route::post('auth/login', ['as'=>'auth.login', 'uses'=> 'Auth\LoginController@postLogin']);
 Route::get('logout', 'Auth\LoginController@getLogout');
 
@@ -16,10 +16,10 @@ Route::post('auth/register', ['as'=>'auth.register', 'uses'=> 'Auth\RegisterCont
 Route::get('verifyemail/{cryptedcode}', 'Member\EmailController@verifyEmail');
 
 /* FORGOT PASSWORD */
-Route::get('forgot-password', 'LandingPageController@forgot_password');
-Route::get('redirect-auth/{cryptedcode}', 'LandingPageController@redirect_auth');
-Route::post('auth/forgot', ['as'=>'auth.forgot', 'uses'=> 'LandingPageController@auth_forgot']);
-Route::post('change-password', ['as'=>'change.password', 'uses'=> 'LandingPageController@change_password']);
+Route::get('forgot-password', 'Auth\LoginController@forgot_password');
+Route::get('redirect-auth/{cryptedcode}', 'Auth\LoginController@redirect_auth');
+Route::post('auth/forgot', ['as'=>'auth.forgot', 'uses'=> 'Auth\LoginController@auth_forgot']);
+Route::post('change-password', ['as'=>'change.password', 'uses'=> 'Auth\LoginController@change_password']);
 
 
 
