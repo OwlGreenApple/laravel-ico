@@ -3,26 +3,26 @@
 @section('content')
 <link href="{{ asset('/css/login.css') }}" rel="stylesheet">
 		
+	<div class="container">
+			<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+
+						<h1 class="panel-heading">Forgot Password</h1>
 
 
-      <div class="container">  
-        <div class="container2">  
-          <div class="div-logo">
-            <a href="http://celebgramme.com"><div class="logo"></div></a>
-          </div>
-					<form class="form-signin" method="POST" action="{{ route('change.password') }}">
-            {!! csrf_field() !!}
-              <label>Password</label>
-              <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" value="{{Input::old('password')}}">
-              <label>Confirmation Password </label>
-              <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Enter confirmation password" value="{{Input::old('password')}}">
-            
-            <button class="btn btn-lg btn-block" type="submit">Submit</button>
-          </form>
-        </div>
+						<form class="form-signin" method="POST" action="{{ route('change.password') }}">
+							{!! csrf_field() !!}
+								<label>Password</label>
+								<input type="password" class="form-control" id="password" name="password" placeholder="Enter password" value="{{Input::old('password')}}">
+								<label>Confirmation Password </label>
+								<input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Enter confirmation password" value="{{Input::old('password')}}">
+							
+							<button class="btn btn-lg btn-block" type="submit">Submit</button>
+						</form>
 
-      </div>
-
+					</div>
+			</div>
+	</div>
 
       <script>
         $(document).ready(function(){
