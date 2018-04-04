@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 // use Icocheckr\Http\Request as loginRequest;
 use Illuminate\Http\Request as loginRequest, Input, Redirect, App;
 use Illuminate\Contracts\Encryption\DecryptException;
+use Icocheckr\User;
 
 class LoginController extends Controller
 {
@@ -110,10 +111,10 @@ class LoginController extends Controller
 			return redirect('forgot-password')->with(array('error'=>'1',));
 		}
 		if (App::environment() == 'local'){
-			$url = 'https://localhost/celebgramme/public/redirect-auth/';
+			$url = 'https://localhost/icocheckr/public/redirect-auth/';
 		}
 		else if (App::environment() == 'production'){
-			$url = 'https://celebgramme.com/celebgramme/redirect-auth/';
+			$url = 'https://icocheckr.com/redirect-auth/';
 		}
 		$secret_data = [
 			'email' => $email,
