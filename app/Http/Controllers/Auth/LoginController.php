@@ -138,7 +138,7 @@ class LoginController extends Controller
 		return redirect('forgot-password')->with(array('success'=>'1',));
 	}
 	
-	public function redirect_auth(req $request,$cryptedcode)
+	public function redirect_auth(loginRequest $request,$cryptedcode)
 	{
 		try {
 			$decryptedcode = Crypt::decrypt($cryptedcode);
@@ -155,7 +155,7 @@ class LoginController extends Controller
 		}
 	}	
 	
-	public function change_password(req $request){
+	public function change_password(loginRequest $request){
 		$email = $request->session()->get('email');
 		$user = User::where("email",'=',$email)->first();
 		$user->password = Request::input("password");
