@@ -6,7 +6,7 @@
 // Route::get('/', 'Auth	\LoginController@getLogin');
 Route::get('login', 'Auth\LoginController@getLogin')->name('login');
 Route::post('auth/login', ['as'=>'auth.login', 'uses'=> 'Auth\LoginController@postLogin']);
-Route::get('logout', 'Auth\LoginController@getLogout');
+Route::get('logout', 'Auth\LoginController@getLogout')->name('logout');
 
 /* register */
 Route::get('register', 'Auth\RegisterController@getRegister');
