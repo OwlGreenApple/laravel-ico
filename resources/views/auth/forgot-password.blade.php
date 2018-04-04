@@ -9,7 +9,7 @@
 
 									<h1 class="panel-heading">Forgot Password</h1>
 
-									<form class="form-horizontal" method="POST" action="{{ route('auth.login') }}">
+									<form class="form-horizontal" method="POST" action="{{ route('auth.forgot') }}">
 											{{ csrf_field() }}
 
 											<div class="form-group">
