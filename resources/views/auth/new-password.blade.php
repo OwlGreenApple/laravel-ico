@@ -10,7 +10,7 @@
 						<h1 class="panel-heading">Forgot Password</h1>
 
 
-						<form class="form-signin" method="POST" action="{{ route('change.password') }}">
+						<form class="form-horizontal" method="POST" action="{{ route('change.password') }}">
 							{!! csrf_field() !!}
 								<div class="form-group">
 									<label for="password" class="col-md-12 control-label">Password</label>
