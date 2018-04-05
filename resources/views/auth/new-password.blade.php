@@ -12,12 +12,25 @@
 
 						<form class="form-signin" method="POST" action="{{ route('change.password') }}">
 							{!! csrf_field() !!}
-								<label>Password</label>
-								<input type="password" class="form-control" id="password" name="password" placeholder="Enter password" value="{{Input::old('password')}}">
-								<label>Confirmation Password </label>
-								<input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Enter confirmation password" value="{{Input::old('password')}}">
+								<div class="form-group">
+									<label for="password" class="col-md-12 control-label">Password</label>
+									<input type="password" class="form-control" id="password" name="password" placeholder="Enter password" value="{{Input::old('password')}}">
+								</div>
+								<div class="form-group">
+									<label for="password_confirmation" class="col-md-12 control-label">Confirmation Password</label>
+									<input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Enter confirmation password" value="{{Input::old('password')}}">
+								</div>
 							
-							<button class="btn btn-lg btn-block" type="submit">Submit</button>
+								<div class="form-group">
+										<div class="col-md-6 col-md-offset-4">
+										</div>
+								</div>
+
+								<div class="form-group">
+										<div class="col-md-6 col-md-offset-3">
+											<button class="btn btn-primary form-control">Submit</button>
+										</div>
+								</div>
 						</form>
 
 					</div>
