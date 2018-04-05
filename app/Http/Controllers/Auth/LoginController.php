@@ -158,7 +158,7 @@ class LoginController extends Controller
 	public function change_password(loginRequest $request){
 		$email = $request->session()->get('email');
 		$user = User::where("email",'=',$email)->first();
-		$user->password = Request::input("password");
+		$user->password = $request->password;
 		$user->save();
 		return redirect('login')->with(array("success"=>"Password berhasil diganti"));
 	}
