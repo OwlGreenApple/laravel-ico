@@ -30,7 +30,7 @@ class UserRegistered extends Mailable
     public function build()
     {
         return $this->from('no-reply@icocheckr.com', 'Icocheckr')
-										->view('emails.forgot-password')
+										->view('emails.confirm-email')
 										->with($this->emaildata);
 
     }

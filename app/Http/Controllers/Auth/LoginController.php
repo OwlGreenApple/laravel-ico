@@ -160,7 +160,7 @@ class LoginController extends Controller
 		$user = User::where("email",'=',$email)->first();
 		$user->password = $request->password;
 		$user->save();
-		return redirect('login')->with(array("success"=>"Password berhasil diganti"));
+		return redirect('login')->with(array("success"=>"Password successfully replaced"));
 	}
 
 

@@ -4,6 +4,7 @@ namespace Icocheckr;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Validator;
 
 class User extends Authenticatable
 {
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'fullname', 'email', 'password',
     ];
 
     /**
@@ -26,4 +27,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+		
+		protected function validator(array $data)
+		{
+			return Validator::make($data, [
+				'email' => 'required|email|max:255|unique:users',
+				'password' => 'required|confirmed|min:6|max:25',
+			]);
+		}
+  
 }
