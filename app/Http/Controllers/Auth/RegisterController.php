@@ -147,6 +147,7 @@ class RegisterController extends Controller
 			});*/
 			Mail::to($user->email)->queue(new UserRegistered($emaildata));
 
+			return redirect('/');
 			/*if (! $request->session()->has('checkout_data')) {
 				//return redirect('/home');
 				// return Redirect::to("http://celebgramme.com/email-konfirmasi/");
