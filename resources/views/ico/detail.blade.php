@@ -102,11 +102,11 @@
 					<hr class="row">
 					<div class="row">
 						<div class="col-xs-6 col-md-6">
-							<p class="label-rating">Profile</p>
+							<p class="label-rating">Project</p>
 							<p class="label-rating-value">7.0</p>
 						</div>
 						<div class="col-xs-6 col-md-6">
-							<p class="label-rating">Social</p>
+							<p class="label-rating">Profile</p>
 							<p class="label-rating-value">7.0</p>
 						</div>
 					</div>

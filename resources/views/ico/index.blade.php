@@ -12,19 +12,27 @@
 			<div class="row">
 				<div class="col-xs-12 col-md-3">
 					<label class="control-label">Search Name</label>
-					<input type="text" class="form-control">
+					<input type="text" class="form-control" id="search-name">
 				</div>
 				<div class="col-xs-12 col-md-3">
 					<label class="control-label">Rating</label>
-					<input type="text" class="form-control">
+					<select class="form-control" id="rating" name="rating">
+						<option value="any">Any</option>
+						<option value="9">9+</option>
+						<option value="8">8+</option>
+						<option value="7">7+</option>
+						<option value="6">6+</option>
+						<option value="5">5+</option>
+					</select>
+
 				</div>
 				<div class="col-xs-12 col-md-3">
 					<label class="control-label">Start</label>
-					<input type="text" class="form-control formatted-date">
+					<input type="text" class="form-control formatted-date" id="start-date">
 				</div>
 				<div class="col-xs-12 col-md-3">
 					<label class="control-label">End</label>
-					<input type="text" class="form-control formatted-date">
+					<input type="text" class="form-control formatted-date" id="end-date">
 				</div>
 			</div>
 			<div class="row div-expand">
@@ -95,6 +103,7 @@
 	</div>  
 	
   <script>
+		modeSearch = "all";
     function refresh_page(page)
     {
       $.ajax({
@@ -102,7 +111,15 @@
         type: 'get',
         data: {
           page: page,
-					// filename: $("#file-name").val(),
+          name: $("#search-name").val(),
+          rating: $("#rating").val(),
+          startDate: $("#start-date").val(),
+          endDate: $("#end-date").val(),
+          status: $("#select-status").val(),
+          category: $("#select-category").val(),
+          country: $("#country-operation").val(),
+          platform: $("#platform").val(),
+          modeSearch: modeSearch,
         },
         beforeSend: function()
         {
@@ -122,16 +139,21 @@
 			$(".div-collapse").hide();
 			$(".div-expand").show();
 			
+			$('.btn-search').click(function(e){
+				refresh_page(1);
+			});
 			$('#btn-collapse').click(function(e){
 				$(".div-collapse").show();
 				$(".div-expand").hide();
+				modeSearch = "partly";
 			});
 			$('#btn-expand').click(function(e){
 				$(".div-collapse").hide();
 				$(".div-expand").show();
+				modeSearch = "all";
 			});
 			
-			$('#select-category').append($('<option>', {value:"All",text:"All"}));
+			$('#select-category').append($('<option>', {value:"all",text:"All"}));
 			$('#select-category').append($('<option>', {value:"Platform",text:"Platform"}));
 			$('#select-category').append($('<option>', {value:"Cryptocurrency",text:"Cryptocurrency"}));
 			$('#select-category').append($('<option>', {value:"Business services",text:"Business services"}));
