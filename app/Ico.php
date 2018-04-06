@@ -36,6 +36,10 @@ class Ico extends Model {
 													"twitter_username",
 													"financial",
 													"tagline",
+													"rating_project", 
+													"rating_profile", 
+													"rating_team", 
+													"rating_hype", 
 												];
 	/**
 	 * The attributes that should be mutated to dates.

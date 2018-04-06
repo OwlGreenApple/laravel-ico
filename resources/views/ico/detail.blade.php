@@ -96,28 +96,61 @@
 							<span class="label-header-rating">Rating</span>
 						</div>
 						<div class="col-xs-5 col-md-5 col-lg-offset-1">	
-							<span class="label-header-rating-value pull-right">AAA</span>
+							<?php if (!is_null($ico->rating)) { ?>
+							<span class="label-header-rating-value pull-right"><?php 
+								if ($ico->rating  > 9.5) {
+									echo "AAA";
+								}
+								else if ($ico->rating  > 9) {
+									echo "AA";
+								}
+								else if ($ico->rating  > 8.5) {
+									echo "A";
+								}
+								else if ($ico->rating  > 8) {
+									echo "BBB";
+								}
+								else if ($ico->rating  > 7.5) {
+									echo "BB";
+								}
+								else if ($ico->rating  > 7) {
+									echo "B";
+								}
+								else if ($ico->rating  > 6.5) {
+									echo "CCC";
+								}
+								else if ($ico->rating  > 6) {
+									echo "CC";
+								}
+								else if ($ico->rating  > 5.5) {
+									echo "C";
+								}
+								else if ($ico->rating  < 5.5) {
+									echo "D";
+								}
+							?></span>
+							<?php } ?>
 						</div>
 					</div>
 					<hr class="row">
 					<div class="row">
 						<div class="col-xs-6 col-md-6">
 							<p class="label-rating">Project</p>
-							<p class="label-rating-value">7.0</p>
+							<p class="label-rating-value"><?php if (is_null($ico->rating_project)) { echo "-"; } else {echo $ico->rating_project;} ?></p>
 						</div>
 						<div class="col-xs-6 col-md-6">
 							<p class="label-rating">Profile</p>
-							<p class="label-rating-value">7.0</p>
+							<p class="label-rating-value"><?php if (is_null($ico->rating_profile)) { echo "-"; } else {echo $ico->rating_profile;} ?></p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-xs-6 col-md-6">
 							<p class="label-rating">Team</p>
-							<p class="label-rating-value">7.0</p>
+							<p class="label-rating-value"><?php if (is_null($ico->rating_team)) { echo "-"; } else {echo $ico->rating_team;} ?></p>
 						</div>
 						<div class="col-xs-6 col-md-6">
 							<p class="label-rating">Hype</p>
-							<p class="label-rating-value">7.0</p>
+							<p class="label-rating-value"><?php if (is_null($ico->rating_hype)) { echo "-"; } else {echo $ico->rating_hype;} ?></p>
 						</div>
 					</div>
 					<div class="row">

@@ -36,6 +36,34 @@
 						</div>
 
             <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Rating Project</label>
+              <div class="col-xs-12 col-md-9">
+								<input type="number" class="form-control" id="rating-project" name="rating_project">
+              </div>
+            </div>
+
+            <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Rating Profile</label>
+              <div class="col-xs-12 col-md-9">
+								<input type="number" class="form-control" id="rating-profile" name="rating_profile">
+              </div>
+            </div>
+
+            <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Rating Team</label>
+              <div class="col-xs-12 col-md-9">
+								<input type="number" class="form-control" id="rating-team" name="rating_team">
+              </div>
+            </div>
+
+            <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Rating Hype</label>
+              <div class="col-xs-12 col-md-9">
+								<input type="number" class="form-control" id="rating-hype" name="rating_hype">
+              </div>
+            </div>
+
+            <div class="form-group form-group-sm row">
               <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Rating</label>
               <div class="col-xs-12 col-md-9">
 								<input type="number" class="form-control" id="rating" name="rating">
@@ -426,6 +454,12 @@
 	</div>  
 	
   <script>
+		function calculate_rating(){
+			
+			
+			
+		}
+
 		function add_option_categories(){
 			selectizeCategories.addOption({value:"Platform",text:"Platform"});
 			selectizeCategories.addOption({value:"Cryptocurrency",text:"Cryptocurrency"});
@@ -503,7 +537,11 @@
 				$("#id-ico").val("new");
 				$("#ico-name").val("");
 				$("#tagline").val("");
-				$("#rating").val("");
+				$("#rating").val(0);
+				$("#rating-project").val(0);
+				$("#rating-profile").val(0);
+				$("#rating-team").val(0);
+				$("#rating-hype").val(0);
 				// $("#about").html("");
 				// $("#description").html("");
 				selectizeCategories.clearOptions();
@@ -528,6 +566,10 @@
 				$("#ico-name").val($(this).attr("data-name"));
 				$("#tagline").val($(this).attr("data-tagline"));
 				$("#rating").val($(this).attr("data-rating"));
+				$("#rating-project").val($(this).attr("data-rating-project"));
+				$("#rating-profile").val($(this).attr("data-rating-profile"));
+				$("#rating-team").val($(this).attr("data-rating-team"));
+				$("#rating-hype").val($(this).attr("data-rating-hype"));
 				// $("#about").html($(this).attr("data-about"));
 				// $("#description").html($(this).attr("data-description"));
 
@@ -860,6 +902,9 @@
         });
 			});
 			
+			$( "#rating-project,#rating-profile,#rating-team,#rating-hype" ).change(function() {
+				$("#rating").val( ( parseInt($("#rating-project").val()) + parseInt($("#rating-profile").val()) + parseInt($("#rating-team").val()) + parseInt($("#rating-hype").val())) / 4 );
+			});
     });
   </script>		
 	

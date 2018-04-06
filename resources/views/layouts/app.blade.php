@@ -108,7 +108,7 @@
 
 								<!-- Right Side Of Navbar -->
 								<ul class="nav navbar-nav navbar-right">
-											<li><a href="https://icocheckr.com/article/first-step/">Start Here</a></li>
+											<li><a href="https://icocheckr.com/news/first-step/">Start Here</a></li>
 											<li @if(Request::is('ico')) class="active" @endif><a href="{{ url('/ico') }}">Search</a></li>
 											<li @if(Request::is('premium')) class="active" @endif><a href="{{ url('/premium') }}">Publish ICO</a></li>
 										
