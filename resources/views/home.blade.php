@@ -9,6 +9,7 @@
         url: '<?php echo url('load-ico-home'); ?>',
         type: 'get',
         data: {
+					s:$("#select-category").val(),
         },
         beforeSend: function()
         {
@@ -18,6 +19,27 @@
         success: function(result)
         {
           $('#div-ico-home').html(result);
+          $("#div-loading").hide();
+					make_height_same();
+        }
+      });
+    }
+    function load_ico_home_banner()
+    {
+      $.ajax({
+        url: '<?php echo url('load-ico-home-banner'); ?>',
+        type: 'get',
+        data: {
+					// filename: $("#file-name").val(),
+        },
+        beforeSend: function()
+        {
+          $("#div-loading").show();
+        },
+        dataType: 'text',
+        success: function(result)
+        {
+          $('#div-ico-home-banner').html(result);
           $("#div-loading").hide();
 					
 					$('.responsive-slick').slick({
@@ -58,31 +80,24 @@
         }
       });
     }
-    function load_ico_home_banner()
-    {
-      $.ajax({
-        url: '<?php echo url('load-ico-home-banner'); ?>',
-        type: 'get',
-        data: {
-					// filename: $("#file-name").val(),
-        },
-        beforeSend: function()
-        {
-          $("#div-loading").show();
-        },
-        dataType: 'text',
-        success: function(result)
-        {
-          $('#div-ico-home-banner').html(result);
-          $("#div-loading").hide();
-        }
-      });
-    }
+		
+		function make_height_same(){
+			var max = -1;
+			$(".ico-list").each(function() {
+				var h = $(this).height(); // ditambah 40 karena ada padding 20 (top,bottom)
+				max = h > max ? h : max;
+			});
+			$(".ico-list").each(function() {
+					$(this).height(max); 
+			});
+		}
+		
 		$(document).ready(function() {
 			load_ico_home_banner();
 			load_ico_home();
+			make_height_same();
 			
-			$('#select-category').append($('<option>', {value:"All",text:"All"}));
+			$('#select-category').append($('<option>', {value:"all",text:"All"}));
 			$('#select-category').append($('<option>', {value:"Platform",text:"Platform"}));
 			$('#select-category').append($('<option>', {value:"Cryptocurrency",text:"Cryptocurrency"}));
 			$('#select-category').append($('<option>', {value:"Business services",text:"Business services"}));
@@ -116,6 +131,11 @@
 			$('#select-category').append($('<option>', {value:"Skills",text:"Skills"}));
 			$('#select-category').append($('<option>', {value:"Other",text:"Other"}));
 			
+			$('#select-category').change(function() {
+				load_ico_home();
+				make_height_same();
+			});
+
 		});
 </script>
 
