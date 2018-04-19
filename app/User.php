@@ -28,7 +28,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 		
-		protected function validator(array $data)
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+    protected function validator(array $data)
 		{
 			return Validator::make($data, [
 				'email' => 'required|email|max:255|unique:users',
