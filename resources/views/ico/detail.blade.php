@@ -136,21 +136,21 @@
 					<div class="row">
 						<div class="col-xs-6 col-md-6">
 							<p class="label-rating">Project</p>
-							<p class="label-rating-value"><?php if (is_null($ico->rating_project)) { echo "-"; } else {echo $ico->rating_project;} ?></p>
+							<p class="label-rating-value"><?php if (is_null($ico->rating_project)) { echo "-"; } else {echo number_format($ico->rating_project, 1, '.', '');} ?></p>
 						</div>
 						<div class="col-xs-6 col-md-6">
 							<p class="label-rating">Profile</p>
-							<p class="label-rating-value"><?php if (is_null($ico->rating_profile)) { echo "-"; } else {echo $ico->rating_profile;} ?></p>
+							<p class="label-rating-value"><?php if (is_null($ico->rating_profile)) { echo "-"; } else {echo number_format($ico->rating_profile, 1, '.', '');} ?></p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-xs-6 col-md-6">
 							<p class="label-rating">Team</p>
-							<p class="label-rating-value"><?php if (is_null($ico->rating_team)) { echo "-"; } else {echo $ico->rating_team;} ?></p>
+							<p class="label-rating-value"><?php if (is_null($ico->rating_team)) { echo "-"; } else {echo number_format($ico->rating_team, 1, '.', '');} ?></p>
 						</div>
 						<div class="col-xs-6 col-md-6">
 							<p class="label-rating">Hype</p>
-							<p class="label-rating-value"><?php if (is_null($ico->rating_hype)) { echo "-"; } else {echo $ico->rating_hype;} ?></p>
+							<p class="label-rating-value"><?php if (is_null($ico->rating_hype)) { echo "-"; } else {echo number_format($ico->rating_hype, 1, '.', '');} ?></p>
 						</div>
 					</div>
 					<div class="row">

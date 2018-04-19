@@ -157,9 +157,47 @@
 	</div>
 </div>
 
+<div class="home-find-more">
+	<div class="container">
+		<h3>
+			Find Out More
+		</h3>
+		<p>
+			Want the latest news about ico in ICOCHECKR ? join our Social Media <br>
+			Now
+		</p>
+		<div class="row find-more-icon">
+			<a href="https://www.facebook.com/icocheckr/" target="_blank"><i class="icon icon-fb"></i></a>
+			<a href="https://instagram.com/icocheckr" target="_blank"><i class="icon icon-ig"></i></a>
+			<a href="https://twitter.com/icocheckr" target="_blank"><i class="icon icon-twitter"></i></a>
+			<a href="https://t.me/icocheckr" target="_blank"><i class="icon icon-telegram"></i></a>
+		</div>
+	</div>
+</div>
+
 <div class="container home-slideshow">
 	<div class="responsive-slick" id="div-ico-home-banner">
 	</div>
+</div>
+
+<div class="container main-ico-home">
+    <div class="row gap-blue">
+			<div class="col-xs-12 col-md-4">
+				<h3 style="text-align:center;">
+					<a href="{{url('ico/ongoing')}}">Ongoing</a>
+				</h3>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<h3 style="text-align:center;">
+					<a href="{{url('ico/upcoming')}}">Upcoming</a>
+				</h3>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<h3 style="text-align:center;">
+					<a href="{{url('ico/ended')}}">Ended</a>
+				</h3>
+			</div>
+		</div>
 </div>
 
 <div class="container main-ico-home">

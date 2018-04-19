@@ -34,30 +34,15 @@
 		background-color:#3266ba;
 		color:#fff;
 	}
-	.icon{
-		background-repeat: no-repeat;
-		background-size: 25px 25px;
-		width:25px;
-		height:25px;
-		margin:0 auto;
-		display:inline-block;
-		margin-left : 15px;
-	}
-	.icon-fb{
-		background-image: url(../images/icon-blue-sosmed-white-fb.png);
-	}
-	.icon-ig{
-		background-image: url(../images/icon-blue-sosmed-white-ig.png);
-	}
-	.icon-twitter{
-		background-image: url(../images/icon-blue-sosmed-white-twitter.png);
-	}
-	.icon-telegram{
-		background-image: url(../images/icon-blue-sosmed-white-telegram.png);
-	}
 }
 
-a { color :#146656; font-weight: bold;}
+a { 
+	/*color :#146656; */
+	font-weight: bold;
+}
+a:hover{
+	text-decoration:none;
+}
 
 .glyphicon-refresh-animate {
     -animation: spin .7s infinite linear;
@@ -280,14 +265,66 @@ opacity:0.8;width:25px; height:25px;
 
 
 /* Home */
+.home-find-more{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0b7ab6+0,0f85bf+31,1494ca+49,179bd0+53,19a2d5+73,1cabdc+86,20b6e5+100 */
+	background: #0b7ab6; /* Old browsers */
+	background: -moz-linear-gradient(left, #0b7ab6 0%, #0f85bf 31%, #1494ca 49%, #179bd0 53%, #19a2d5 73%, #1cabdc 86%, #20b6e5 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, #0b7ab6 0%,#0f85bf 31%,#1494ca 49%,#179bd0 53%,#19a2d5 73%,#1cabdc 86%,#20b6e5 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #0b7ab6 0%,#0f85bf 31%,#1494ca 49%,#179bd0 53%,#19a2d5 73%,#1cabdc 86%,#20b6e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b7ab6', endColorstr='#20b6e5',GradientType=1 ); /* IE6-9 */
+	
+	text-align:center;
+	padding : 110px;
+	h3{
+		color:#fff;
+		font-size : 41px;
+		font-family : "Open Sans";
+	}
+	p{
+	  margin-top: 50px;
+		color:#fff;
+		font-size : 25px;
+		font-family : "Open Sans";
+	}
+	.find-more-icon{
+	}
+}
+.icon{
+	background-repeat: no-repeat;
+	background-size: 25px 25px;
+	width:25px;
+	height:25px;
+	margin:0 auto;
+	display:inline-block;
+	margin-left : 15px;
+}
+.icon-fb{
+	background-image: url(../images/icon-blue-sosmed-white-fb.png);
+}
+.icon-ig{
+	background-image: url(../images/icon-blue-sosmed-white-ig.png);
+}
+.icon-twitter{
+	background-image: url(../images/icon-blue-sosmed-white-twitter.png);
+}
+.icon-telegram{
+	background-image: url(../images/icon-blue-sosmed-white-telegram.png);
+}
+
 .background-banner{
   width:100%;
-  min-height:577px;
-  height:calc(100% - 1px);
-  background-size:cover;
-	background-image: url(../images/icocheckr-home-image.jpg);
-	position:relative;
 	
+	position:relative;
+	background: #fff url(../images/icocheckr-home-image.jpg) no-repeat right bottom;
+	/*
+	background-image: url(../images/icocheckr-home-image.jpg);
+	*/
+	min-height:635px;
+	height:calc(100% - 1px);
+	width:100%;
+	background-size:cover;
+    position: relative;
+    overflow: hidden;
 	h1{
 		margin-top:60px;
 		color:#0e5476;
@@ -298,6 +335,7 @@ opacity:0.8;width:25px; height:25px;
 		font-size:18px;
 	}
 	button{
+		margin-top:20px;
 		background-color:#fff;
 		color:#0e5477;
 		font-weight: bold;

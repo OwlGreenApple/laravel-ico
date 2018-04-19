@@ -20,6 +20,7 @@ class IcoController extends Controller {
 	{
 					
 		return view('ico.index')->with([
+			"type"=>"",
 		]);
 	}
   
@@ -41,14 +42,14 @@ class IcoController extends Controller {
 									->get();
 		}
 		if ($request->startDate<>"") {
-			$collection3 = Ico::whereDate("presale_start","<=",Carbon::createFromFormat("m/d/Y", $request->startDate))
-									->orWhereDate("sale_start","<=",Carbon::createFromFormat("m/d/Y", $request->startDate))
+			$collection3 = Ico::whereDate("presale_start",">=",Carbon::createFromFormat("m/d/Y", $request->startDate))
+									->orWhereDate("sale_start",">=",Carbon::createFromFormat("m/d/Y", $request->startDate))
 									->get();
 			$data = $data->intersect($collection3);
 		}
 		if ($request->endDate<>"") {
-			$collection4= Ico::where("presale_end","<",Carbon::createFromFormat("m/d/Y", $request->endDate))
-									->orWhere("sale_end","<",Carbon::createFromFormat("m/d/Y", $request->endDate))
+			$collection4= Ico::where("presale_end","<=",Carbon::createFromFormat("m/d/Y", $request->endDate))
+									->orWhere("sale_end","<=",Carbon::createFromFormat("m/d/Y", $request->endDate))
 									->get();
 			$data = $data->intersect($collection4);
 		}
@@ -93,10 +94,17 @@ class IcoController extends Controller {
 
 	public function detail(req $request, $ico_name)
   {
-		$ico = Ico::where("name",$ico_name)->first();
-		return view('ico.detail')->with([
-			"ico"=>$ico,
-		]);
+		if ( ($ico_name=="upcoming") || ($ico_name=="ongoing") || ($ico_name=="ended") ) {
+			return view('ico.index')->with([
+				"type"=>$ico_name,
+			]);
+		}
+		else {
+			$ico = Ico::where("name",$ico_name)->first();
+			return view('ico.detail')->with([
+				"ico"=>$ico,
+			]);
+		}
 	}
 	
 	public function publish(req $request)

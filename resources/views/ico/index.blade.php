@@ -40,8 +40,9 @@
 					<label class="control-label">Status</label>
 					<select class="form-control" id="select-status">
 						<option value="any">Any</option>
-						<option value="upcoming">Upcoming</option>
-						<option value="ongoing">Ongoing</option>
+						<option value="upcoming" <?php if($type=="upcoming") {echo "selected";} ?>>Upcoming</option>
+						<option value="ongoing" <?php if($type=="ongoing") {echo "selected";} ?>>Ongoing</option>
+						<option value="ended" <?php if($type=="ended") {echo "selected";} ?>>Ended</option>
 						<option value="onexchange">Onexchange</option>
 					</select>
 				</div>
@@ -133,11 +134,26 @@
         }
       });
     }
+		$(document).keypress(function(e) {
+				if(e.which == 13) {
+						refresh_page(1);
+				}
+		});
     $(document).ready(function(){
       document.title = 'ICO discovery and rating platform';
 			refresh_page(1);
 			$(".div-collapse").hide();
 			$(".div-expand").show();
+			
+			$('.btn-filter').click(function(e){
+				$("#search-name").val("");
+				$("#rating").val("any");
+				$("#select-status").val("any");
+				$("#select-category").val("all");
+				$("#country-operation").val("");
+				$("#platform").val("any");
+				refresh_page(1);
+			});
 			
 			$('.btn-search').click(function(e){
 				refresh_page(1);
