@@ -15,6 +15,17 @@
 		</div>  
 	</div>
 	
+	<div class="container" style="margin-bottom:20px;">
+		<div class="row">
+			<div class="">
+				<div class="col-xs-12 col-md-12 alert alert-success" id="alert" style="text-align:center;display:none;">
+					<b>Thank you for choosing one of our VIP packages. </b> <br>
+					Please check your email for the next step.
+				</div>
+			</div>  
+		</div>  
+	</div>
+	
 	<div class="container choose-package">
 		<div class="row">
 			<div class="col-xs-12 col-md-3 wrap-choose-package">
@@ -34,7 +45,7 @@
 				
 				</div>
 				
-				<input type="button" value="Order Now" class="form-control btn btn-order">
+				<input type="button" value="Order Now" class="form-control btn btn-order" data-eth="3">
 			</div>  
 			
 			<div class="col-xs-12 col-md-3 wrap-choose-package wrap-choose-package-boost">
@@ -55,7 +66,7 @@
 				
 				</div>
 				
-				<input type="button" value="Order Now" class="form-control btn btn-order btn-order-boost">
+				<input type="button" value="Order Now" class="form-control btn btn-order btn-order-boost" data-eth="9">
 			</div>  
 			
 			<div class="col-xs-12 col-md-3 wrap-choose-package">
@@ -75,7 +86,7 @@
 				
 				</div>
 				
-				<input type="button" value="Order Now" class="form-control btn btn-order">
+				<input type="button" value="Order Now" class="form-control btn btn-order" data-eth="20">
 			</div>  
 			
 			<div class="col-xs-12 col-md-3 wrap-choose-package">
@@ -95,7 +106,7 @@
 				
 				</div>
 				
-				<input type="button" value="Order Now" class="form-control btn btn-order">
+				<input type="button" value="Order Now" class="form-control btn btn-order" data-eth="30">
 			</div>  
 			
 			
@@ -117,6 +128,40 @@
     $(document).ready(function(){
       document.title = 'Premium ICOCheckr Packages';
 			make_height_same();
+			
+			$('.btn-order').click(function(e){
+        $.ajax({
+          url: '<?php echo url('submit-premium'); ?>',
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          type: 'post',
+          // data: $("#form-publish-ico").serialize(),
+          data: {
+						eth: $(this).attr("data-eth"),
+					},
+          beforeSend: function()
+          {
+            $("#div-loading").show();
+          },
+          dataType: 'text',
+          success: function(result)
+          {
+            var data = jQuery.parseJSON(result);
+            if(data.type=='success') {
+							$("#alert").show();
+              $("#alert").addClass("alert-success");
+              $("#alert").removeClass("alert-danger");
+							$('html, body').animate({scrollTop: $("#alert").offset().top-100}, 500);
+            } else if (data.type=='register') {
+							console.log("<?php echo url('/register'); ?>");
+							window.location.replace("<?php echo url('/register'); ?>");
+            }
+						$("#div-loading").hide();
+          }
+        });
+			});
+
     });
   </script>		
 	

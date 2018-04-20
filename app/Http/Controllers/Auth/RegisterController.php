@@ -3,12 +3,14 @@
 namespace Icocheckr\Http\Controllers\Auth;
 
 use Icocheckr\User;
+use Icocheckr\Order;
 use Icocheckr\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request as req;
 
 use Icocheckr\Mail\UserRegistered;
+use Icocheckr\Mail\OrderPremium;
 
 use Carbon, Hash, App, Crypt, Mail;
 
@@ -147,101 +149,35 @@ class RegisterController extends Controller
 			});*/
 			Mail::to($user->email)->queue(new UserRegistered($emaildata));
 
-			return redirect('/');
-			/*if (! $request->session()->has('checkout_data')) {
-				//return redirect('/home');
-				// return Redirect::to("http://celebgramme.com/email-konfirmasi/");
-			} 
-			else {
-				$user->valid_until = "0000-00-00 00:00:00";
-				$user->status_free_trial = 0;
-				$user->save();
-
+			if ($request->session()->has('checkout_data')) {
 				$checkout_data = $request->session()->get('checkout_data');
-				$package = Package::find($checkout_data["package_id"]);
 				
-				if ($checkout_data["payment_method"]== 1) {
-					$data = array (
-						"order_type" => "transfer_bank",
-						"order_status" => "pending",
-						"user_id" => $user->id,
-						"order_total" => $checkout_data["total"],
-						"package_id" => $checkout_data["package_id"],
-						"package_manage_id" => $checkout_data["package_manage_id"],
-						"coupon_code" => $checkout_data["coupon_code"],
-						"logs" => "NEW MEMBER",
-					);
-					
-					$order = Order::createOrder($data, true);
-					// return redirect('/home');
-					return Redirect::to("http://celebgramme.com/halaman-konfirmasi/");
-				}
+				$order = new Order;
 				
-				if ($checkout_data["payment_method"]== 2) {
-					
-					// Validation passes
-					$vt = new Veritrans;
-					// Populate items
-					$items = [];
-
-					// package
-					array_push($items, [
-						'id' => '#Package',
-						'price' => $checkout_data['total'],
-						'quantity' => 1,
-						'name' => "Paket ".$package->package_name,
-					]);
-					$totalPrice = $checkout_data['total'];
-					// Populate customer's billing address
-					$billing_address = [
-						'first_name' => $user->fullname,
-						'last_name' => "",
-						'phone' => $user->phone_number,
-					];
-
-					// Populate customer's Info
-					$customer_details = array(
-						'first_name' => $user->fullname,
-						'last_name' => "",
-						'email' => $user->email,
-						'billing_address' => $billing_address,
-					);
-						
-					$checkout_data['unique_id'] = uniqid();
-					$transaction_data = array(
-						'payment_type' => 'vtweb', 
-						'vtweb' => array(
-								// 'enabled_payments' => ["credit_card"],
-								'credit_card_3d_secure' => true
-						),
-						'transaction_details'=> array(
-							'order_id' => $checkout_data['unique_id'],
-							'gross_amount' => $totalPrice
-						),
-						'item_details' => $items,
-						'customer_details' => $customer_details
-					);
-					try
-					{
-						$checkout_data["order_type"] = "VERITRANS";
-						$checkout_data["order_status"] = "PENDING";
-						$checkout_data["user_id"] = $user->id;
-						$checkout_data["order_total"] = $totalPrice;
-						$checkout_data["email"] = $user->email;
-						$checkout_data["package_id"] = $package->id;
-						$request->session()->put('checkout_data', $checkout_data);
-						$vtweb_url = $vt->vtweb_charge($transaction_data);
-						return redirect($vtweb_url);
-					} 
-					catch (Exception $e) 
-					{   
-						return $e->getMessage;
-					}
-					
-				}
+				$dt = Carbon::now();
+				$str = $dt->format('ymd');
+				$order_number = Order::autoGenerateID($order, 'no_order', $str, 3, '0');
+				$order->no_order = $order_number;
+				
+				$order->user_id = $user->id;
+				$order->total = $checkout_data["total"];
+				$order->status = "pending";
+				$order->image = "";
+				$order->save();
+				
+				//send mail
+				$dt1 = Carbon::createFromFormat('Y-m-d H:i:s', $order->created_at);
+				$emaildata = [
+					'no_order' => $order->no_order,
+					'total' => $order->total,
+					'created' => $dt1->format('M d Y'),
+				];
+				Mail::to($user->email)->queue(new OrderPremium($emaildata));
+				
+				
 				$request->session()->forget('checkout_data');
-				
-			}*/
+			}
+			return redirect('/');
 		}
 
 }

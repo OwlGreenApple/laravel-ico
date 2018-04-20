@@ -27,11 +27,11 @@
 
 				</div>
 				<div class="col-xs-12 col-md-3">
-					<label class="control-label">Start</label>
+					<label class="control-label">Start After</label>
 					<input type="text" class="form-control formatted-date" id="start-date">
 				</div>
 				<div class="col-xs-12 col-md-3">
-					<label class="control-label">End</label>
+					<label class="control-label">End Before</label>
 					<input type="text" class="form-control formatted-date" id="end-date">
 				</div>
 			</div>

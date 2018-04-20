@@ -42,6 +42,7 @@ Route::post('/submit-publish-ico', 'IcoController@submit_publish_ico');
 
 //premium
 Route::get('/premium', 'IcoController@premium');
+Route::post('/submit-premium', 'IcoController@submit_premium');
 
 Route::group(['middleware' => 'auth'], function () {
 	//content writer  

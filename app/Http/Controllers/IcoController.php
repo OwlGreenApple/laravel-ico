@@ -5,6 +5,9 @@ use Icocheckr\Http\Controllers\Controller;
 
 use Icocheckr\Ico;
 use Icocheckr\Submit;
+use Icocheckr\Order;
+
+use Icocheckr\Mail\OrderPremium;
 
 use View,Auth,Request,DB,Carbon,Excel, Mail, Validator, Input, Config;
 
@@ -129,6 +132,46 @@ class IcoController extends Controller {
 		]);
 	}
 
-	
+	public function submit_premium(req $request)
+	{
+		$unique_code = mt_rand(1, 1000);
+		if (Auth::guest()) {
+			$arr["type"] = "register";
+			// buatkan session, register dulu
+			$arr_data = array (
+				"total"=>$request->eth + floatval("0.000".$unique_code),
+			);
+			
+			$request->session()->put('checkout_data', $arr_data);
+		}
+		else {
+			$user = Auth::user();
+			$arr["type"] = "success";
+
+			$order = new Order;
+			
+			$dt = Carbon::now();
+			$str = $dt->format('ymd');
+			$order_number = Order::autoGenerateID($order, 'no_order', $str, 3, '0');
+			$order->no_order = $order_number;
+			
+			$order->user_id = $user->id;
+			$order->total = $request->eth + floatval("0.000".$unique_code);
+			$order->status = "pending";
+			$order->image = "";
+			$order->save();
+			
+			//send mail
+			$dt1 = Carbon::createFromFormat('Y-m-d H:i:s', $order->created_at);
+			$emaildata = [
+				'no_order' => $order->no_order,
+				'total' => $order->total,
+				'created' => $dt1->format('M d Y'),
+			];
+			Mail::to($user->email)->queue(new OrderPremium($emaildata));
+		}
+		
+		return $arr;
+	}
 }
 

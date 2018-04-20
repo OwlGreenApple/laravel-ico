@@ -125,6 +125,7 @@
 															<li @if(Request::is('ico-admin')) class="active" @endif><a href="{{ url('ico-admin') }}">ICO	</a></li>
 															<li @if(Request::is('rating-admin')) class="active" @endif><a href="{{ url('rating-admin') }}">Rating	</a></li>
 														<?php } ?>
+															<li @if(Request::is('confirm-payment')) class="active" @endif><a href="{{ url('confirm-payment') }}">Confirm Payment	</a></li>
 															<li>
 																	<a href="{{ url('logout') }}">
 																			Logout
