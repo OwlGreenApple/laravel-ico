@@ -145,6 +145,7 @@
 									<option value="neo">Neo</option>
 									<option value="waves">Waves</option>
 									<option value="ardor">Ardor</option>
+									<option value="komodo">Komodo Asset Chain</option>
 									<option value="etc">etc</option>
 								</select>
               </div>
