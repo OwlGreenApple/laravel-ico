@@ -101,7 +101,7 @@
 								<select class="form-control" id="status" name="status">
 									<option value="upcoming">Upcoming</option>
 									<option value="ongoing">Ongoing(presale,private, or public sale)</option>
-									<option value="onexchange">Onexchange</option>
+									<option value="ended">Ended</option>
 								</select>
               </div>
             </div>

@@ -43,7 +43,6 @@
 						<option value="upcoming" <?php if($type=="upcoming") {echo "selected";} ?>>Upcoming</option>
 						<option value="ongoing" <?php if($type=="ongoing") {echo "selected";} ?>>Ongoing</option>
 						<option value="ended" <?php if($type=="ended") {echo "selected";} ?>>Ended</option>
-						<option value="onexchange">Onexchange</option>
 					</select>
 				</div>
 				<div class="col-xs-12 col-md-3">

@@ -40,26 +40,26 @@ class UpdateIcos extends Command
      */
     public function handle()
     {
-			$dt = Carbon::now()
+			$dt = Carbon::now();
 			
       $icos = Ico::all();
 			foreach($icos as $ico) {
 				if (!is_null($ico->presale_start)) {
-					if ($dt->gt(Carbon::createFromFormat('Y-m-d H:i:s', $ico->presale_start))) {
+					if ( ($dt->gt(Carbon::createFromFormat('Y-m-d H:i:s', $ico->presale_start))) && ($ico->status=="upcoming") ) {
 						$ico->status="ongoing";
 						$ico->save();
 					}
 				}
 				
 				if (!is_null($ico->sale_start)) {
-					if ($dt->gt(Carbon::createFromFormat('Y-m-d H:i:s', $ico->sale_start))) {
+					if ( ($dt->gt(Carbon::createFromFormat('Y-m-d H:i:s', $ico->sale_start))) && ($ico->status=="upcoming") ) {
 						$ico->status="ongoing";
 						$ico->save();
 					}
 				}
 				
 				if (!is_null($ico->sale_end)) {
-					if ($dt->gt(Carbon::createFromFormat('Y-m-d H:i:s', $ico->sale_end))) {
+					if ( ($dt->gt(Carbon::createFromFormat('Y-m-d H:i:s', $ico->sale_end))) && ($ico->status=="ongoing") ) {
 						$ico->status="ended";
 						$ico->save();
 					}
