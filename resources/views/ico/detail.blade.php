@@ -5,6 +5,7 @@
 		use Icocheckr\Meta;
 	?>
 	<link href="{{ asset('css/detail.css') }}" rel="stylesheet">
+	<script src="{{ asset('/js/jquery.country.select.js') }}"></script>
 	
 	<div class="container">
 		<div class="row">
@@ -231,6 +232,8 @@
 				$(".content-ico-financial").show();
 			});
     });
+// var e = document.getElementById("ddlViewBy");
+// var strUser = e.options[e.selectedIndex].text;		
   </script>
 	
 @endsection
