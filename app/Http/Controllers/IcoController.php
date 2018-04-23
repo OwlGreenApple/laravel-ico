@@ -46,44 +46,61 @@ class IcoController extends Controller {
 									->orderBy("status","desc")
 									->get();
 		}
-		if ($request->startDate<>"") {
+		
+		if ( ($request->startDate<>"") && ($request->endDate<>"") ) {
+			$dt = Carbon::createFromFormat("m/d/Y", $request->startDate); 
+			$dt1 = Carbon::createFromFormat("m/d/Y", $request->endDate); 
 			$collection3 = Ico::whereDate("presale_start",">=",Carbon::createFromFormat("m/d/Y", $request->startDate))
-									->orWhereDate("sale_start",">=",Carbon::createFromFormat("m/d/Y", $request->startDate))
+									->where("presale_end","<=",Carbon::createFromFormat("m/d/Y", $request->endDate))
+									
+									
+									->orWhere(function ($query) use($dt,$dt1){
+										$query->whereDate("sale_start",">=",$dt)
+										->whereDate("sale_end","<=",$dt1);
+									})
+									
 									->orderBy("status","desc")
 									->get();
 			$data = $data->intersect($collection3);
 		}
-		if ($request->endDate<>"") {
-			$collection4= Ico::where("presale_end","<=",Carbon::createFromFormat("m/d/Y", $request->endDate))
-									->orWhere("sale_end","<=",Carbon::createFromFormat("m/d/Y", $request->endDate))
+		else if ($request->startDate<>"") {
+			$collection4 = Ico::whereDate("presale_start",">=",Carbon::createFromFormat("m/d/Y", $request->startDate))
+									->orWhereDate("sale_start",">=",Carbon::createFromFormat("m/d/Y", $request->startDate))
 									->orderBy("status","desc")
 									->get();
 			$data = $data->intersect($collection4);
 		}
+		else if ($request->endDate<>"") {
+			$collection5= Ico::whereDate("presale_end","<=",Carbon::createFromFormat("m/d/Y", $request->endDate))
+									->orWhereDate("sale_end","<=",Carbon::createFromFormat("m/d/Y", $request->endDate))
+									->orderBy("status","desc")
+									->get();
+			$data = $data->intersect($collection5);
+		}
 		if ($request->modeSearch=="all"){
 			if ($request->status<>"any") {
-				$collection5 = Ico::where("status","=",$request->status)
-										->orderBy("status","desc")
-										->get();
-				$data = $data->intersect($collection5);
-			}
-			if ($request->category<>"all") {
-				$collection6 = Ico::where("categories","like","%".$request->category."%")
+				$collection6 = Ico::where("status","=",$request->status)
 										->orderBy("status","desc")
 										->get();
 				$data = $data->intersect($collection6);
 			}
-			if ($request->country<>"") {
-				$collection7 = Ico::where("country_operation","like","%".$request->country."%")
+			if ($request->category<>"all") {
+				$collection7 = Ico::where("categories","like","%".$request->category."%")
 										->orderBy("status","desc")
 										->get();
 				$data = $data->intersect($collection7);
 			}
-			if ($request->platform<>"any") {
-				$collection8 = Ico::where("platform","like","%".$request->platform."%")
+			if ($request->country<>"") {
+				$collection8 = Ico::where("country_operation","like","%".$request->country."%")
 										->orderBy("status","desc")
 										->get();
 				$data = $data->intersect($collection8);
+			}
+			if ($request->platform<>"any") {
+				$collection9 = Ico::where("platform","like","%".$request->platform."%")
+										->orderBy("status","desc")
+										->get();
+				$data = $data->intersect($collection9);
 			}
 		}
 
