@@ -107,7 +107,7 @@ class IcoController extends Controller {
 		}
 
 		//sort data
-		$data = $data->sortByDesc("rating");
+		// $data = $data->sortByDesc("rating");
 		
 		$arr = $data->forPage($request->page, $perPage); //Filter the page var
 		$total_data = $data->count();
