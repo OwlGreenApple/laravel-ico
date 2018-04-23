@@ -3,10 +3,9 @@
       <tr>
         <th>ICO</th>
         <th>ICO Price</th>
-        <th>Token For sale</th>
+        <th>Status</th>
         <th>Presale Periode</th>
         <th>Crowdsale Periode</th>
-        <th>List Exchange</th>
         <th>Rating</th>
       </tr>      
     </thead>
@@ -35,8 +34,8 @@
 										<b>ICO Price : </b>
 										{{$data_arr->price}}
 										<br>
-										<b>Token for sale : </b>
-										{{$data_arr->price}}
+										<b>Status : </b>
+										{{$data_arr->status}}
 										<br>
 										<b>Presale Periode : </b>
 										<?php 
@@ -58,8 +57,6 @@
 											}
 										?>
 										<br>
-										<b>List Exchange : </b>
-										{{$data_arr->price}}
 										<br>
 										<b>Rating: </b>
 										{{$data_arr->rating}}
@@ -71,7 +68,7 @@
 						{{$data_arr->price}}
 					</td>
 					<td class="remove-hp">
-						{{$data_arr->price}}
+						{{$data_arr->status}}
 					</td>
 					<td class="remove-hp">
 						<?php 
@@ -92,9 +89,6 @@
 								echo $data_arr->sale_end->format('d M Y');
 							}
 						?>
-					</td>
-					<td class="remove-hp">
-						{{$data_arr->price}}
 					</td>
 					<td class="remove-hp">
 						{{$data_arr->rating}}

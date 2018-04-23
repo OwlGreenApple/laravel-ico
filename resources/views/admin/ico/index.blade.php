@@ -202,7 +202,7 @@
               </div>
             </div>
 
-            <div class="form-group form-group-sm row">
+            <!--<div class="form-group form-group-sm row">
               <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">List Exchange</label>
               <div class="col-xs-12 col-md-9">
 								<textarea name="list_exchange" id="list-exchange"></textarea>
@@ -224,7 +224,7 @@
 								</script>
 								
               </div>
-            </div>
+            </div>-->
 
             <input type="hidden" name="idIco" id="id-ico">
           </form>
@@ -560,7 +560,7 @@
 				$("#presale-end").val("");
 				$("#sale-start").val("");
 				$("#sale-end").val("");
-				selectizeListExchange.clearOptions();
+				// selectizeListExchange.clearOptions();
 			});
       $( "body" ).on( "click", ".btn-update", function() {
 				$("#id-ico").val($(this).attr("data-id"));
@@ -603,7 +603,7 @@
 				$("#presale-end").val($(this).attr("data-presale_end"));
 				$("#sale-start").val($(this).attr("data-sale_start"));
 				$("#sale-end").val($(this).attr("data-sale_end"));
-				selectizeListExchange.clearOptions();
+				/*selectizeListExchange.clearOptions();
 				var numbersString = $(this).attr("data-list_exchange");
 				var numbersArray = numbersString.split(';');				
 				
@@ -614,7 +614,7 @@
 					// do something with `numbersArray[i]`
 					selectizeListExchange.addOption({value:numbersArray[i],text:numbersArray[i]});
 					selectizeListExchange.addItem(numbersArray[i]);
-				}
+				}*/
 			});
 			$('#button-process').click(function(e){
         $.ajax({                                      
