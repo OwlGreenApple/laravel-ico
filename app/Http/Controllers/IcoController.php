@@ -47,7 +47,7 @@ class IcoController extends Controller {
 									->get();
 		}
 		
-		if ( ($request->startDate<>"") && ($request->endDate<>"") ) {
+		/*if ( ($request->startDate<>"") && ($request->endDate<>"") ) {
 			$dt = Carbon::createFromFormat("m/d/Y", $request->startDate); 
 			$dt1 = Carbon::createFromFormat("m/d/Y", $request->endDate); 
 			$collection3 = Ico::whereDate("presale_start",">=",Carbon::createFromFormat("m/d/Y", $request->startDate))
@@ -62,15 +62,17 @@ class IcoController extends Controller {
 									->orderBy("status","desc")
 									->get();
 			$data = $data->intersect($collection3);
-		}
-		else if ($request->startDate<>"") {
+		}*/
+		// else if ($request->startDate<>"") {
+		if ($request->startDate<>"") {
 			$collection4 = Ico::whereDate("presale_start",">=",Carbon::createFromFormat("m/d/Y", $request->startDate))
 									->orWhereDate("sale_start",">=",Carbon::createFromFormat("m/d/Y", $request->startDate))
 									->orderBy("status","desc")
 									->get();
 			$data = $data->intersect($collection4);
 		}
-		else if ($request->endDate<>"") {
+		// else if ($request->endDate<>"") {
+		if ($request->endDate<>"") {
 			$collection5= Ico::whereDate("presale_end","<=",Carbon::createFromFormat("m/d/Y", $request->endDate))
 									->orWhereDate("sale_end","<=",Carbon::createFromFormat("m/d/Y", $request->endDate))
 									->orderBy("status","desc")
