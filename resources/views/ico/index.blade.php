@@ -151,6 +151,8 @@
 				$("#select-status").val("any");
 				$("#select-category").val("all");
 				$("#country-operation").val("");
+				$("#start-date").val("");
+				$("#end-date").val("");
 				$("#platform").val("any");
 				refresh_page(1);
 			});

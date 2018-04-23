@@ -32,53 +32,64 @@ class IcoController extends Controller {
 		$perPage = 15;
 		// dd($request->startDate);
 		// $arr = Ico::paginate($perPage);
-		$data = Ico::all();
+		$data = Ico::orderBy("status","desc")->get();
 
 		if ($request->name<>"") {
 			$collection1 = Ico::where("name","like","%".$request->name."%")
+										->orderBy("status","desc")
 										->get();
 			$data = $data->intersect($collection1);
 		}
 
 		if ($request->status<>"rating") {
 			$collection2 = Ico::where("rating",">",$request->rating)
+									->orderBy("status","desc")
 									->get();
 		}
 		if ($request->startDate<>"") {
 			$collection3 = Ico::whereDate("presale_start",">=",Carbon::createFromFormat("m/d/Y", $request->startDate))
 									->orWhereDate("sale_start",">=",Carbon::createFromFormat("m/d/Y", $request->startDate))
+									->orderBy("status","desc")
 									->get();
 			$data = $data->intersect($collection3);
 		}
 		if ($request->endDate<>"") {
 			$collection4= Ico::where("presale_end","<=",Carbon::createFromFormat("m/d/Y", $request->endDate))
 									->orWhere("sale_end","<=",Carbon::createFromFormat("m/d/Y", $request->endDate))
+									->orderBy("status","desc")
 									->get();
 			$data = $data->intersect($collection4);
 		}
 		if ($request->modeSearch=="all"){
 			if ($request->status<>"any") {
 				$collection5 = Ico::where("status","=",$request->status)
+										->orderBy("status","desc")
 										->get();
 				$data = $data->intersect($collection5);
 			}
 			if ($request->category<>"all") {
 				$collection6 = Ico::where("categories","like","%".$request->category."%")
+										->orderBy("status","desc")
 										->get();
 				$data = $data->intersect($collection6);
 			}
 			if ($request->country<>"") {
 				$collection7 = Ico::where("country_operation","like","%".$request->country."%")
+										->orderBy("status","desc")
 										->get();
 				$data = $data->intersect($collection7);
 			}
 			if ($request->platform<>"any") {
 				$collection8 = Ico::where("platform","like","%".$request->platform."%")
+										->orderBy("status","desc")
 										->get();
 				$data = $data->intersect($collection8);
 			}
 		}
 
+		//sort data
+		$data = $data->sortBy("presale_start");
+		
 		$arr = $data->forPage($request->page, $perPage); //Filter the page var
 		$total_data = $data->count();
 
@@ -172,6 +183,17 @@ class IcoController extends Controller {
 		}
 		
 		return $arr;
+	}
+
+	public function confirm_payment(req $request)
+  {
+		return view('confirm-payment')->with([
+		]);
+	}
+
+	public function submit_confirm_payment(req $request)
+	{
+		
 	}
 }
 
