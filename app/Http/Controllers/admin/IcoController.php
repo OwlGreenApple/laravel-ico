@@ -39,8 +39,13 @@ class IcoController extends Controller {
   {
 		$user = Auth::user();
 		$perPage = 15;
-		$arr = Ico::orderBy("id")->paginate($perPage);
-					
+		
+		if($request->s == "") {
+			$arr = Ico::orderBy("id")->paginate($perPage);
+		}
+		else {
+			$arr = Ico::where("name","like","%".$request->s."%")->orderBy("id")->paginate($perPage);
+		}
 			
 			
 		//buat pagination

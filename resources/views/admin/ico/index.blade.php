@@ -444,6 +444,12 @@
 
 	<div class="container">
 		<div class="cover-input-group">
+			<div class="input-group fl" style="margin-right:10px;" >
+				<input type="text" placeholder="ico name" id="search-data" data-loading-text="Loading..." class="form-control" > 
+			</div>  
+			<div class="input-group fl">
+				<input type="button" value="Search" id="button-search" data-loading-text="Loading..." class="btn btn-primary" style="margin-right:10px;" > 
+			</div>  
 			<div class="input-group fl">
 				<input type="button" value="Add" id="button-add" data-loading-text="Loading..." class="btn btn-primary" style="margin-right:10px;" data-toggle="modal" data-target="#myModalIco"> 
 			</div>  
@@ -502,6 +508,7 @@
         type: 'get',
         data: {
           page: page,
+					s : $("#search-data").val(),
 					// filename: $("#file-name").val(),
         },
         beforeSend: function()
@@ -902,6 +909,10 @@
           }
         });
 			});
+			
+			$('#button-search').click(function(e){
+				refresh_page(1);
+      });
 			
 			$( "#rating-project,#rating-profile,#rating-team,#rating-hype" ).change(function() {
 				$("#rating").val( ( parseInt($("#rating-project").val()) + parseInt($("#rating-profile").val()) + parseInt($("#rating-team").val()) + parseInt($("#rating-hype").val())) / 4 );
