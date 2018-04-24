@@ -7,7 +7,7 @@
 		<div class="row">
 			<div class="col-xs-12 col-md-12">
 				<h1 align="center">Become Premium User Now <i class="premium-icon"></i></h1>
-				<p align="center">Register your ICO for free or </p>
+				<p align="center">Register your ICO for <a href="{{url('publish/free')}}" style="color:#146656;">free</a> or </p>
 				<p align="center">Get more Benefit with <br>
 				Our ICO Registration <b>Premium Services</b> NOW 
 				</p>
@@ -45,7 +45,7 @@
 				
 				</div>
 				
-				<input type="button" value="Order Now" class="form-control btn btn-order" data-eth="3">
+				<input type="button" value="Order Now" class="form-control btn btn-order" data-eth="3" data-package="basic">
 			</div>  
 			
 			<div class="col-xs-12 col-md-3 wrap-choose-package wrap-choose-package-boost">
@@ -66,7 +66,7 @@
 				
 				</div>
 				
-				<input type="button" value="Order Now" class="form-control btn btn-order btn-order-boost" data-eth="9">
+				<input type="button" value="Order Now" class="form-control btn btn-order btn-order-boost" data-eth="9" data-package="boost">
 			</div>  
 			
 			<div class="col-xs-12 col-md-3 wrap-choose-package">
@@ -86,7 +86,7 @@
 				
 				</div>
 				
-				<input type="button" value="Order Now" class="form-control btn btn-order" data-eth="20">
+				<input type="button" value="Order Now" class="form-control btn btn-order" data-eth="20" data-package="premium">
 			</div>  
 			
 			<div class="col-xs-12 col-md-3 wrap-choose-package">
@@ -106,7 +106,7 @@
 				
 				</div>
 				
-				<input type="button" value="Order Now" class="form-control btn btn-order" data-eth="30">
+				<input type="button" value="Order Now" class="form-control btn btn-order" data-eth="30" data-package="platinum">
 			</div>  
 			
 			
@@ -139,6 +139,7 @@
           // data: $("#form-publish-ico").serialize(),
           data: {
 						eth: $(this).attr("data-eth"),
+						package: $(this).attr("data-package"),
 					},
           beforeSend: function()
           {

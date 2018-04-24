@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<meta name="description" content="Ico, blockchain,  cryptocurrency,  coin offering,  ico coin,  ico token,  token,  new ico, best ico,  ico check,  icocheckr,  ico ranking,  ico ranks,  top ico,  icobench">
+		<meta name="keywords" content="Ico, blockchain,  cryptocurrency,  coin offering,  ico coin,  ico token,  token,  new ico, best ico,  ico check,  icocheckr,  ico ranking,  ico ranks,  top ico,  icobench">
+		
+		
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -123,6 +127,7 @@
 													<ul class="dropdown-menu">
 														<?php if (Auth::user()->is_admin) { ?>
 															<li @if(Request::is('ico-admin')) class="active" @endif><a href="{{ url('ico-admin') }}">ICO	</a></li>
+															<li @if(Request::is('confirm-payment-admin')) class="active" @endif><a href="{{ url('confirm-payment-admin') }}">Order	</a></li>
 														<?php } ?>
 															<li @if(Request::is('confirm-payment')) class="active" @endif><a href="{{ url('confirm-payment') }}">Confirm Payment	</a></li>
 															<li>

@@ -26,9 +26,9 @@
 
 				<div class="navbar navbar-default navbar-static-top navbar-detail">
 					<ul class="nav navbar-nav">
-						<li><a href="#" class="nav-content" id="nav-about">About</a></li>
+						<li class="nav-content active"><a href="#" class="" id="nav-about">About</a></li>
 						<!--<li><a href="#" class="nav-content" id="nav-trading">Trading</a></li>-->
-						<li><a href="#" class="nav-content" id="nav-financial">Financial</a></li>
+						<li class="nav-content" ><a href="#" id="nav-financial">Financial</a></li>
 						<li><button class="btn" id="btn-bookmark">Bookmark</button></li>
 					</ul>
 				</div>
@@ -71,7 +71,7 @@
 						
 						<div class="col-xs-12 col-md-12">
 							<label>Country</label>
-							<p class="description"><?php if ($ico->country_operation=="") { echo "-"; } else { echo $ico->country_operation; } ?></p>
+							<p class="description" id="country-show"><?php if ($ico->country_operation=="") { echo "-"; } else { echo $ico->country_operation; } ?></p>
 						</div>
 						
 						<div class="col-xs-12 col-md-12">
@@ -198,9 +198,19 @@
 		</div>
 	</div>
 
+	<select class="" id="country-operation" name="country_operation" style="display:none;">
+	</select>
+	
   <script>
     $(document).ready(function(){
       document.title = 'ICO rating and details';
+			
+			$('#country-operation').countrySelect();
+			$("#country-operation").val('<?php if ($ico->country_operation=="") { echo "-"; } else { echo $ico->country_operation; } ?>');
+			var e = document.getElementById("country-operation");
+			var strUser = e.options[e.selectedIndex].text;
+			$("#country-show").html(strUser);
+			
 			// $("#nav-about").trigger("click");
 			$("#nav-about").addClass("active");
 			$(".content-ico-about").show();
@@ -232,8 +242,6 @@
 				$(".content-ico-financial").show();
 			});
     });
-// var e = document.getElementById("ddlViewBy");
-// var strUser = e.options[e.selectedIndex].text;		
   </script>
 	
 @endsection

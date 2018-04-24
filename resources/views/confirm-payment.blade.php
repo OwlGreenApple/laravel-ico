@@ -8,23 +8,13 @@
         <div class="col-md-8 col-md-offset-2">
                 <h1 class="panel-heading">Confirm Payment</h1>
 
-                    <form class="form-horizontal" method="POST" action="{{ route('auth.register') }}">
+										<form class="form-horizontal" enctype="multipart/form-data" id="form-confirm">
                         {{ csrf_field() }}
 
-												<div class="form-group">
-													@if (session('error') )
-														<div class="alert alert-danger">
-															<p align="center">{{session('error')}}</p>
-														</div>
-													@endif
-													@if (session('success') )
-														<div class="alert alert-success">
-															<p align="center">{{session('success')}}</p>
-														</div>
-													@endif
+												<div class="alert" id="alert" style="display:none;">
 												</div>
                         <div class="form-group">
-                            <label for="name" class="col-md-12 control-label">Order No</label>
+                            <label for="no_order" class="col-md-12 control-label">Order No</label>
 
                             <div class="col-md-12">
                                 <input id="no_order" type="text" class="form-control" name="no_order" value="" >
@@ -32,28 +22,20 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email" class="col-md-12 control-label">E-Mail Address</label>
+                            <label for="photo" class="col-md-12 control-label">Screenshoot TX page</label>
 
                             <div class="col-md-12">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+															<input type="file" class="form-control" placeholder="" id="photo" name="photo">
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-12 control-label">Password</label>
+                        <!--<div class="form-group">
+                            <label for="description" class="col-md-12 control-label">Description</label>
 
                             <div class="col-md-12">
-                                <input id="password" type="password" class="form-control" name="password" required>
+															<textarea class="form-control" id="description" name="description"></textarea>
                             </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-12 control-label">Confirm Password</label>
-
-                            <div class="col-md-12">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
+                        </div>-->
 
 												<div class="form-group">
 														<div class="col-md-6 col-md-offset-4">
@@ -62,9 +44,7 @@
 											
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-3">
-                                <button type="submit" class="btn btn-primary form-control">
-                                    Register
-                                </button>
+                                <input type="button" id="button-process" class="btn btn-primary form-control" value="Process">
                             </div>
                         </div>
                     </form>
@@ -74,26 +54,74 @@
 
 
 <script>
+  function cek_form() {
+    var flag=true;
+    error_message="";
+		if($('#no_order').val()=="") {
+			error_message+="Order No Cant be empty <br>";
+			flag=false;
+		}
+		if($('#photo').val()=="") {
+			error_message+="Please screenshoot your transaction hash page<br>";
+			flag=false;
+		}else{
+		}
+		var ext = $('#photo').val().split('.').pop().toLowerCase();
+		if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
+			error_message+="Extension file only can be gif, png, jpg, jpeg <br>";
+			flag=false;
+		}else{
+		}				
+        
+    if (flag==false) {
+      $("#alert").addClass('alert-danger');
+      $("#alert").removeClass('alert-success');
+      $("#alert").show();
+      $("#alert").html(error_message);
+    }
+    return flag;
+  }  
 	$(document).ready(function(){
-		$('form').submit(function(e) {
-			flag= false;
-			message = "";
-			if ($("#password").val()!=$("#password-confirm").val()) {
-				message += "password anda tidak sama dengan password confirmation";
-				flag= true;
-			} 
-			if ($("#password").val().length<6) {
-				message += "password min 6 char";
-				flag= true;
-			}
-
-			if (flag){
-				e.preventDefault();
-				alert(message);
-			} else {
-				$(this).find("button[type='submit']").prop('disabled',true);
-			}
-		});      
+    $('#button-process').click(function(e){
+      var uf = $('#form-confirm');
+      var fd = new FormData(uf[0]);
+      if (cek_form()==true) {
+      $.ajax({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          type: 'POST',
+          url: "<?php echo url('submit-confirm-payment'); ?>",
+          data: fd,
+          processData:false,
+          contentType: false,
+          dataType: 'text',
+          beforeSend: function()
+          {
+            $("#div-loading").show();
+          },
+          success: function(result) {
+              // $('#result').html(data);
+              $("#div-loading").hide();
+              var data = jQuery.parseJSON(result);
+              $("#alert").show();
+              $("#alert").html(data.message);
+              if(data.type=='success')
+              {
+								$("#alert").html("Thank you for confirming. <br><br> We will send you an email for your further payment status.<br><br>It will take up to 3 days for this process.");
+                $("#alert").addClass('alert-success');
+                $("#alert").removeClass('alert-danger');
+              }
+              else if(data.type=='error')
+              {
+                $("#alert").addClass('alert-danger');
+                $("#alert").removeClass('alert-success');
+              }
+          }
+      });
+      }
+    });
+		
 	});       
 </script>
 @endsection

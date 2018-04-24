@@ -8,6 +8,7 @@ use Icocheckr\Submit;
 use Icocheckr\Order;
 
 use Icocheckr\Mail\OrderPremium;
+use Icocheckr\Mail\ConfirmPayment;
 
 use View,Auth,Request,DB,Carbon,Excel, Mail, Validator, Input, Config;
 
@@ -140,9 +141,10 @@ class IcoController extends Controller {
 		}
 	}
 	
-	public function publish(req $request)
+	public function publish(req $request,$package="")
   {
 		return view('ico.publish')->with([
+			"package"=>$package,
 		]);
 	}
 
@@ -170,6 +172,7 @@ class IcoController extends Controller {
 			// buatkan session, register dulu
 			$arr_data = array (
 				"total"=>$request->eth + floatval("0.000".$unique_code),
+				"package"=>$request->package,
 			);
 			
 			$request->session()->put('checkout_data', $arr_data);
@@ -188,6 +191,7 @@ class IcoController extends Controller {
 			$order->user_id = $user->id;
 			$order->total = $request->eth + floatval("0.000".$unique_code);
 			$order->status = "pending";
+			$order->package = $request->package;
 			$order->image = "";
 			$order->save();
 			
@@ -212,7 +216,51 @@ class IcoController extends Controller {
 
 	public function submit_confirm_payment(req $request)
 	{
+		$user = Auth::user();
+    $order = Order::where("no_order","=",Request::input("no_order"))->first();
+    if (is_null($order)) { 
+      $arr["message"]= "Order No not found on database";
+      $arr["type"]= "error";
+      return $arr;
+    }
+		if ($order->order_status=="success") {
+      $arr["message"]= "Order no have been paid confirmed";
+      $arr["type"]= "error";
+      return $arr;
+		}
 		
+    if ($order->image<>"") {
+      $arr["message"]= "Please wait admin verification, your order number already confirmed";
+      $arr["type"]= "error";
+      return $arr;
+    }
+		
+    if ($order->user_id <> $user->id) {
+      $arr["message"]= "This is not your order number, please input your order number";
+      $arr["type"]= "error";
+      return $arr;
+    }
+		
+		$destinationPath = base_path().'/public/confirm-payment-file/';
+		if (!file_exists($destinationPath)) {
+			mkdir($destinationPath,0755,true);
+		}
+    $filename = $order->no_order.".".Input::file('photo')->getClientOriginalExtension();
+    Input::file('photo')->move($destinationPath, $filename);
+    $order->image = $filename;
+		$dt = Carbon::now();
+    $order->confirmed_at = $dt->toDateTimeString();
+    $order->status = "user-confirm";
+    $order->save();
+		
+		//send mail
+		$emaildata = [
+		];
+		Mail::to($user->email)->queue(new ConfirmPayment($emaildata));
+		
+    $arr["message"]= "";
+    $arr["type"]= "success";
+		return $arr;
 	}
 }
 

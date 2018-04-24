@@ -162,6 +162,7 @@ class RegisterController extends Controller
 				$order->user_id = $user->id;
 				$order->total = $checkout_data["total"];
 				$order->status = "pending";
+				$order->package = $checkout_data["package"];
 				$order->image = "";
 				$order->save();
 				

@@ -24,11 +24,33 @@
 					<label class="control-label">Type of Application</label>
 					<!--<input type="text" class="form-control" id="" name="">-->
 					<select class="form-control" id="type-application" name="type_application">
+					<?php if ($package==""){ ?>
 						<option value="free">Free</option>
 						<option value="basic">Basic(3ETH)</option>
 						<option value="boost">Boost(9ETH)</option>
 						<option value="premium">Premium(20ETH)</option>
 						<option value="platinum">Platinum(30ETH)</option>
+					<?php }
+					else if ($package=="free"){
+					?>
+						<option value="free">Free</option>
+					<?php } 
+					else if ($package=="basic"){
+					?>
+						<option value="basic">Basic(3ETH)</option>
+					<?php } 
+					else if ($package=="boost"){
+					?>
+						<option value="boost">Boost(9ETH)</option>
+					<?php } 
+					else if ($package=="premium"){
+					?>
+						<option value="premium">Premium(20ETH)</option>
+					<?php } 
+					else if ($package=="platinum"){
+					?>
+						<option value="platinum">Platinum(30ETH)</option>
+					<?php } ?>
 					</select>
 					
 				</div>
