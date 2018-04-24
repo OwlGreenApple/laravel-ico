@@ -2,7 +2,7 @@
 <br>
 <br>
 
-Your Order #{{$no_order}} <br>
+Your Order No #{{$no_order}}<br>
 Placed on {{$created}} <br>
 Please deposit {{$total}} ETH to 0xcA26Dd8C643B279218CA3A3e496465BC642BE4d3 <br>
 and confirm your payment to <a href="{{url('confirm-payment')}}">here</a> <br>

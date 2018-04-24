@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ConfirmPaymentAdmin extends Mailable
+class ApplicationSubmitAdmin extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,8 +30,8 @@ class ConfirmPaymentAdmin extends Mailable
     public function build()
     {
         return $this->from('no-reply@icocheckr.com', 'Icocheckr')
-										->subject('[ICOCheckr] Your Payment has been confirmed!')
-										->view('emails.confirm-payment-admin')
+										->subject('[ICOCheckr] Welcome! Your ICO is Published')
+										->view('emails.application-submit-admin')
 										->with($this->emaildata);
 
     }

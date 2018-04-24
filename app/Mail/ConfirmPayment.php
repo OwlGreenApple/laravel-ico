@@ -30,6 +30,7 @@ class ConfirmPayment extends Mailable
     public function build()
     {
         return $this->from('no-reply@icocheckr.com', 'Icocheckr')
+										->subject('[ICOCheckr] Payment confirmation.')
 										->view('emails.confirm-payment')
 										->with($this->emaildata);
 

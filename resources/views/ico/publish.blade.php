@@ -211,6 +211,7 @@
             $("#alert").show();
             $("#alert").html(data.message);
             if(data.type=='success') {
+							$("#alert").html("Thank You for Application Submission <br>We will send you an email for confirming your application<br>It might take several days for us to verify your submission and publish your ICO ");
               $("#alert").addClass("alert-success");
               $("#alert").removeClass("alert-danger");
             } else if (data.type=='error') {

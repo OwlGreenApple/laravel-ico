@@ -2,12 +2,11 @@
     <thead>
       <tr>
         <th>No. </th>
-        <th>Order No</th>
-        <th>Total</th>
-        <th>Status</th>
+        <th>Package</th>
+        <th>Ico Name</th>
+        <th>Website</th>
         <th>Created</th>
         <th>Updated</th>
-        <th>Screenshoot</th>
         <th></th>
       </tr>      
     </thead>
@@ -18,7 +17,7 @@
 		<?php 
 			use Icocheckr\Meta;
 			if ( $arr->count()==0  ) {
-				echo "<tr><td colspan='11' align='center'>Data tidak ada</td></tr>";
+				echo "<tr><td colspan='7' align='center'>Data tidak ada</td></tr>";
 			} else {
 				if ($page=="") {
 					$currentPage = 1;
@@ -35,13 +34,10 @@
 						{{$i}}
 					</td>
 					<td>
-						{{$data_arr->no_order}}
+						{{$data_arr->ico_name}}
 					</td>
 					<td>
-						{{number_format($data_arr->total, 8, '.', '0')}}
-					</td>
-					<td>
-						{{$data_arr->status}}
+						{{$data_arr->ofc_website}}
 					</td>
 					<td>
 						{{$data_arr->created_at}}
@@ -50,17 +46,12 @@
 						{{$data_arr->updated_at}}
 					</td>
 					<td align="center">
-						<a href="" class="popup-newWindow"><img src="{{url('confirm-payment-file/'.$data_arr->image)}}" style="width:70px;"></a>
-					
-					</td>
-					<td align="center">
-						
-						<button type="button" class="btn btn-warning btn-update" data-toggle="modal" data-target="#myModalIco" data-id="{{$data_arr->id}}" style="margin-bottom:10px;">
-							Accept
+						<button type="button" class="btn btn-warning btn-update" data-toggle="modal" data-target="#myModalIco" data-id="{{$data_arr->id}}" data-type_application="{{$data_arr->type_application}}" data-ico_name="{{$data_arr->ico_name}}" data-categories="{{$data_arr->categories}}" data-ofc_website="{{$data_arr->ofc_website}}" data-about="{{$data_arr->about}}" data-description="{{$data_arr->description}}" data-sale_date="{{$data_arr->sale_date}}" data-token_ticker="{{$data_arr->token_ticker}}" data-link_whitepaper="{{$data_arr->link_whitepaper}}" data-link_bounty="{{$data_arr->link_bounty}}" data-platform="{{$data_arr->platform}}" data-price="{{$data_arr->price}}" data-restrictions="{{$data_arr->restrictions}}" data-contact_email="{{$data_arr->contact_email}}" style="margin-bottom:10px;">
+							Show
 						</button>
-						
-						<button type="button" class="btn btn-danger btn-delete" data-toggle="modal" data-target="#confirm-delete" data-id="{{$data_arr->id}}" style="margin-bottom:10px;">
-							Reject
+
+						<button type="button" class="btn btn-warning btn-update" data-toggle="modal" data-id="{{$data_arr->id}}" style="margin-bottom:10px;">
+							Confirm
 						</button>
 					</td>
 				</tr>    

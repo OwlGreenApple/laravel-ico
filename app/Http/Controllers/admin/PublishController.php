@@ -4,7 +4,7 @@ use Illuminate\Http\Request as req;
 use Icocheckr\Http\Controllers\Controller;
 
 use Icocheckr\Ico;
-use Icocheckr\Order;
+use Icocheckr\Submit;
 use Icocheckr\Meta;
 
 use View,Auth,Request,DB,Carbon,Excel, Mail, Validator, Input, Config;
@@ -42,13 +42,12 @@ class PublishController extends Controller {
 		$perPage = 15;
 		
 		if($request->s == "") {
-			$arr = Order::orderBy("id")->paginate($perPage);
+			$arr = Submit::orderBy("id","desc")->paginate($perPage);
 		}
 		else {
-			$arr = Order::where("no_order","like","%".$request->s."%")->orderBy("id")->paginate($perPage);
+			$arr = Submit::where("ico_name","like","%".$request->s."%")->orderBy("id","desc")->paginate($perPage);
 		}
 			
-		$arr->sortBy("confirmed_at");	
 		//buat pagination
 		// $total_data = count(Order::all());
 		$total_data = count($arr);

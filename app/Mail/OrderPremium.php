@@ -30,7 +30,7 @@ class OrderPremium extends Mailable
     public function build()
     {
         return $this->from('no-reply@icocheckr.com', 'Icocheckr')
-										->subject('[ICOCheckr] Instruction Notification Email')
+										->subject('[ICOCheckr] Confirm your payment.')
 										->view('emails.order-premium')
 										->with($this->emaildata);
 

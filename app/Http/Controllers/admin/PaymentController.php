@@ -6,6 +6,7 @@ use Icocheckr\Http\Controllers\Controller;
 use Icocheckr\Ico;
 use Icocheckr\Order;
 use Icocheckr\Meta;
+use Icocheckr\User;
 
 use Icocheckr\Mail\ConfirmPaymentAdmin;
 
@@ -75,7 +76,7 @@ class PaymentController extends Controller {
 			$order->status = "success";
 			$order->save();
 			
-			$user = $order->user_id;
+			$user = User::find($order->user_id);
 			if (!is_null($user)) {
 				//send mail
 				$emaildata = [

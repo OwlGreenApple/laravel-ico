@@ -29,13 +29,10 @@
 	<div class="container">
 		<div class="cover-input-group">
 			<div class="input-group fl" style="margin-right:10px;" >
-				<input type="text" placeholder="Order No" id="search-data" data-loading-text="Loading..." class="form-control" > 
+				<input type="text" placeholder="ICO name" id="search-data" data-loading-text="Loading..." class="form-control" > 
 			</div>  
 			<div class="input-group fl">
 				<input type="button" value="Search" id="button-search" data-loading-text="Loading..." class="btn btn-primary" style="margin-right:10px;" > 
-			</div>  
-			<div class="input-group fl">
-				<input type="button" value="Add" id="button-add" data-loading-text="Loading..." class="btn btn-primary" style="margin-right:10px;" data-toggle="modal" data-target="#myModalIco"> 
 			</div>  
 		</div>  
 		<div class="alert alert-danger" id="alert" style="display:none;">
@@ -79,81 +76,11 @@
         // format: 'YYYY-MM-DD HH:mm',
       });
 			
-			$('#button-process').click(function(e){
-        $.ajax({                                      
-          url: '<?php echo url('save-ico-admin'); ?>',
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          },
-          type: 'post',
-          data: $("#form-ico").serialize(),
-          beforeSend: function()
-          {
-            $("#div-loading").show();
-          },
-          dataType: 'text',
-          success: function(result)
-          {
-            var data = jQuery.parseJSON(result);
-            $("#alert").show();
-            $("#alert").html(data.message);
-            if(data.type=='success') {
-              refresh_page(pageNow);
-              $("#alert").addClass("alert-success");
-              $("#alert").removeClass("alert-danger");
-            } else if (data.type=='error') {
-              $("#alert").addClass("alert-danger");
-              $("#alert").removeClass("alert-success");
-            }
-						$("#div-loading").hide();
-          }
-        });
-			});
-
-			$( "body" ).on( "click", ".btn-delete", function() {
-				$("#id-ico-delete").val($(this).attr("data-id"));
-			});
-			$('#button-delete').click(function(e){
-        $.ajax({                                      
-          url: '<?php echo url('delete-ico-admin'); ?>',
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          },
-          type: 'post',
-          data: {
-						id : $("#id-ico-delete").val(),
-					},
-          beforeSend: function()
-          {
-            $("#div-loading").show();
-          },
-          dataType: 'text',
-          success: function(result)
-          {
-            var data = jQuery.parseJSON(result);
-            $("#alert").show();
-            $("#alert").html(data.message);
-            if(data.type=='success') {
-              refresh_page(pageNow);
-              $("#alert").addClass("alert-success");
-              $("#alert").removeClass("alert-danger");
-            } else if (data.type=='error') {
-              $("#alert").addClass("alert-danger");
-              $("#alert").removeClass("alert-success");
-            }
-						$("#div-loading").hide();
-          }
-        });
-			});
 			
 			$('#button-search').click(function(e){
 				refresh_page(1);
       });
 			
-      $( "body" ).on( "click", ".popup-newWindow", function() {
-        event.preventDefault();
-        window.open($(this).find("img").attr("src"), "popupWindow", "width=600,height=600,scrollbars=yes");
-      });
     });
   </script>		
 	
