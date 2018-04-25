@@ -36,11 +36,6 @@ Route::get('/load-ico', 'IcoController@load_ico');
 //detail
 Route::get('/ico/{ico_name}', 'IcoController@detail');
 
-//publish
-Route::get('/publish', 'IcoController@publish');
-Route::get('/publish/{package}', 'IcoController@publish');
-Route::post('/submit-publish-ico', 'IcoController@submit_publish_ico');
-
 //premium
 Route::get('/premium', 'IcoController@premium');
 Route::post('/submit-premium', 'IcoController@submit_premium');
@@ -72,7 +67,13 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/accept-confirm-payment-admin', 'Admin\PaymentController@accept_payment');
 	Route::post('/reject-confirm-payment-admin', 'Admin\PaymentController@reject_payment');
 	
-	//publish
+	//publish for admin
 	Route::get('/publish-admin', 'Admin\PublishController@index');
 	Route::get('/load-publish-admin', 'Admin\PublishController@load_publish');
+	
+	//publish for user 
+	Route::get('/publish', 'IcoController@publish');
+	Route::get('/publish/{package}', 'IcoController@publish');
+	Route::post('/submit-publish-ico', 'IcoController@submit_publish_ico');
+
 });

@@ -41,16 +41,17 @@ class IcoController extends Controller {
 		$perPage = 15;
 		
 		if($request->s == "") {
-			$arr = Ico::orderBy("id")->paginate($perPage);
+			$arr = Ico::orderBy("id");
 		}
 		else {
-			$arr = Ico::where("name","like","%".$request->s."%")->orderBy("id")->paginate($perPage);
+			$arr = Ico::where("name","like","%".$request->s."%")->orderBy("id");
 		}
 			
 			
 		//buat pagination
 		// $total_data = count(Ico::all());
 		$total_data = count($arr);
+		$arr = $arr->paginate($perPage);
 		$page = $request->page; // Get the current page or default to 1, this is what you miss!
 		// $offset = ($page * $perPage) - $perPage;
 		$totalPage = floor($total_data / $perPage) +1;

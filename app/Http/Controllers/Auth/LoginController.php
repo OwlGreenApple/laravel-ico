@@ -50,13 +50,15 @@ class LoginController extends Controller
 	 *
 	 * @return response
 	 */
-	public function getLogin()
+	public function getLogin(loginRequest $request)
 	{
 		
 		if (Auth::check()){
 			return Redirect('/');
 		}
 		else{
+			$request->session()->put('url.intended',url()->previous());
+			
 			return view('auth/login');
 			// return view("auth.login")->with(array(
 				// 'content'=>$content,
@@ -76,12 +78,13 @@ class LoginController extends Controller
 		$remember = (Input::has('remember')) ? true : false;
 		$field = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 		if (Auth::attempt([$field => $request->email, 'password' => $request->password], $remember)) {
-			if (isset($request->r)){
+			/*if (isset($request->r)){
 				return redirect($request->r);
 			}
 			else{
 				return redirect('/home');
-			}
+			}*/
+			return redirect($request->session()->get('url.intended'));
 		} else {
 			return Redirect::to('/login')
 				->with(array("error"=>"Login anda salah"));

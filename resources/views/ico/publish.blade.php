@@ -143,7 +143,7 @@
 				</div>
 			</div>  
 		</div>  
-	</div>  
+	</div>
 	</form>
 	<div class="container div-button-submit">
 		<div class="row">
