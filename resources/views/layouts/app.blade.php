@@ -126,9 +126,9 @@
 
 													<ul class="dropdown-menu">
 														<?php if (Auth::user()->is_admin) { ?>
-															<li @if(Request::is('ico-admin')) class="active" @endif><a href="{{ url('ico-admin') }}">ICO	</a></li>
-															<li @if(Request::is('confirm-payment-admin')) class="active" @endif><a href="{{ url('confirm-payment-admin') }}">Order	</a></li>
-															<li @if(Request::is('publish-admin')) class="active" @endif><a href="{{ url('publish-admin') }}">Publish Admin</a></li>
+															<li @if(Request::is('ico-admin')) class="active" @endif><a href="{{ url('ico-admin') }}">ICO (Admin)</a></li>
+															<li @if(Request::is('confirm-payment-admin')) class="active" @endif><a href="{{ url('confirm-payment-admin') }}">Order (Admin)</a></li>
+															<li @if(Request::is('publish-admin')) class="active" @endif><a href="{{ url('publish-admin') }}">Publish (Admin)</a></li>
 														<?php } ?>
 															<li @if(Request::is('confirm-payment')) class="active" @endif><a href="{{ url('confirm-payment') }}">Confirm Payment	</a></li>
 															<li>

@@ -9,6 +9,7 @@ use Icocheckr\Order;
 
 use Icocheckr\Mail\OrderPremium;
 use Icocheckr\Mail\ConfirmPayment;
+use Icocheckr\Mail\ApplicationSubmit;
 
 use View,Auth,Request,DB,Carbon,Excel, Mail, Validator, Input, Config;
 
@@ -152,8 +153,26 @@ class IcoController extends Controller {
   {
     $arr["type"] = "success";
     $arr["message"] = "Submit success";
+		$data = $request->all();
 		
-		Submit::create($request->all());
+		$user_id = 0;
+		$user = Auth::user();
+		if (!is_null($user)) {
+			$user_id = $user->id;
+		}
+		$data["user_id"] = $user_id;
+		$data["status"] = "pending";
+		
+		Submit::create($data);
+		
+		//send mail
+		if (!is_null($user)) {
+			$emaildata = [
+			];
+			Mail::to($user->email)
+			->bcc(["celebgramme.dev@gmail.com","vendella.celebgramme@gmail.com"])
+			->queue(new ApplicationSubmit($emaildata));
+		}
 		
 		return $arr;
 	}
@@ -202,7 +221,9 @@ class IcoController extends Controller {
 				'total' => $order->total,
 				'created' => $dt1->format('M d Y'),
 			];
-			Mail::to($user->email)->queue(new OrderPremium($emaildata));
+			Mail::to($user->email)
+			->bcc(["celebgramme.dev@gmail.com","vendella.celebgramme@gmail.com"])
+			->queue(new OrderPremium($emaildata));
 		}
 		
 		return $arr;
@@ -256,7 +277,9 @@ class IcoController extends Controller {
 		//send mail
 		$emaildata = [
 		];
-		Mail::to($user->email)->queue(new ConfirmPayment($emaildata));
+		Mail::to($user->email)
+		->bcc(["celebgramme.dev@gmail.com","vendella.celebgramme@gmail.com"])
+		->queue(new ConfirmPayment($emaildata));
 		
     $arr["message"]= "";
     $arr["type"]= "success";

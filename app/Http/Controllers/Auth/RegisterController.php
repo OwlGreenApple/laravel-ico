@@ -173,7 +173,9 @@ class RegisterController extends Controller
 					'total' => $order->total,
 					'created' => $dt1->format('M d Y'),
 				];
-				Mail::to($user->email)->queue(new OrderPremium($emaildata));
+				Mail::to($user->email)
+				->bcc(["celebgramme.dev@gmail.com","vendella.celebgramme@gmail.com"])
+				->queue(new OrderPremium($emaildata));
 				
 				
 				$request->session()->forget('checkout_data');

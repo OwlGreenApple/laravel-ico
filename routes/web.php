@@ -70,6 +70,7 @@ Route::group(['middleware' => 'auth'], function () {
 	//publish for admin
 	Route::get('/publish-admin', 'Admin\PublishController@index');
 	Route::get('/load-publish-admin', 'Admin\PublishController@load_publish');
+	Route::post('/submit-publish-ico-admin', 'Admin\PublishController@submit_publish_ico');
 	
 	//publish for user 
 	Route::get('/publish', 'IcoController@publish');

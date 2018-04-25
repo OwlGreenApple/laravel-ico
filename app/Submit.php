@@ -26,6 +26,8 @@ class Submit extends Model {
 													"price",
 													"restrictions",
 													"contact_email",
+													"status",
+													"user_id",
 												];
 	/**
 	 * The attributes that should be mutated to dates.

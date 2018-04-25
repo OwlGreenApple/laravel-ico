@@ -16,6 +16,7 @@
 		
 		<?php 
 			use Icocheckr\Meta;
+			use Icocheckr\User;
 			if ( $arr->count()==0  ) {
 				echo "<tr><td colspan='7' align='center'>Data tidak ada</td></tr>";
 			} else {
@@ -34,6 +35,9 @@
 						{{$i}}
 					</td>
 					<td>
+						{{$data_arr->type_application}}
+					</td>
+					<td>
 						{{$data_arr->ico_name}}
 					</td>
 					<td>
@@ -46,13 +50,22 @@
 						{{$data_arr->updated_at}}
 					</td>
 					<td align="center">
-						<button type="button" class="btn btn-warning btn-update" data-toggle="modal" data-target="#myModalIco" data-id="{{$data_arr->id}}" data-type_application="{{$data_arr->type_application}}" data-ico_name="{{$data_arr->ico_name}}" data-categories="{{$data_arr->categories}}" data-ofc_website="{{$data_arr->ofc_website}}" data-about="{{$data_arr->about}}" data-description="{{$data_arr->description}}" data-sale_date="{{$data_arr->sale_date}}" data-token_ticker="{{$data_arr->token_ticker}}" data-link_whitepaper="{{$data_arr->link_whitepaper}}" data-link_bounty="{{$data_arr->link_bounty}}" data-platform="{{$data_arr->platform}}" data-price="{{$data_arr->price}}" data-restrictions="{{$data_arr->restrictions}}" data-contact_email="{{$data_arr->contact_email}}" style="margin-bottom:10px;">
+						<?php 
+							$user_email = "-";
+							$user = User::find($data_arr->user_id);
+							if (!is_null($user)) {
+								$user_email = $user->email;
+							}
+						?>
+						<button type="button" class="btn btn-warning btn-show" data-toggle="modal" data-target="#myModalIco" data-id="{{$data_arr->id}}" data-type_application="{{$data_arr->type_application}}" data-ico_name="{{$data_arr->ico_name}}" data-categories="{{$data_arr->categories}}" data-ofc_website="{{$data_arr->ofc_website}}" data-about="{{$data_arr->about}}" data-description="{{$data_arr->description}}" data-sale_date="{{$data_arr->sale_date}}" data-token_ticker="{{$data_arr->token_ticker}}" data-link_whitepaper="{{$data_arr->link_whitepaper}}" data-link_bounty="{{$data_arr->link_bounty}}" data-platform="{{$data_arr->platform}}" data-price="{{$data_arr->price}}" data-restrictions="{{$data_arr->restrictions}}" data-contact_email="{{$data_arr->contact_email}}" data-status="{{$data_arr->status}}" data-user-email="{{$user_email}}" style="margin-bottom:10px;">
 							Show
 						</button>
 
-						<button type="button" class="btn btn-warning btn-update" data-toggle="modal" data-id="{{$data_arr->id}}" style="margin-bottom:10px;">
+						<?php if ($data_arr->status=="pending") {?>
+						<button type="button" class="btn btn-success btn-confirm" style="margin-bottom:10px;" data-id="{{$data_arr->id}}" >
 							Confirm
 						</button>
+						<?php } ?>
 					</td>
 				</tr>    
 
