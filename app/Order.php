@@ -7,7 +7,7 @@ use DB;
 
 class Order extends Model {
 	use SoftDeletes;
-	protected $table = 'Orders';
+	protected $table = 'orders';
 	/**
 	 * The attributes that are mass assignable.
 	 *
