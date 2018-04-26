@@ -7,7 +7,7 @@
 		<div class="row">
 			<div class="col-xs-12 col-md-12">
 				<h1 align="center">Become Premium User Now <i class="premium-icon"></i></h1>
-				<p align="center">Register your ICO for <a href="{{url('publish/free')}}" style="color:#146656;">free</a> or </p>
+				<p align="center">Register your ICO for <a href="{{url('publish/free')}}" style="color:#FFDC6E;">free</a> or </p>
 				<p align="center">Get more Benefit with <br>
 				Our ICO Registration <b>Premium Services</b> NOW 
 				</p>

@@ -27,7 +27,14 @@
 								<img src="{{asset('images/logo-ico').'/'.$data_arr->logo}}" class="img-responsive" style="height:50px;">
 							</div>
 							<div class="col-xs-9 col-md-8 detail-ico-info">
-								<a href="{{ url('/ico').'/'.$data_arr->name }}" target="_blank"><h5>{{$data_arr->name}}</h5></a>
+								<a href="{{ url('/ico').'/'.$data_arr->name }}" target="_blank"><h5>{{$data_arr->name}}
+					<?php 
+					if ( ($data_arr->package<>"") && (!is_null($data_arr->package_until)) ){ 
+					?>
+					<i class="emblem-char emblem-{{$data_arr->package}}"></i>
+					<?php } ?>
+								
+								</h5></a>
 								<!--<a href=""><input type="button" value="View" class="btn btn-view"></a>-->
 								<div class="details-ico-responsive">
 									<p>

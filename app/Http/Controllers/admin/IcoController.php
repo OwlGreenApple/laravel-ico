@@ -155,5 +155,19 @@ class IcoController extends Controller {
 		
 		return $arr;
 	}
+
+	public function save_premium(req $request)
+  {
+    $arr["type"] = "success";
+    $arr["message"] = "Proses update berhasil";
+		
+		$ico = Ico::find($request->id_ico_premium);
+		if (!is_null($ico)){
+			$ico->update($request->all());
+		}
+		
+		return $arr;
+	}
+	
 }
 

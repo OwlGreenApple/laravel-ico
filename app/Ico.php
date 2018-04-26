@@ -40,6 +40,8 @@ class Ico extends Model {
 													"rating_profile", 
 													"rating_team", 
 													"rating_hype", 
+													"package", 
+													"package_until", 
 												];
 	/**
 	 * The attributes that should be mutated to dates.
@@ -51,6 +53,7 @@ class Ico extends Model {
 		'presale_end',
 		'sale_start',
 		'sale_end',
+		'package_until',
 		'deleted_at',
 	];
 	
@@ -70,5 +73,9 @@ class Ico extends Model {
 	public function setSaleEndAttribute($date)
 	{
 			$this->attributes['sale_end'] = $date ? Carbon::parse($date)->toDateString() : null;
+	}
+	public function setPackageUntilAttribute($date)
+	{
+			$this->attributes['package_until'] = $date ? Carbon::parse($date)->toDateString() : null;
 	}
 }

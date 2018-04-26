@@ -78,6 +78,10 @@
 							Icon link
 						</button>
 						
+						<button type="button" class="btn btn-warning btn-update-premium" data-toggle="modal" data-target="#myModalPremium" data-id="{{$data_arr->id}}" data-package="{{$data_arr->package}}" data-package_until="<?php if (!is_null($data_arr->package_until)) { echo \Carbon::createFromFormat('Y-m-d H:i:s', $data_arr->package_until)->format('m/d/Y'); } ?>" style="margin-bottom:10px;">
+							Edit Premium
+						</button>
+						
 						<button type="button" class="btn btn-danger btn-delete" data-toggle="modal" data-target="#confirm-delete" data-id="{{$data_arr->id}}" style="margin-bottom:10px;">
 							Delete
 						</button>

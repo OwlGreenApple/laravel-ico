@@ -5,6 +5,11 @@
 				<h3>{{$data->name}}</h3>
 				<div class="banner-ico">
 					<img src="{{asset('images/logo-ico').'/'.$data->logo}}" class="ico-logo">
+					<?php 
+					if ( ($data->package<>"") && (!is_null($data->package_until)) ){ 
+					?>
+					<i class="emblem emblem-{{$data->package}}"></i>
+					<?php } ?>
 				</div>
 				<label>Rate </rate> <span class="rate-ico-list"><?php 
 								if ($data->rating  > 9.5) {

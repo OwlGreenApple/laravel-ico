@@ -13,13 +13,13 @@ Route::get('register', 'Auth\RegisterController@getRegister')->name('register');
 // Route::get('register-checkout', 'RegisterController@register_checkout');
 Route::post('auth/register', ['as'=>'auth.register', 'uses'=> 'Auth\RegisterController@postRegister']);
 
-Route::get('verifyemail/{cryptedcode}', 'Member\EmailController@verifyEmail');
 
 /* FORGOT PASSWORD */
 Route::get('forgot-password', 'Auth\LoginController@forgot_password');
 Route::get('redirect-auth/{cryptedcode}', 'Auth\LoginController@redirect_auth');
 Route::post('auth/forgot', ['as'=>'auth.forgot', 'uses'=> 'Auth\LoginController@auth_forgot']);
 Route::post('change-password', ['as'=>'change.password', 'uses'=> 'Auth\LoginController@change_password']);
+Route::get('verifyemail/{cryptedcode}', 'Auth\LoginController@verifyEmail');
 
 
 
@@ -53,6 +53,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/save-ico-financial', 'Admin\IcoController@save_ico_financial');
 	Route::post('/save-ico-logo', 'Admin\IcoController@save_ico_logo');
 	Route::post('/save-ico-icon', 'Admin\IcoController@save_ico_icon');
+	Route::post('/save-ico-premium-admin', 'Admin\IcoController@save_premium');
 	Route::post('/delete-ico-admin', 'Admin\IcoController@delete_ico_admin');
 	
 	//Rating

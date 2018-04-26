@@ -7,7 +7,7 @@ Click this link ---> <STRONG><a href="{{$url}}"> Link Confirmation </a></STRONG>
 <strong>Email </strong>: {{$user->email}}<br>
 <strong>Password </strong>: {{$password}}<br>
 <br>
-You are going to bring on LOGIN page after your email confirmed. <br> 
+You will be directed to ICOCheckr Log In page after confirming your e-mail address. <br> 
 <?php } ?>
 <br>
 <br>

@@ -15,6 +15,11 @@
 					<div class="col-xs-12 col-md-12">
 						<div class="banner-ico fl">
 							<img src="{{asset('images/logo-ico').'/'.$ico->logo}}" class="ico-logo">
+							<?php 
+							if ( ($ico->package<>"") && (!is_null($ico->package_until)) ){ 
+							?>
+							<i class="emblem emblem-{{$ico->package}}"></i>
+							<?php } ?>
 						</div>
 						<div class="banner-name fl">
 							<h1>{{$ico->name}}</h1>

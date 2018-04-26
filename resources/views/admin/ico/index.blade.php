@@ -238,6 +238,51 @@
   </div>
 
   <!-- Modal -->
+  <div class="modal fade" id="myModalPremium" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="modal-premium-header">ICO Premium</h4>
+        </div>
+        <div class="modal-body">
+          <form enctype="multipart/form-data" id="form-ico-premium">
+				
+            <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Package</label>
+              <div class="col-xs-12 col-md-9">
+								<!--<input type="text" class="form-control" id="status" name="status">-->
+								<select class="form-control" id="package" name="package">
+									<option value="free">Free</option>
+									<option value="basic">Basic(3ETH)</option>
+									<option value="boost">Boost(9ETH)</option>
+									<option value="premium">Premium(20ETH)</option>
+									<option value="platinum">Platinum(30ETH)</option>
+								</select>
+              </div>
+            </div>
+
+            <div class="form-group form-group-sm row">
+              <label class="col-xs-12 col-md-3 control-label" for="formGroupInputSmall">Package valid until</label>
+              <div class="col-xs-12 col-md-9">
+								<input type="text" class="form-control formatted-date" id="package-until" name="package_until">
+              </div>
+            </div>
+
+            <input type="hidden" id="id-ico-premium" name="id_ico_premium">
+					</form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="button-process-premium">Submit</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Modal -->
   <div class="modal fade" id="myModalAbout" role="dialog">
     <div class="modal-dialog">
     
@@ -631,6 +676,41 @@
           },
           type: 'post',
           data: $("#form-ico").serialize(),
+          beforeSend: function()
+          {
+            $("#div-loading").show();
+          },
+          dataType: 'text',
+          success: function(result)
+          {
+            var data = jQuery.parseJSON(result);
+            $("#alert").show();
+            $("#alert").html(data.message);
+            if(data.type=='success') {
+              refresh_page(pageNow);
+              $("#alert").addClass("alert-success");
+              $("#alert").removeClass("alert-danger");
+            } else if (data.type=='error') {
+              $("#alert").addClass("alert-danger");
+              $("#alert").removeClass("alert-success");
+            }
+						$("#div-loading").hide();
+          }
+        });
+			});
+			$( "body" ).on( "click", ".btn-update-premium", function() {
+				$("#id-ico-premium").val($(this).attr("data-id"));
+				$("#package").val($(this).attr("data-package"));
+				$("#package-until ").val($(this).attr("data-package_until"));
+			});
+			$('#button-process-premium').click(function(e){
+        $.ajax({                                      
+          url: '<?php echo url('save-ico-premium-admin'); ?>',
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          type: 'post',
+          data: $("#form-ico-premium").serialize(),
           beforeSend: function()
           {
             $("#div-loading").show();

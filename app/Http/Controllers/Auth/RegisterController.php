@@ -127,7 +127,7 @@ class RegisterController extends Controller
 			$user->verification_code = $verificationcode;
 			$user->save();
 			if (App::environment() == 'local'){
-				$url = 'https://localhost/icocheckr/public/verifyemail';
+				$url = 'https://localhost/icocheckr/public/verifyemail/';
 			}
 			else if (App::environment() == 'production'){
 				$url = 'https://icocheckr.com/verifyemail/';
@@ -179,8 +179,9 @@ class RegisterController extends Controller
 				
 				
 				$request->session()->forget('checkout_data');
+				return redirect('/login')->with("success","Thank you for your registration. Please check your inbox to verify your email address and confirm your payment");
 			}
-			return redirect('/');
+			return redirect('/login')->with("success","Thank you for your registration. Please check your inbox to verify your email address. ");
 		}
 
 }
