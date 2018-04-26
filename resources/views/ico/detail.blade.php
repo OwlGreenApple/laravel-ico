@@ -16,10 +16,14 @@
 						<div class="banner-ico fl">
 							<img src="{{asset('images/logo-ico').'/'.$ico->logo}}" class="ico-logo">
 							<?php 
-							if ( ($ico->package<>"") && (!is_null($ico->package_until)) ){ 
+							
+							if ( ($ico->package<>"") && (!is_null($ico->package_until)) ){
+								$dt1 = Carbon::now();
+								$dt2 = Carbon::createFromFormat('Y-m-d H:i:s', $ico->package_until)->addDay();
+								if ($dt1->lte($dt2)) {
 							?>
 							<i class="emblem emblem-{{$ico->package}}"></i>
-							<?php } ?>
+							<?php } } ?>
 						</div>
 						<div class="banner-name fl">
 							<h1>{{$ico->name}}</h1>

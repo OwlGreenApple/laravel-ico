@@ -30,9 +30,12 @@
 								<a href="{{ url('/ico').'/'.$data_arr->name }}" target="_blank"><h5>{{$data_arr->name}}
 					<?php 
 					if ( ($data_arr->package<>"") && (!is_null($data_arr->package_until)) ){ 
+						$dt1 = Carbon::now();
+						$dt2 = Carbon::createFromFormat('Y-m-d H:i:s', $data_arr->package_until)->addDay();
+						if ($dt1->lte($dt2)) {
 					?>
 					<i class="emblem-char emblem-{{$data_arr->package}}"></i>
-					<?php } ?>
+					<?php } } ?>
 								
 								</h5></a>
 								<!--<a href=""><input type="button" value="View" class="btn btn-view"></a>-->

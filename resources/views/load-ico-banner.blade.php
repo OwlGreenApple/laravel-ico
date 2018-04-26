@@ -7,9 +7,12 @@
 					<img src="{{asset('images/logo-ico').'/'.$data->logo}}" class="ico-logo">
 					<?php 
 					if ( ($data->package<>"") && (!is_null($data->package_until)) ){ 
+						$dt1 = Carbon::now();
+						$dt2 = Carbon::createFromFormat('Y-m-d H:i:s', $data->package_until)->addDay();
+						if ($dt1->lte($dt2)) {
 					?>
 					<i class="emblem emblem-{{$data->package}}"></i>
-					<?php } ?>
+					<?php } } ?>
 				</div>
 				<label>Rate </rate> <span class="rate-ico-list"><?php 
 								if ($data->rating  > 9.5) {
