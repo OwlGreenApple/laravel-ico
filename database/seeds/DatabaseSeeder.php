@@ -56,6 +56,7 @@ class DatabaseSeeder extends Seeder
             'presale_end' => '2018-12-01 00:00:00',
             'sale_start' => '2019-01-02 00:00:00',
             'sale_end' => '2019-12-01 00:00:00',
+            'logo' => '1.jpg',
         ]);
 				
         DB::table('icos')->insert([
@@ -76,6 +77,7 @@ class DatabaseSeeder extends Seeder
             'presale_end' => '2018-12-01 00:00:00',
             'sale_start' => '2019-03-05 00:00:00',
             'sale_end' => '2019-12-01 00:00:00',
+						'logo' => '2.jpg',
         ]);
     }
 }
