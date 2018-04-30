@@ -12,7 +12,7 @@
 						if ($dt1->lte($dt2)) {
 					?>
 					<i class="emblem emblem-{{$data->package}}"></i>
-					<?php } ?>
+					<?php } } ?>
 				</div>
 				<label>Rate </rate> <span class="rate-ico-list"><?php 
 								if ($data->rating  > 9.5) {
