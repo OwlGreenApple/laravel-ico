@@ -112,7 +112,18 @@
 
 								<!-- Right Side Of Navbar -->
 								<ul class="nav navbar-nav navbar-right">
-											<li><a href="https://icocheckr.com/news/first-step/">Start Here</a></li>
+											<li class="dropdown">
+													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+															ICO List <span class="caret"></span>
+													</a>
+
+													<ul class="dropdown-menu">
+														<!--<li><a href="https://icocheckr.com/news/first-step/">Start Here</a></li>-->
+														<li><a href="{{url('ico/ongoing')}}">Ongoing</a></li>
+														<li><a href="{{url('ico/upcoming')}}">Upcoming</a></li>
+														<li><a href="{{url('ico/ended')}}">Ended</a></li>
+													</ul>
+											</li>
 											<li @if(Request::is('ico')) class="active" @endif><a href="{{ url('/ico') }}">Search</a></li>
 											<li @if(Request::is('premium')) class="active" @endif><a href="{{ url('/premium') }}">Publish ICO</a></li>
 										
@@ -195,18 +206,6 @@
 			</div>
     </div>
     
-
-<script id="ulp-remote" src="https://icocheckr.com/popup/content/plugins/layered-popups/js/remote.min.js?ver=6.32" data-handler="https://icocheckr.com/popup/ajax.php"></script>
-<script >
-	ulp_add_event("onload", {
-		popup:		"ab-EgiCPKDGsheaMyBq",
-		popup_mobile:	"ab-EgiCPKDGsheaMyBq",
-		mode:		"every-time",
-		period:		5,
-		delay:		0,
-		close_delay:	0
-	});
-</script>
 
 </body>
 </html>

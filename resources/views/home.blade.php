@@ -180,6 +180,7 @@
 	</div>
 </div>
 
+<!--
 <div class="container main-ico-home">
     <div class="row gap-blue">
 			<div class="col-xs-12 col-md-4">
@@ -199,6 +200,7 @@
 			</div>
 		</div>
 </div>
+-->
 
 <div class="container main-ico-home">
     <div class="row gap-blue">
@@ -247,4 +249,18 @@
 		-->
     </div>
 </div>
+
+<script id="ulp-remote" src="https://icocheckr.com/popup/content/plugins/layered-popups/js/remote.min.js?ver=6.32" data-handler="https://icocheckr.com/popup/ajax.php"></script>
+<script >
+	ulp_add_event("onload", {
+		popup:		"ab-EgiCPKDGsheaMyBq",
+		popup_mobile:	"ab-EgiCPKDGsheaMyBq",
+		mode:		"every-time",
+		period:		5,
+		delay:		0,
+		close_delay:	0
+	});
+</script>
+
+
 @endsection
