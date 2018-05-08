@@ -112,7 +112,7 @@
 
 								<!-- Right Side Of Navbar -->
 								<ul class="nav navbar-nav navbar-right">
-											<!--<li><a href="https://icocheckr.com/news/" target="_blank">News</a></li>-->
+											<li><a href="https://icocheckr.com/news/" target="_blank">News</a></li>
 											<li class="dropdown">
 													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
 															ICO List <span class="caret"></span>
