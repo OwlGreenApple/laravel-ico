@@ -45,7 +45,11 @@
 																	<label>
 																			<input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> <span class="remember">Remember Me</span>
 																	</label>
+																<a class="btn btn-link" href="{{url('register')}}" style="float:right;margin-top:-10px;">
+																		Register
+																</a>
 															</div>
+															
 													</div>
 											</div>
 
@@ -59,7 +63,6 @@
 															<button type="submit" class="btn btn-primary form-control">
 																	Login
 															</button>
-
 															<a class="btn btn-link" href="{{url('forgot-password')}}">
 																	Forgot Your Password?
 															</a>
