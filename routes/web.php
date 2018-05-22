@@ -42,9 +42,11 @@ Route::post('/submit-premium', 'IcoController@submit_premium');
 Route::get('/confirm-payment', 'IcoController@confirm_payment');
 Route::post('/submit-confirm-payment', 'IcoController@submit_confirm_payment');
 
+//bookmark
+Route::get('/bookmark','IcoController@savebookmark');
+
 Route::group(['middleware' => 'auth'], function () {
   //Bookmark 
-  Route::get('/bookmark','IcoController@savebookmark');
   Route::get('/bookmarklist','IcoController@viewbookmark');
   Route::delete('/deletebookmark','IcoController@deleteBookmark');
 
