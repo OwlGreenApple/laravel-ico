@@ -86,7 +86,7 @@
 			<div class="col-xs-12 col-md-5">
 				<div class="row">
 					<label class="control-label">Categories</label>
-					<textarea name="categories" id="categories" placeholder="Categories of your project"></textarea>
+					<text name="categories" id="categories" placeholder="Categories of your project"></textarea>
 					<script>
 						var selectCategories = $('#categories').selectize({
 							plugins:['remove_button'],

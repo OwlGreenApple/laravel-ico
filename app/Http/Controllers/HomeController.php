@@ -15,9 +15,13 @@ class HomeController extends Controller
 	 *
 	 * @return void
 	 */
-	public function __construct()
+  protected $mailchimp;
+  protected $listId='660d661c25';
+
+	public function __construct(\Mailchimp $mailchimp)
 	{
 			// $this->middleware('auth');
+      $this->mailchimp=$mailchimp;
 	}
 
 	/**
@@ -74,10 +78,27 @@ class HomeController extends Controller
 		
 		$subscribe = Subscribe::where("email",$request->email)->first();
 		if (is_null($subscribe)) {
+      //dd("test");
 			$subscribe = new Subscribe;
 			$subscribe->name=$request->name;
 			$subscribe->email=$request->email;
 			$subscribe->save();
+      //daftarin ke mailchimp
+      try {
+        $this->mailchimp
+             ->lists
+             ->subscribe(
+                $this->listId,
+                ['email'=> $request->email ],
+                ['name' => $request->name ]
+             );
+      } catch (\Mailchimp_List_AlreadySubscribed $e) {
+        $arr["type"] = "error";
+        $arr["message"] = "Already subscribe";
+      } catch (\Mailchimp_Error $e) {
+        $arr["type"] = "error";
+        $arr["message"] = "Error Mailchimp";
+      }
 		}
 		else {
 			$arr["type"] = "error";

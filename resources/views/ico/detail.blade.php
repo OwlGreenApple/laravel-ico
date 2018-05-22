@@ -3,6 +3,7 @@
 @section('content')
 	<?php 
 		use Icocheckr\Meta;
+    use Icocheckr\Bookmark;
 	?>
 	<link href="{{ asset('css/detail.css') }}" rel="stylesheet">
 	<script src="{{ asset('/js/jquery.country.select.js') }}"></script>
@@ -38,7 +39,25 @@
 						<li class="nav-content active"><a href="#" class="" id="nav-about">About</a></li>
 						<!--<li><a href="#" class="nav-content" id="nav-trading">Trading</a></li>-->
 						<li class="nav-content" ><a href="#" id="nav-financial">Financial</a></li>
-						<li><button class="btn" id="btn-bookmark">Bookmark</button></li>
+            <!-- Bookmark -->
+						<li>
+              <form>
+                <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+                <div id="divbookmark">
+                  @guest
+                    <button type="button" class="btn btn-bookmark" id="btn-bookmark" onclick="savebookmark()">Bookmark</button>
+                  @else 
+                    <?php if(Bookmark::where('ico_id',$ico->id)->where('user_id',Auth::user()->id)->exists()) { ?>
+                      <button type="button" class="btn btn-bookmarked" id="btn-bookmarked" onclick="deletebookmark()">Bookmarked</button>
+                    <?php } else { ?>
+                      <button type="button" class="btn btn-bookmark" id="btn-bookmark" onclick="savebookmark()">Bookmark</button>
+                    <?php } ?>
+                  @endguest  
+                </div>
+              
+                <input type="hidden" name="ico_id" value="{{$ico->id}}">
+              </form>
+            </li>
 					</ul>
 				</div>
 				
@@ -251,6 +270,46 @@
 				$(".content-ico-financial").show();
 			});
     });
+
+    function savebookmark(){
+      $.ajax({
+        type : 'GET',
+        url : "{{ url('/bookmark') }}",
+        data : $('form').serialize(),
+        dataType : 'text',
+        success: function(response) {
+          if(response=='notauth'){
+            window.location.href = "<?php echo url('/login') ?>";
+          } else {
+            console.log("success");
+            alert("Bookmark succeed!");
+            document.getElementById("divbookmark").innerHTML = '<button type="button" class="btn btn-bookmarked" id="btn-bookmarked" onclick="deletebookmark()">Bookmarked</button>';
+          }
+        }
+      });
+    }
+
+    function deletebookmark(){
+      $.ajax({
+        type : 'DELETE',
+        url : "{{ url('/deletebookmark') }}",
+        data : $('form').serialize(),
+        dataType : 'text',
+        success: function(response) {
+          console.log("success");
+          alert("Delete bookmark succeed!");
+          document.getElementById("divbookmark").innerHTML = '<button type="button" class="btn btn-bookmark" id="btn-bookmark" onclick="savebookmark()">Bookmark</button>';
+        }
+      });  
+    }
+
+    /*$( "body" ).on( "click", ".btn-bookmark", function() {
+      $(this).replaceWith('<button type="button" class="btn btn-bookmarked" id="btn-bookmarked" onclick="deletebookmark()">Bookmarked</button>')
+    });
+
+    $( "body" ).on( "click", ".btn-bookmarked", function() {
+      $(this).replaceWith('<button type="button" class="btn btn-bookmark" id="btn-bookmark" onclick="savebookmark()">Bookmark</button>')
+    });*/
   </script>
 	
 <script id="ulp-remote" src="https://icocheckr.com/popup/content/plugins/layered-popups/js/remote.min.js?ver=6.32" data-handler="https://icocheckr.com/popup/ajax.php"></script>

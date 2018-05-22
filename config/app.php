@@ -176,6 +176,8 @@ return [
         // Icocheckr\Providers\BroadcastServiceProvider::class,
         Icocheckr\Providers\EventServiceProvider::class,
         Icocheckr\Providers\RouteServiceProvider::class,
+        // Mailchimp
+        Skovmand\Mailchimp\MailchimpServiceProvider::class,
 
     ],
 

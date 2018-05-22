@@ -6,6 +6,7 @@ use Icocheckr\Http\Controllers\Controller;
 use Icocheckr\Ico;
 use Icocheckr\Submit;
 use Icocheckr\Order;
+use Icocheckr\Bookmark;
 
 use Icocheckr\Mail\OrderPremium;
 use Icocheckr\Mail\ConfirmPayment;
@@ -136,6 +137,7 @@ class IcoController extends Controller {
 		}
 		else {
 			$ico = Ico::where("name",$ico_name)->first();
+      //dd($ico);
 			return view('ico.detail')->with([
 				"ico"=>$ico,
 			]);
@@ -285,5 +287,37 @@ class IcoController extends Controller {
     $arr["type"]= "success";
 		return $arr;
 	}
+
+  public function savebookmark(req $request)
+  {
+    if(Auth::check()){
+      $bookmark = new Bookmark;
+      $bookmark->ico_id = $request->ico_id;
+      $bookmark->user_id = Auth::user()->id;
+      $bookmark->save();
+
+      echo "bookmark";
+    } else {
+      return "notauth";
+    }
+  }
+
+  public function viewbookmark()
+  {
+    $bookmarks = DB::table('bookmarks')
+                ->join('icos','icos.id','=','bookmarks.ico_id')
+                ->select('bookmarks.*','icos.*')
+                ->where('bookmarks.user_id',Auth::user()->id)
+                ->paginate(10);
+    return view('ico.bookmark_list')->with('bookmarks',$bookmarks);
+  }
+
+  public function deleteBookmark(req $request)
+  {
+    $bookmarks = Bookmark::where('ico_id',$request->ico_id)
+                 ->where('user_id',Auth::user()->id)->first();
+
+    $bookmarks->delete();
+  }
 }
 

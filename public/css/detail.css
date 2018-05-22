@@ -190,7 +190,7 @@
   margin-top: 35px;
   margin-bottom: 50px;
 }
-#btn-bookmark {
+#btn-bookmark, #btn-bookmarked {
   background-color: #20a7e2;
   color: #fff;
   margin-top: 10px;

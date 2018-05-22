@@ -143,6 +143,9 @@
 															<li @if(Request::is('publish-admin')) class="active" @endif><a href="{{ url('publish-admin') }}">Publish (Admin)</a></li>
 														<?php } ?>
 															<li @if(Request::is('confirm-payment')) class="active" @endif><a href="{{ url('confirm-payment') }}">Confirm Payment	</a></li>
+                              <li @if(Request::is('bookmarklist')) class="active" @endif>
+                                <a href="{{ url('/bookmarklist') }}">Bookmark List
+                              </li>
 															<li>
 																	<a href="{{ url('logout') }}">
 																			Logout

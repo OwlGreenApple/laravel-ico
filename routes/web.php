@@ -43,6 +43,11 @@ Route::get('/confirm-payment', 'IcoController@confirm_payment');
 Route::post('/submit-confirm-payment', 'IcoController@submit_confirm_payment');
 
 Route::group(['middleware' => 'auth'], function () {
+  //Bookmark 
+  Route::get('/bookmark','IcoController@savebookmark');
+  Route::get('/bookmarklist','IcoController@viewbookmark');
+  Route::delete('/deletebookmark','IcoController@deleteBookmark');
+
 	//content writer  
 	//ICO
 	Route::get('/ico-admin', 'Admin\IcoController@index');

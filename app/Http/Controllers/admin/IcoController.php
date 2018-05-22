@@ -5,6 +5,7 @@ use Icocheckr\Http\Controllers\Controller;
 
 use Icocheckr\Ico;
 use Icocheckr\Meta;
+use Icocheckr\Bookmark;
 
 use View,Auth,Request,DB,Carbon,Excel, Mail, Validator, Input, Config;
 
@@ -168,6 +169,5 @@ class IcoController extends Controller {
 		
 		return $arr;
 	}
-	
 }
 
