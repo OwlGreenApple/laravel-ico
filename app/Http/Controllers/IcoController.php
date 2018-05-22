@@ -289,16 +289,20 @@ class IcoController extends Controller {
 	}
 
   public function savebookmark(req $request)
-  {
-    if(Auth::check()){
-      $bookmark = new Bookmark;
-      $bookmark->ico_id = $request->ico_id;
-      $bookmark->user_id = Auth::user()->id;
-      $bookmark->save();
+  { 
+    if($request->ajax()){
+      if(Auth::check()){
+        $bookmark = new Bookmark;
+        $bookmark->ico_id = $request->ico_id;
+        $bookmark->user_id = Auth::user()->id;
+        $bookmark->save();
 
-      echo "bookmark";
+        echo "bookmark";
+      } else {
+        return "notauth";
+      }
     } else {
-      return "notauth";
+      return redirect('/login');
     }
   }
 
