@@ -10,6 +10,6 @@ return [
     | "http://kb.mailchimp.com/accounts/management/about-api-keys#Find-or-Generate-Your-API-Key"
     |
      */
-
-    'apikey' => env('MAILCHIMP_API_KEY')
+    //apikey mailchimp
+    'apikey' => 'a77c23a809f7e8578bbf86f18cb28237-us18'
 ];
