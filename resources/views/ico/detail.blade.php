@@ -194,7 +194,7 @@
 					<?php } ?>
 					
 					<?php if (Meta::getMeta("github_link","icos",$ico->id)<>"") {?>
-					<a class="icon icon-2" href='Meta::getMeta("github_link","icos",$ico->id)' target="_blank"></a>
+					<a class="icon icon-2" href='{{Meta::getMeta("github_link","icos",$ico->id)}}' target="_blank"></a>
 					<?php } ?>
 					
 					<?php if (Meta::getMeta("facebook_link","icos",$ico->id)<>"") {?>
@@ -218,7 +218,7 @@
 					<?php } ?>
 					
 					<?php if (Meta::getMeta("reddit_link","icos",$ico->id)<>"") {?>
-					<a class="icon icon-8" href='Meta::getMeta("reddit_link","icos",$ico->id)' target="_blank"></a>
+					<a class="icon icon-8" href='{{Meta::getMeta("reddit_link","icos",$ico->id)}}' target="_blank"></a>
 					<?php } ?>
 				</div>
 			</div>
