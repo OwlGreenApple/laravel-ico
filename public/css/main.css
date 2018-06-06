@@ -527,3 +527,8 @@ Emblem
   display: inline-block;
   margin-left: 15px;
 }
+.navbar-default .navbar-nav>li>a:focus,.navbar-default .navbar-nav>li>a:hover{
+  color:#0e9fde;
+  border-bottom: 1px solid #0e9fde;
+  background-color:transparent
+}

@@ -126,6 +126,7 @@
 													</ul>
 											</li>
 											<li @if(Request::is('ico')) class="active" @endif><a href="{{ url('/ico') }}">Search</a></li>
+                      <!--<li @if(Request::is('calendar')) class="active" @endif><a href="{{ url('/calendar') }}">Calendar</a></li>-->
 											<li @if(Request::is('premium')) class="active" @endif><a href="{{ url('/premium') }}">Publish ICO</a></li>
 										
 											@guest

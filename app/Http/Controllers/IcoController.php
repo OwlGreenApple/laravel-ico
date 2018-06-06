@@ -29,6 +29,11 @@ class IcoController extends Controller {
 			"type"=>"",
 		]);
 	}
+
+  public function calendar(){
+    $icos = Ico::All();
+    return view('calendar')->with('icos',$icos);
+  }
   
 	public function load_ico(req $request)
   {
