@@ -34,7 +34,8 @@ Route::get('/ico', 'IcoController@index');
 Route::get('/load-ico', 'IcoController@load_ico');
 
 //calendar
-//Route::get('/calendar', 'IcoController@calendar');
+Route::get('/calendar', 'IcoController@calendar');
+Route::get('/load-ico-calendar', 'IcoController@load_ico_calendar');
 
 //detail
 Route::get('/ico/{ico_name}', 'IcoController@detail');
