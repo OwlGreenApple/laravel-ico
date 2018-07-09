@@ -51,10 +51,10 @@ class HomeController extends Controller
 	public function load_ico_home(req $request)
   {
 		if ($request->s=="all") {
-			$arr = Ico::orderBy("id","desc")->paginate(8);
+			$arr = Ico::where("rating",">=",7)->orderBy("id","desc")->paginate(8);
 		}
 		else {
-			$arr = Ico::where("categories","like","%".$request->s."%")->orderBy("id","desc")->paginate(8);
+			$arr = Ico::where("categories","like","%".$request->s."%")->where("rating",">=",7)->orderBy("id","desc")->paginate(8);
 		}
 
 		return view('load-ico')->with(
