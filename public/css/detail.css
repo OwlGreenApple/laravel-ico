@@ -156,7 +156,6 @@
 .navbar-detail .navbar-nav > li > a:hover {
   color: #0e9fde;
   border-bottom: 3px solid #52d4f7;
-  padding-bottom: 3px;
   background-color: transparent;
 }
 @media (max-width: 2000px) {

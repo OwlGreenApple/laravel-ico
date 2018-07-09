@@ -29,6 +29,44 @@ class IcoController extends Controller {
 			"type"=>"",
 		]);
 	}
+
+  public function calendar(){
+    return view('calendar');
+  }
+
+  public function load_ico_calendar(req $request){
+    //dd($request->start);
+    $perPage=8;
+    $icos = Ico::All();
+    //dd($icos);
+    if($request->start!=null and $request->end!=null) {
+      $dt = Carbon::createFromFormat("m/d/Y h:i:s", $request->start.' 00:00:00'); 
+      //dd($dt);
+      $dt1 = Carbon::createFromFormat("m/d/Y h:i:s", $request->end.' 00:00:00');
+      $icos = Ico::whereDate("presale_start",">=",$dt)
+              ->whereDate("presale_start","<=",$dt1)
+              ->orWhere(function ($query) use($dt,$dt1){
+                $query->whereDate("sale_start",">=",$dt)
+                    ->whereDate("sale_start","<=",$dt1);
+              })->get();
+    }
+
+    //return view('load-ico-calendar')->with('icos',$icos);
+
+    $arr = $icos->forPage($request->page, $perPage);
+    //dd($icos);
+    $total_data = $icos->count();
+    //buat pagination
+    $page = $request->page; 
+    $totalPage = floor($total_data / $perPage) +1;
+
+    return view('load-ico-calendar')->with(
+                array(
+                  'arr'=>$arr,
+                  'page'=>$page,
+                  'totalPage'=>$totalPage,
+                ));
+  }
   
 	public function load_ico(req $request)
   {
@@ -51,10 +89,10 @@ class IcoController extends Controller {
 		}
 		
 		if ( ($request->startDate<>"") && ($request->endDate<>"") ) {
-			$dt = Carbon::createFromFormat("m/d/Y", $request->startDate); 
-			$dt1 = Carbon::createFromFormat("m/d/Y", $request->endDate); 
-			$collection3 = Ico::whereDate("presale_start",">=",Carbon::createFromFormat("m/d/Y", $request->startDate))
-									->where("presale_end","<=",Carbon::createFromFormat("m/d/Y", $request->endDate))
+			$dt = Carbon::createFromFormat("m/d/Y h:i:s", $request->startDate.' 00:00:00'); 
+			$dt1 = Carbon::createFromFormat("m/d/Y h:i:s", $request->endDate.' 00:00:00');
+			$collection3 = Ico::whereDate("presale_start",">=",$dt)
+									->where("presale_end","<=",$dt1)
 									
 									
 									->orWhere(function ($query) use($dt,$dt1){
