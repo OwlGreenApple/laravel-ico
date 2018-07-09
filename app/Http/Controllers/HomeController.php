@@ -37,7 +37,10 @@ class HomeController extends Controller
 	
 	public function load_ico_home_banner(req $request)
   {
-		$arr = Ico::orderBy("rating", "desc")->paginate(8);
+		$arr = Ico::where("status","ongoing")
+					->orWhere("status","upcoming")
+					->orderBy("rating", "desc")
+					->paginate(8);
 
 		return view('load-ico-banner')->with(
 								array(
@@ -48,10 +51,10 @@ class HomeController extends Controller
 	public function load_ico_home(req $request)
   {
 		if ($request->s=="all") {
-			$arr = Ico::paginate(8);
+			$arr = Ico::orderBy("id")->paginate(8);
 		}
 		else {
-			$arr = Ico::where("categories","like","%".$request->s."%")->paginate(8);
+			$arr = Ico::where("categories","like","%".$request->s."%")->orderBy("id")->paginate(8);
 		}
 
 		return view('load-ico')->with(
